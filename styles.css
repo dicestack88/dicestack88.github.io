@@ -263,90 +263,6 @@ a {
   line-height: 1.6;
 }
 
-/* ===== Games Page ===== */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.game-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 28px;
-  border-radius: 14px;
-  transition: 0.25s;
-  position: relative;
-  overflow: hidden;
-  min-height: 180px;
-}
-
-.game-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  transition: 0.25s;
-  z-index: -1;
-}
-
-.game-card:hover {
-  transform: translateY(-8px);
-  filter: brightness(1.15);
-}
-
-.game-card:hover::before {
-  opacity: 0.2;
-}
-
-.game-card h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.35rem;
-  margin-bottom: 8px;
-}
-
-.game-card p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-  margin-bottom: 15px;
-  flex-grow: 1;
-}
-
-.play-badge {
-  font-weight: bold;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  align-self: flex-start;
-  background: rgba(0, 255, 191, 0.1);
-  padding: 6px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 255, 191, 0.3);
-  transition: 0.25s;
-}
-
-.game-card:hover .play-badge {
-  background: rgba(0, 255, 191, 0.2);
-  border-color: rgba(0, 255, 191, 0.5);
-}
-
-.hypixel { background: linear-gradient(135deg, #ff6b00 0%, #ff8c00 100%); }
-.minemen { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); }
-.badlion { background: linear-gradient(135deg, #9d4edd 0%, #6a0572 100%); }
-.valorant { background: linear-gradient(135deg, #ff4655 0%, #a30015 100%); }
-.csgo { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
-.rust { background: linear-gradient(135deg, #c1272d 0%, #8b0000 100%); }
-
-.hypixel:hover { box-shadow: 0 0 25px rgba(255, 107, 0, 0.6); }
-.minemen:hover { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
-.badlion:hover { box-shadow: 0 0 25px rgba(157, 78, 221, 0.6); }
-.valorant:hover { box-shadow: 0 0 25px rgba(255, 70, 85, 0.6); }
-.csgo:hover { box-shadow: 0 0 25px rgba(0, 255, 191, 0.4); }
-.rust:hover { box-shadow: 0 0 25px rgba(193, 39, 45, 0.6); }
-
 /* ===== Footer ===== */
 .footer {
   text-align: center;
@@ -390,13 +306,5 @@ a {
 
   .about-container {
     grid-template-columns: 1fr;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .game-card {
-    min-height: 140px;
   }
 }
