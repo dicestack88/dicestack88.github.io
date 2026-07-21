@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos - Dicestack88 Darklands</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Dicestack88 Darklands</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
+      <a href="socials.html">Socials</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html">About</a>
+      <a href="resourcepacks.html">Resource Packs</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
+  </header>
+
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="page">
+    <h1>Latest Videos</h1>
+    <p>Check out my latest content - click on any video to watch!</p>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
+      <button class="filter-btn" data-filter="short">Shorts</button>
+    </div>
+
+    <!-- Videos Container -->
+    <div class="videos-container" id="videosContainer">
+      <!-- Videos will be inserted here by JavaScript -->
+    </div>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="no-results" style="display: none;">
+      <p>No videos found for this filter.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Dicestack88</p>
+  </footer>
+
+  <script src="theme.js"></script>
+  <script src="videos.js"></script>
+</body>
+</html>
