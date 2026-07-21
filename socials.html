@@ -3,24 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Socials - Dicestack88</title>
+  <title>Socials - Dicestack88 Darklands</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="particles.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Dicestack88 Darklands</div>
-    <nav class="nav-links">
+    <nav>
       <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
       <a href="clients.html">Clients</a>
-      <a href="games.html">Games</a>
       <a href="about.html">About</a>
-      <a href="socials.html">Socials</a>
       <a href="resourcepacks.html">Resource Packs</a>
     </nav>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
   </header>
 
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Page Content -->
   <section class="page">
     <h1>Socials</h1>
     <p>All my links and platforms.</p>
@@ -32,7 +41,6 @@
           <h3>YouTube</h3>
           <p>Main channel and videos</p>
         </div>
-        <img src="images/youtube.png">
       </a>
 
       <a class="wide-card discord" href="https://discord.gg/Exha6Jz7Uk" target="_blank">
@@ -40,7 +48,6 @@
           <h3>Discord</h3>
           <p>Join the community</p>
         </div>
-        <img src="images/discord.png">
       </a>
 
       <a class="wide-card reddit" href="https://reddit.com/r/dicestack88" target="_blank">
@@ -48,7 +55,6 @@
           <h3>Reddit</h3>
           <p>Funny stuff</p>
         </div>
-        <img src="images/reddit.png">
       </a>
 
       <a class="wide-card instagram" href="https://instagram.com/dicestack88" target="_blank">
@@ -56,7 +62,6 @@
           <h3>Instagram</h3>
           <p>Clips and posts</p>
         </div>
-        <img src="images/instagram.png">
       </a>
 
       <a class="wide-card twitter" href="https://x.com/dicestack88" target="_blank">
@@ -64,11 +69,16 @@
           <h3>X (Twitter)</h3>
           <p>News and thoughts</p>
         </div>
-        <img src="images/x.png">
       </a>
 
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Dicestack88</p>
+  </footer>
+
+  <script src="theme.js"></script>
 </body>
 </html>

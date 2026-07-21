@@ -3,50 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Games - Dicestack88</title>
+  <title>Resource Packs - Dicestack88 Darklands</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="particles.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Dicestack88 Darklands</div>
-    <nav class="nav-links">
+    <nav>
       <a href="index.html">Home</a>
-      <a href="clients.html">Clients</a>
-      <a href="games.html">Games</a>
-      <a href="about.html">About</a>
+      <a href="videos.html">Videos</a>
       <a href="socials.html">Socials</a>
-      <a href="resourcepacks.html">Resource Packs</a>
+      <a href="clients.html">Clients</a>
+      <a href="about.html">About</a>
     </nav>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
   </header>
 
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Page Content -->
   <section class="page">
-    <h1>Games I Play</h1>
-    <p>Check out the games and servers I'm into.</p>
+    <h1>Resource Packs</h1>
+    <p>Custom resource packs and textures for Minecraft.</p>
 
-    <div class="games-grid">
+    <div class="client-list">
 
-      <a class="game-card celeste" href="celeste.html" target="_blank">
-        <h3>Celeste</h3>
-        <p>Probably my favourite platformer of all time.</p>
-        <span class="play-badge">Play</span>
-      </a>
+      <div class="client-card eb">
+        <div>
+          <h2>Dark Aesthetic Pack</h2>
+          <p>Sleek dark textures and UI designs</p>
+        </div>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="game-card ovo" href="dicestack88.github.io/OvO" target="_blank">
-        <h3>OvO</h3>
-        <p>Another amazing platformer, much simpler, can be harder</p>
-        <span class="play-badge">Play</span>
-      </a>
+      <div class="client-card modern">
+        <div>
+          <h2>Modern UI Pack</h2>
+          <p>Clean and contemporary interface textures</p>
+        </div>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="game-card games" href="singlefie.html" target="_blank">
-        <h3>Other Games</h3>
-        <p>Search through thousands of other games</p>
-        <span class="play-badge">Play</span>
-      </a>
+      <div class="client-card tuff">
+        <div>
+          <h2>Neon Pack</h2>
+          <p>Vibrant neon-themed resource pack</p>
+        </div>
+        <span class="launch">→</span>
+      </div>
 
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Dicestack88</p>
+  </footer>
+
+  <script src="theme.js"></script>
 </body>
 </html>

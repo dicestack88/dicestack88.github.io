@@ -3,73 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clients - Dicestack88</title>
+  <title>Clients - Dicestack88 Darklands</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="particles.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo">Dicestack88 Darklands</div>
-    <nav class="nav-links">
+    <nav>
       <a href="index.html">Home</a>
+      <a href="videos.html">Videos</a>
       <a href="socials.html">Socials</a>
       <a href="about.html">About</a>
-      <a href="games.html">Games</a>
       <a href="resourcepacks.html">Resource Packs</a>
     </nav>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
   </header>
 
-  <!-- Page -->
+  <!-- Animated Background -->
+  <div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+  </div>
+
+  <!-- Page Content -->
   <section class="page">
     <h1>Clients</h1>
-    <p>Official Eaglercraft Launcher</p>
+    <p>Eaglercraft launchers and clients.</p>
 
     <div class="client-list">
 
-      <a class="client-card eb" href="https://dicestack88.github.io/ebclient">
+      <div class="client-card eb">
         <div>
-          <h2>EBClient</h2>
-          <p>Cleanest Client for 1.8, featuring tons of mods. Most like Lunar Client</p>
+          <h2>Eaglercraft Launcher</h2>
+          <p>The official launcher for Eaglercraft servers</p>
         </div>
-        <span class="launch">Launch →</span>
-      </a>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="client-card modern" href="https://dicestack88.github.io/modernclient">
+      <div class="client-card modern">
         <div>
-          <h2>ModernClient</h2>
-          <p>The best 1.12 PvP Client, consisting of a crystal optimizer, tier tagger, and even clipping!</p>
+          <h2>Modern Client</h2>
+          <p>Enhanced gameplay with modern features</p>
         </div>
-        <span class="launch">Launch →</span>
-      </a>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="client-card tuff" href="https://dicestack88.github.io/Tuffclient">
+      <div class="client-card tuff">
         <div>
-          <h2>TuffClient</h2>
-          <p>Best survival 1.12 client, focuses on player gameplay.</p>
+          <h2>Tuff Client</h2>
+          <p>Lightweight and performance-optimized</p>
         </div>
-        <span class="launch">Launch →</span>
-      </a>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="client-card resent" href="https://dicestack88.github.io/Resentclient">
+      <div class="client-card resent">
         <div>
-          <h2>ResentClient</h2>
-          <p>Best client for using your official minecraft account to play on hypixel, minemen, and more!</p>
+          <h2>Resent Client</h2>
+          <p>PvP-focused with combat enhancements</p>
         </div>
-        <span class="launch">Launch →</span>
-      </a>
+        <span class="launch">→</span>
+      </div>
 
-      <a class="client-card launcher" href="launcher.html">
+      <div class="client-card launcher">
         <div>
-          <h2>Version Launcher</h2>
-          <p>Launch other versions and clients, including Shadow, Pixel, Kone, and other vanilla versions.</p>
+          <h2>Custom Launcher</h2>
+          <p>Multi-version support and configuration</p>
         </div>
-        <span class="launch">Launch →</span>
-      </a>
+        <span class="launch">→</span>
+      </div>
 
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 Dicestack88</p>
+  </footer>
+
+  <script src="theme.js"></script>
 </body>
 </html>
