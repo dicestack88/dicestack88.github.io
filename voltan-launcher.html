@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltan</title>
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d0d0f;--bg2:#151518;--bg3:#1a1a1f;--bg4:#222228;--brd:rgba(255,255,255,.06);--brd2:rgba(255,255,255,.1);--white:#ffffff;--txt:#f0f0f4;--txt2:#a8a8b8;--txt3:#6b6b7a;--muted:#505060;--accent:#5b9dff;--accent2:#3b82f6;--red:#ef4444}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);display:flex;align-items:center;justify-content:center;user-select:none;-webkit-user-select:none}
+
+.splash{position:relative;width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.splash::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(91,157,255,.03),transparent 60%);pointer-events:none}
+
+.logo-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;animation:fadeIn .6s ease}
+.logo{width:80px;height:80px;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.4);animation:logoPulse 2s ease-in-out infinite}
+.logo img{width:100%;height:100%;object-fit:cover}
+.brand-name{font-size:22px;font-weight:800;letter-spacing:1px;color:var(--white)}
+
+.status-area{position:fixed;bottom:32px;left:36px;display:flex;flex-direction:column;gap:8px;max-width:360px;animation:fadeIn .8s ease .2s both}
+.status-text{font-size:12px;font-weight:500;color:var(--txt3);transition:color .3s}
+.status-text.active{color:var(--txt2)}
+.status-sub{font-size:11px;color:var(--muted);font-weight:400}
+.progress-track{width:200px;height:3px;background:var(--bg4);border-radius:2px;overflow:hidden;margin-top:4px}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:2px;transition:width .3s cubic-bezier(.4,0,.2,1)}
+
+.version-tag{position:fixed;bottom:32px;right:36px;font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.5px}
+
+.proxy-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);z-index:100;align-items:center;justify-content:center;animation:fadeIn .3s ease}
+.proxy-overlay.show{display:flex}
+.proxy-card{background:var(--bg2);border:1px solid var(--brd2);border-radius:20px;padding:32px 36px;width:380px;max-width:90vw;animation:slideUp .4s cubic-bezier(.4,0,.2,1)}
+.proxy-card h2{font-size:16px;font-weight:700;color:var(--white);margin-bottom:6px}
+.proxy-card p{font-size:12px;color:var(--txt3);margin-bottom:16px;line-height:1.5}
+.proxy-card .error-msg{font-size:11px;color:var(--red);margin-bottom:12px;display:none}
+.proxy-card .error-msg.show{display:block}
+.proxy-input{width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--brd);background:var(--bg3);color:var(--white);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s}
+.proxy-input:focus{border-color:rgba(91,157,255,.4)}
+.proxy-btn{width:100%;margin-top:12px;padding:12px;border-radius:10px;border:none;font-size:13px;font-weight:700;cursor:pointer;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;transition:all .25s cubic-bezier(.4,0,.2,1);letter-spacing:.3px}
+.proxy-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(59,130,246,.3)}
+.proxy-btn:active{transform:scale(.98)}
+.proxy-btn:disabled{background:var(--bg4);color:var(--txt3);cursor:not-allowed;transform:none;box-shadow:none}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes logoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+:root{--bg:#080b12;--bg2:#0d111b;--bg3:#121824;--bg4:#192130;--brd:rgba(148,163,184,.10);--brd2:rgba(148,163,184,.17);--white:#edf3ff;--txt:#edf3ff;--txt2:#a6b0c3;--txt3:#69758a;--muted:#475267;--accent:#6da8ff;--accent2:#3b82f6}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;background:var(--bg)}
+.splash{background:radial-gradient(circle at 50% 42%,rgba(59,130,246,.13),transparent 22%),radial-gradient(circle at 50% 50%,rgba(99,102,241,.05),transparent 42%)}
+.splash::before{background:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at center,#000,transparent 65%)}
+.logo-wrap{gap:22px}.logo{width:88px;height:88px;border-radius:24px;box-shadow:0 18px 60px rgba(0,0,0,.45),0 0 0 1px rgba(109,168,255,.2),0 0 55px rgba(59,130,246,.13)}
+.brand-name{font-size:20px;letter-spacing:3.5px}
+.status-area{bottom:38px;left:42px;gap:9px}.status-text{font-size:12px;font-weight:650}.status-sub{color:var(--txt3)}.progress-track{width:240px;height:4px;background:rgba(148,163,184,.11)}.progress-bar{box-shadow:0 0 16px rgba(109,168,255,.5)}
+.version-tag{bottom:38px;right:42px;padding:7px 10px;border:1px solid var(--brd);border-radius:8px;background:rgba(13,17,27,.64);backdrop-filter:blur(12px);letter-spacing:.8px}
+.proxy-overlay{background:rgba(3,6,12,.78);backdrop-filter:blur(14px)}.proxy-card{background:rgba(13,17,27,.96);border-color:var(--brd2);border-radius:22px;padding:34px 36px;box-shadow:0 28px 90px rgba(0,0,0,.5)}.proxy-card h2{font-size:20px;letter-spacing:-.4px}.proxy-card p{color:var(--txt2);line-height:1.65}.proxy-input{min-height:46px;background:var(--bg);border-color:var(--brd2)}.proxy-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,.12)}.proxy-btn{min-height:46px;border-radius:12px;box-shadow:0 10px 28px rgba(59,130,246,.24)}
+@media(max-width:600px){.status-area{left:24px;bottom:28px}.version-tag{right:24px;bottom:28px}.progress-track{width:180px}.logo{width:76px;height:76px;border-radius:20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+:root{--bg:#090a0c;--bg2:#0d0f12;--bg3:#121419;--bg4:#181b21;--brd:rgba(255,255,255,.055);--brd2:rgba(255,255,255,.095);--white:#e7e9ed;--txt:#e7e9ed;--txt2:#989da7;--txt3:#626873;--muted:#444a53;--accent:#4c8dff;--accent2:#377de8}
+body{background:var(--bg)}
+.splash{background:var(--bg)}
+.splash::before{display:none}
+.logo-wrap{gap:14px;animation:fadeIn .25s ease}
+.logo{width:68px;height:68px;border-radius:6px;box-shadow:none;animation:none}
+.brand-name{font-size:15px;letter-spacing:2.8px}
+.status-area{bottom:28px;left:30px;gap:6px;animation:none}.status-text{font-size:10px;font-weight:600}.status-sub{font-size:9px;color:var(--txt3)}.progress-track{width:220px;height:2px;border-radius:0;background:var(--bg4)}.progress-bar{border-radius:0;box-shadow:none}
+.version-tag{bottom:28px;right:30px;padding:0;border:0;border-radius:0;background:none;backdrop-filter:none;font-size:9px;letter-spacing:.5px}
+.proxy-overlay{background:rgba(0,0,0,.76);backdrop-filter:none}.proxy-card{background:var(--bg2);border-color:var(--brd2);border-radius:5px;padding:26px 28px;box-shadow:0 18px 48px rgba(0,0,0,.45)}.proxy-card h2{font-size:15px;letter-spacing:0}.proxy-card p{font-size:10px;color:var(--txt2);line-height:1.55}.proxy-input{min-height:38px;border-radius:3px;background:var(--bg);border-color:var(--brd2);font-size:11px}.proxy-input:focus{border-color:var(--accent);box-shadow:none}.proxy-btn{min-height:38px;border-radius:3px;background:var(--accent);box-shadow:none;font-size:10px}.proxy-btn:hover{background:var(--accent2);transform:none;box-shadow:none}
+@media(max-width:600px){.status-area{left:20px;bottom:22px}.version-tag{right:20px;bottom:22px}.progress-track{width:170px}.logo{width:62px;height:62px;border-radius:5px}}
+
+.logo-wrap{gap:19px;animation:splashEnter .55s cubic-bezier(.22,1,.36,1)}
+@keyframes splashEnter{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.logo{width:82px;height:82px;border-radius:20px;corner-shape:squircle;animation:logoPulse 2.8s ease-in-out infinite;box-shadow:0 14px 34px rgba(0,0,0,.3)}
+.brand-name{font-size:19px;letter-spacing:3.4px}
+.status-area{bottom:34px;left:38px;gap:8px}.status-text{font-size:11px}.status-sub{font-size:10px}.progress-track{width:240px;height:3px;border-radius:3px}.progress-bar{border-radius:3px}
+.version-tag{bottom:34px;right:38px;font-size:10px}
+.proxy-card{border-radius:18px;corner-shape:squircle;padding:32px 34px}.proxy-card h2{font-size:18px}.proxy-card p{font-size:11px}.proxy-input{min-height:44px;border-radius:11px;corner-shape:squircle;font-size:12px}.proxy-btn{min-height:44px;border-radius:11px;corner-shape:squircle;font-size:11px;transition:transform .28s cubic-bezier(.22,1,.36,1),background-color .2s}.proxy-btn:hover{transform:translateY(-2px)}
+@media(max-width:600px){.status-area{left:24px;bottom:26px}.version-tag{right:24px;bottom:26px}.progress-track{width:185px}.logo{width:72px;height:72px;border-radius:17px}}
+</style>
+</head>
+<body>
+
+<div class="splash">
+  <div class="logo-wrap">
+    <div class="logo"><img src="assets/icon.png" alt="Voltan"></div>
+    <div class="brand-name">VOLTAN</div>
+  </div>
+</div>
+
+<div class="status-area">
+  <div class="status-text active" id="statusText">Initializing...</div>
+  <div class="status-sub" id="statusSub"></div>
+  <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+</div>
+
+<div class="version-tag">Voltan 1.0.3</div>
+
+<div class="proxy-overlay" id="proxyOverlay">
+  <div class="proxy-card">
+    <h2>Connection Failed</h2>
+    <p>Could not reach the server and no cached launcher was found. Enter a server URL to try again.</p>
+    <div class="error-msg" id="proxyError">Connection failed. Check the URL and try again.</div>
+    <input class="proxy-input" id="proxyInput" type="text" placeholder="https://voltan.cc" spellcheck="false">
+    <button class="proxy-btn" id="proxyBtn">Connect</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+var DB_NAME = "VoltanLauncherCache";
+var DB_VERSION = 2;
+var STORE_FILES = "files";
+var STORE_META = "meta";
+var STORE_ASSETS = "loader_assets";
+
+var MIN_SPLASH_MS = 1000;
+var FAST_BOOT_MS = 300;
+var splashStart = Date.now();
+
+var serverUrl = localStorage.getItem("voltan_server") || (window.location.hostname === "localhost" ? window.location.protocol + "//" + window.location.host : "https://voltan.cc");
+
+var db = null;
+
+function setStatus(text, sub) {
+  document.getElementById("statusText").textContent = text;
+  document.getElementById("statusSub").textContent = sub || "";
+}
+function setProgress(pct) {
+  document.getElementById("progressBar").style.width = Math.min(100, Math.max(0, pct)) + "%";
+}
+
+function openDB() {
+  return new Promise(function(res, rej) {
+    var r = indexedDB.open(DB_NAME, DB_VERSION);
+    r.onupgradeneeded = function(e) {
+      var d = e.target.result;
+      if (!d.objectStoreNames.contains(STORE_FILES)) d.createObjectStore(STORE_FILES);
+      if (!d.objectStoreNames.contains(STORE_META)) d.createObjectStore(STORE_META);
+      if (!d.objectStoreNames.contains(STORE_ASSETS)) d.createObjectStore(STORE_ASSETS);
+    };
+    r.onsuccess = function(e) { res(e.target.result); };
+    r.onerror = function(e) { rej(e.target.error); };
+  });
+}
+
+function dbGet(store, key) {
+  return new Promise(function(res, rej) {
+    var t = db.transaction(store, "readonly");
+    var r = t.objectStore(store).get(key);
+    r.onsuccess = function() { res(r.result); };
+    r.onerror = function() { rej(r.error); };
+  });
+}
+
+function dbPut(store, key, val) {
+  return new Promise(function(res, rej) {
+    var t = db.transaction(store, "readwrite");
+    var r = t.objectStore(store).put(val, key);
+    r.onsuccess = function() { res(); };
+    r.onerror = function() { rej(r.error); };
+  });
+}
+
+async function fetchWithProgress(url, onProgress) {
+  var resp = await fetch(url);
+  if (!resp.ok) throw new Error("HTTP " + resp.status);
+  var total = parseInt(resp.headers.get("content-length") || "0");
+  var reader = resp.body.getReader();
+  var chunks = [];
+  var received = 0;
+  while (true) {
+    var x = await reader.read();
+    if (x.done) break;
+    chunks.push(x.value);
+    received += x.value.length;
+    if (total && onProgress) onProgress(received / total);
+  }
+  return new Blob(chunks);
+}
+
+async function testConnection(url) {
+  try {
+    var ctrl = new AbortController();
+    var timer = setTimeout(function() { ctrl.abort(); }, 4000);
+    var resp = await fetch(url + "/manifest.json", { method: "GET", cache: "no-store", signal: ctrl.signal });
+    clearTimeout(timer);
+    return resp.ok;
+  } catch(e) {
+    return false;
+  }
+}
+
+function createTrickleProgress(setPct, from, to) {
+  var pct = from, timer = null;
+  return {
+    start: function() {
+      pct = from; setPct(pct);
+      if (timer) clearInterval(timer);
+      timer = setInterval(function() {
+        if (pct < to - 1) { pct += Math.max(0.15, (to - pct) * 0.04); setPct(pct); }
+      }, 90);
+    },
+    report: function(realFraction) {
+      if (realFraction === null || realFraction === undefined) return;
+      pct = Math.max(pct, Math.min(to, from + realFraction * (to - from)));
+      setPct(pct);
+    },
+    stop: function(finalPct) { if (timer) { clearInterval(timer); timer = null; } if (finalPct !== undefined) setPct(finalPct); }
+  };
+}
+
+async function downloadLauncher(baseUrl) {
+  setStatus("Downloading launcher...", baseUrl);
+  var trickle = createTrickleProgress(setProgress, 0, 40);
+  trickle.start();
+  var blob = await fetchWithProgress(baseUrl + "/launcher.html", function(p) {
+    trickle.report(p);
+  });
+  trickle.stop(40);
+  var text = await blob.text();
+  await dbPut(STORE_META, "launcher_html", text);
+  await dbPut(STORE_META, "launcher_server", baseUrl);
+  return text;
+}
+
+async function downloadManifest(baseUrl) {
+  setStatus("Fetching manifest...");
+  try {
+    var resp = await fetch(baseUrl + "/manifest.json", { cache: "no-store" });
+    if (!resp.ok) throw new Error("HTTP " + resp.status);
+    var data = await resp.json();
+    await dbPut(STORE_META, "manifest", data);
+    setProgress(50);
+    return data;
+  } catch(e) {
+
+    var cached = await dbGet(STORE_META, "manifest");
+    setProgress(50);
+    return cached || null;
+  }
+}
+
+async function preloadAssets(baseUrl, manifest) {
+  if (!manifest) return;
+  var assets = ["/assets/icon.png"];
+
+  (manifest.news || []).forEach(function(n) {
+    if (n.banner) assets.push(n.banner);
+  });
+  (manifest.servers || []).forEach(function(s) {
+    if (s.banner) assets.push(s.banner);
+    if (s.icon) assets.push(s.icon);
+  });
+  (manifest.versions || []).forEach(function(v) {
+    if (v.banner) assets.push(v.banner);
+  });
+
+  try {
+    var mResp = await fetch(baseUrl + "/media/manifest.json", { cache: "no-store" });
+    if (mResp.ok) {
+      var mediaData = await mResp.json();
+      await dbPut(STORE_META, "media_manifest", mediaData);
+      var allMedia = [].concat(mediaData.resourcepacks || [], mediaData.configs || []);
+      allMedia.forEach(function(item) {
+        if (item.icon) assets.push(item.icon);
+        if (item.headerImage) assets.push(item.headerImage);
+        (item.gallery || []).forEach(function(g) { assets.push(g); });
+      });
+    }
+  } catch(e) {}
+
+  setStatus("Caching assets...", "0 / " + assets.length);
+  var done = 0;
+  var progressStart = 50;
+  var progressEnd = 95;
+
+  for (var i = 0; i < assets.length; i++) {
+    var assetPath = assets[i];
+    var fullUrl = assetPath.startsWith("http") ? assetPath : baseUrl + assetPath;
+    var cacheKey = "asset_" + assetPath;
+    try {
+      var resp = await fetch(fullUrl, { cache: "no-cache" });
+      if (resp.ok) {
+        var blob = await resp.blob();
+        await dbPut(STORE_ASSETS, cacheKey, blob);
+      }
+    } catch(e) {
+
+    }
+    done++;
+    setStatus("Caching assets...", done + " / " + assets.length);
+    var pct = progressStart + ((done / assets.length) * (progressEnd - progressStart));
+    setProgress(pct);
+  }
+}
+
+async function loadLauncher(launcherHtml) {
+
+  var elapsed = Date.now() - splashStart;
+  if (elapsed < MIN_SPLASH_MS) {
+    setStatus("Ready");
+    setProgress(100);
+    await new Promise(function(r) { setTimeout(r, MIN_SPLASH_MS - elapsed); });
+  } else {
+    setStatus("Launching...");
+    setProgress(100);
+    await new Promise(function(r) { setTimeout(r, 200); });
+  }
+
+  document.open();
+  document.write(launcherHtml);
+  document.close();
+}
+
+function showProxyInput(errorMsg) {
+  var overlay = document.getElementById("proxyOverlay");
+  var input = document.getElementById("proxyInput");
+  var errEl = document.getElementById("proxyError");
+  var btn = document.getElementById("proxyBtn");
+
+  overlay.classList.add("show");
+  input.value = serverUrl;
+  if (errorMsg) {
+    errEl.textContent = errorMsg;
+    errEl.classList.add("show");
+  }
+
+  btn.onclick = async function() {
+    var val = input.value.trim().replace(/\/$/, "");
+    if (!val) return;
+    if (!val.startsWith("http")) val = "https://" + val;
+
+    btn.disabled = true;
+    btn.textContent = "Connecting...";
+    errEl.classList.remove("show");
+
+    var ok = await testConnection(val);
+    if (ok) {
+      serverUrl = val;
+      localStorage.setItem("voltan_server", val);
+      overlay.classList.remove("show");
+      btn.disabled = false;
+      btn.textContent = "Connect";
+      boot();
+    } else {
+      errEl.textContent = "Could not reach " + val + ". Check the URL and try again.";
+      errEl.classList.add("show");
+      btn.disabled = false;
+      btn.textContent = "Connect";
+    }
+  };
+
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") btn.click();
+  });
+}
+
+var DEFAULT_FALLBACK_SERVERS = ["https://youcantblockthis.com", "https://verdex-client.xyz"];
+
+function readFallbackServerUrls() {
+  try {
+    var stored = localStorage.getItem("voltan_fallback_servers");
+    if (stored === null) return DEFAULT_FALLBACK_SERVERS.slice();
+    var values = JSON.parse(stored);
+    return Array.isArray(values) ? values.filter(function(url) { return typeof url === "string" && /^https?:\/\//i.test(url); }).slice(0, 8) : [];
+  } catch(e) { return DEFAULT_FALLBACK_SERVERS.slice(); }
+}
+
+function getServerCandidates() {
+  var values = [serverUrl].concat(readFallbackServerUrls());
+  return values.filter(function(url, index) { return url && values.indexOf(url) === index; });
+}
+
+async function findReachableServer() {
+  var candidates = getServerCandidates();
+  for (var i = 0; i < candidates.length; i++) {
+    setStatus(i === 0 ? "Connecting to primary server..." : "Trying fallback server " + i + "...", candidates[i]);
+    if (await testConnection(candidates[i])) return { url: candidates[i], index: i };
+  }
+  return null;
+}
+
+async function boot() {
+  splashStart = Date.now();
+  setProgress(0);
+  setStatus("Connecting to server...", serverUrl);
+
+  try {
+    db = await openDB();
+  } catch(e) {
+    setStatus("Storage error", "IndexedDB unavailable");
+    return;
+  }
+
+  var reachableServer = await findReachableServer();
+  var online = !!reachableServer;
+  if (online) {
+    serverUrl = reachableServer.url;
+    setStatus(reachableServer.index === 0 ? "Primary server connected" : "Fallback server " + reachableServer.index + " connected", serverUrl);
+  }
+  setProgress(20);
+
+  var cachedLauncher = await dbGet(STORE_META, "launcher_html");
+
+  if (cachedLauncher) {
+    if (online) {
+      var manifest = await downloadManifest(serverUrl);
+      await preloadAssets(serverUrl, manifest);
+      try {
+        var freshLauncher = await downloadLauncher(serverUrl);
+        if (freshLauncher) cachedLauncher = freshLauncher;
+      } catch(e) {
+
+      }
+    } else {
+      setStatus("All servers offline, loading from cache...");
+      setProgress(95);
+    }
+
+    var elapsed = Date.now() - splashStart;
+    var waitTime = Math.max(0, FAST_BOOT_MS - elapsed);
+    setStatus("Launching...");
+    setProgress(100);
+    await new Promise(function(r) { setTimeout(r, waitTime); });
+    document.open();
+    document.write(cachedLauncher);
+    document.close();
+    return;
+  }
+
+  var launcherHtml = null;
+  if (online) {
+    try {
+      launcherHtml = await downloadLauncher(serverUrl);
+    } catch(e) {
+      setStatus("Download failed...");
+    }
+  }
+
+  if (!launcherHtml) {
+    showProxyInput("Could not download the launcher from any configured server.");
+    return;
+  }
+
+  var manifest = await downloadManifest(serverUrl);
+  await preloadAssets(serverUrl, manifest);
+  await loadLauncher(launcherHtml);
+}
+
+boot();
+</script>
+</body>
+</html>
