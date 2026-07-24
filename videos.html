@@ -20,7 +20,7 @@
       <a href="about.html">About</a>
       <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -33,7 +33,7 @@
   <!-- Page Content -->
   <div class="page">
     <h1>Latest Videos</h1>
-    <p>Check out my latest content - click on any video to watch!</p>
+    <p>Live uploads from <a class="inline-link" href="https://www.youtube.com/@dicestack88" target="_blank" rel="noopener noreferrer">youtube.com/@dicestack88</a>. No API key needed.</p>
 
     <!-- Filter Controls -->
     <div class="filter-controls">
@@ -41,6 +41,8 @@
       <button class="filter-btn" data-filter="video">Videos</button>
       <button class="filter-btn" data-filter="short">Shorts</button>
     </div>
+
+    <p id="videosStatus" class="videos-status" aria-live="polite">Loading latest videos from YouTube…</p>
 
     <!-- Videos Container -->
     <div class="videos-container" id="videosContainer">
