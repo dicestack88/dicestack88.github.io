@@ -19,7 +19,7 @@
       <a href="about.html">About</a>
       <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -31,39 +31,82 @@
 
   <!-- Hero -->
   <section class="hero">
-    <h1 class="hero-title">Welcome to the zone</h1>
-    <p class="hero-subtitle">Your hub for clients, socials & more</p>
+    <div class="hero-badge">⚡ Gaming • Clients • Content</div>
+    <h1 class="hero-title">Welcome to the Darklands</h1>
+    <p class="hero-subtitle">A polished hub for Eaglercraft clients, creator updates, resource packs, and community links.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="clients.html">Explore clients</a>
+      <a class="btn btn-secondary" href="videos.html">Watch videos</a>
+    </div>
+    <div class="hero-stats" aria-label="Site highlights">
+      <div><strong>5+</strong><span>Clients</span></div>
+      <div><strong>2026</strong><span>Fresh design</span></div>
+      <div><strong>24/7</strong><span>Quick access</span></div>
+    </div>
   </section>
 
   <!-- Cards -->
-  <section id="sections" class="sections">
+  <section id="sections" class="sections" aria-label="Featured sections">
     <a href="videos.html" class="card card1 glass-card">
       <div class="card-content">
+        <span class="card-icon">▶</span>
         <h2>Videos</h2>
         <p>Latest uploads & shorts</p>
+        <span class="card-link">Watch now →</span>
       </div>
     </a>
 
     <a href="socials.html" class="card card2 glass-card">
       <div class="card-content">
+        <span class="card-icon">#</span>
         <h2>Socials</h2>
         <p>Reddit, Insta, X, YouTube</p>
+        <span class="card-link">Join up →</span>
       </div>
     </a>
 
     <a href="clients.html" class="card card3 glass-card">
       <div class="card-content">
+        <span class="card-icon">⌘</span>
         <h2>Clients</h2>
         <p>Eaglercraft launchers</p>
+        <span class="card-link">Launch fast →</span>
       </div>
     </a>
 
     <a href="about.html" class="card card4 glass-card">
       <div class="card-content">
+        <span class="card-icon">✦</span>
         <h2>About Me</h2>
         <p>More about me</p>
+        <span class="card-link">Learn more →</span>
       </div>
     </a>
+  </section>
+
+  <!-- Experience Highlights -->
+  <section class="experience-panel" aria-labelledby="experience-title">
+    <div>
+      <p class="eyebrow">Built for smoother browsing</p>
+      <h2 id="experience-title">More professional, more useful, more fun.</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <span>🚀</span>
+        <h3>Fast paths</h3>
+        <p>Clear calls-to-action help visitors jump straight into clients, videos, or socials.</p>
+      </article>
+      <article class="feature-card">
+        <span>✨</span>
+        <h3>Premium feel</h3>
+        <p>Glass effects, subtle animations, and stronger spacing make the site feel more polished.</p>
+      </article>
+      <article class="feature-card">
+        <span>📱</span>
+        <h3>Mobile-ready</h3>
+        <p>Responsive sections keep the homepage easy to scan on phones, tablets, and desktops.</p>
+      </article>
+    </div>
   </section>
 
   <!-- Footer -->
