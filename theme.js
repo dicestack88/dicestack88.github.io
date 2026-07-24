@@ -1,6 +1,5 @@
 // Theme Toggle Functionality
 const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
 const body = document.body;
 
 // Check for saved theme preference or default to dark mode
@@ -16,25 +15,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Theme toggle button click handler
-themeToggle.addEventListener('click', () => {
-  if (body.classList.contains('light-mode')) {
-    enableDarkMode();
-  } else {
-    enableLightMode();
-  }
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    if (body.classList.contains('light-mode')) {
+      enableDarkMode();
+    } else {
+      enableLightMode();
+    }
+  });
+}
 
 function enableDarkMode() {
   body.classList.remove('light-mode');
-  themeToggle.textContent = '🌙';
-  themeToggle.title = 'Switch to light mode';
+  if (themeToggle) {
+    themeToggle.textContent = '🌙';
+    themeToggle.title = 'Switch to light mode';
+    themeToggle.setAttribute('aria-label', 'Switch to light mode');
+  }
   localStorage.setItem('theme', 'dark');
 }
 
 function enableLightMode() {
   body.classList.add('light-mode');
-  themeToggle.textContent = '☀️';
-  themeToggle.title = 'Switch to dark mode';
+  if (themeToggle) {
+    themeToggle.textContent = '☀️';
+    themeToggle.title = 'Switch to dark mode';
+    themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+  }
   localStorage.setItem('theme', 'light');
 }
 
