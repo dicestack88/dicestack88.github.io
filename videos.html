@@ -42,17 +42,25 @@
       <button class="filter-btn" data-filter="short">Shorts</button>
     </div>
 
-    <p id="videosStatus" class="videos-status" aria-live="polite">Loading latest videos from YouTube…</p>
+    <p id="videosStatus" class="videos-status" aria-live="polite">Loading the YouTube player…</p>
 
-    <!-- Videos Container -->
-    <div class="videos-container" id="videosContainer">
-      <!-- Videos will be inserted here by JavaScript -->
-    </div>
+    <section class="youtube-embed-panel" aria-label="Dicestack88 YouTube videos">
+      <div class="youtube-frame-wrap">
+        <iframe
+          id="videosFrame"
+          title="All uploads from @dicestack88"
+          src="about:blank"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="youtube-actions">
+        <a id="openFilterLink" class="channel-link" href="https://www.youtube.com/@dicestack88/videos" target="_blank" rel="noopener noreferrer">Open All uploads on YouTube</a>
+        <a class="inline-link" href="https://www.youtube.com/@dicestack88" target="_blank" rel="noopener noreferrer">Visit the channel</a>
+      </div>
+    </section>
 
-    <!-- No Results Message -->
-    <div id="noResults" class="no-results" style="display: none;">
-      <p>No videos found for this filter.</p>
-    </div>
   </div>
 
   <!-- Footer -->
