@@ -11,12 +11,10 @@
 html{scroll-behavior:smooth}
 body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
 body:before{content:"";position:fixed;inset:0;z-index:-2;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px}
-
 nav{position:fixed;z-index:20;top:0;left:0;right:0;height:72px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,.58);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .logo{font:900 29px "Barlow Condensed";letter-spacing:1px;text-decoration:none;color:white} .logo span{color:var(--green)}
 .links{display:flex;gap:26px;align-items:center} .links a{color:#a7aaa5;text-decoration:none;font-size:10px;font-weight:900;letter-spacing:1.5px} .links a:hover{color:white}
 .links .sub{padding:10px 14px;border:1px solid rgba(255,49,85,.45);background:rgba(255,49,85,.1);border-radius:8px;color:white}
-
 .hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;padding:140px 6% 75px;isolation:isolate;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:-3;background:url("https://i.postimg.cc/9FtBGW7R/dicestack88pfp2.jpg") center 43%/cover no-repeat;filter:saturate(.7) contrast(1.08);transform:scale(1.04)}
 .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.97),rgba(0,0,0,.66) 40%,rgba(0,0,0,.08) 85%),linear-gradient(0deg,#050505,transparent 48%,rgba(0,0,0,.15))}
@@ -26,21 +24,18 @@ h1{font:900 clamp(90px,15vw,180px)/.76 "Barlow Condensed";letter-spacing:-2px;te
 h1 span{display:block} h1 .green{color:var(--green);text-shadow:0 0 45px rgba(117,255,155,.12)}
 .hero p{max-width:620px;margin:30px 0 24px;color:#afb3ae;font-size:14px;line-height:1.8}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;text-decoration:none;padding:14px 19px;border-radius:9px;font-size:10px;font-weight:900;letter-spacing:1px;transition:.25s;cursor:pointer}
+.btn{display:inline-flex;align-items:center;text-decoration:none;padding:14px 19px;border-radius:9px;font-size:10px;font-weight:900;letter-spacing:1px;transition:.25s}
 .btn:hover{transform:translateY(-3px)} .red{background:var(--red);color:white;box-shadow:0 12px 35px rgba(255,49,85,.22)} .dark{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.17);color:white}
 .stats{display:flex;gap:1px;margin-top:42px;background:rgba(255,255,255,.11);width:max-content;max-width:100%}
 .stat{min-width:145px;padding:14px 18px;background:rgba(5,5,5,.64)} .stat strong{font:700 30px "Barlow Condensed";display:block} .stat small{font-size:8px;color:#747a73;letter-spacing:1.5px;font-weight:900}
-
 .marquee{overflow:hidden;border-block:1px solid var(--line);background:#080909}
-.track{display:flex;width:max-content;animation:move 25s linear infinite;transition:animation-duration 0.3s ease}
+.track{display:flex;width:max-content;animation:move 25s linear infinite}
 .track span{font:700 15px "Barlow Condensed";letter-spacing:2px;color:#6e746e;padding:16px 28px} .track .g{color:var(--green)}
 @keyframes move{to{transform:translateX(-50%)}}
-
 section{padding:105px 6%} .wrap{width:min(1140px,100%);margin:auto}
 .top{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
 .kicker{font-size:10px;font-weight:900;letter-spacing:2.5px;color:var(--green)} h2{font:800 clamp(52px,7vw,88px)/.82 "Barlow Condensed";text-transform:uppercase;margin-top:9px}
 .top p{max-width:420px;color:var(--muted);font-size:13px;line-height:1.75}
-
 .about{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
 .panel{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));padding:34px;min-height:300px;position:relative;overflow:hidden}
 .panel.main:after{content:"88";position:absolute;right:-10px;bottom:-80px;font:900 300px/1 "Barlow Condensed";color:rgba(255,255,255,.025)}
@@ -51,20 +46,14 @@ section{padding:105px 6%} .wrap{width:min(1140px,100%);margin:auto}
 .side{display:grid;gap:18px}
 .side .panel{min-height:0;padding:27px}
 .side h4{font:700 31px "Barlow Condensed";text-transform:uppercase;margin-bottom:7px}
-
-.filter-bar{display:flex;gap:10px;margin-bottom:24px}
-.filter-btn{padding:8px 16px;background:rgba(255,255,255,0.03);border:1px solid var(--line);color:#8a8f89;font-size:9px;font-weight:900;letter-spacing:1.5px;border-radius:6px;cursor:pointer;transition:.2s}
-.filter-btn.active, .filter-btn:hover{background:var(--green);color:#050505;border-color:var(--green)}
-
 .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
-.yt-card{display:block;text-decoration:none;color:white;background:#090a0a;border:1px solid var(--line);overflow:hidden;transition:.3s;cursor:pointer}
+.yt-card{display:block;text-decoration:none;color:white;background:#090a0a;border:1px solid var(--line);overflow:hidden;transition:.3s}
 .yt-card:hover{transform:translateY(-7px);border-color:rgba(117,255,155,.35);box-shadow:0 25px 60px rgba(0,0,0,.3)}
 .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#111}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s} .yt-card:hover img{transform:scale(1.04)}
 .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.75);border:1px solid rgba(255,255,255,.25);font-size:18px}
 .thumb em{position:absolute;top:11px;left:11px;background:var(--red);padding:6px 8px;font:900 8px Inter;font-style:normal;letter-spacing:1px}
 .yt-info{padding:14px 16px;display:flex;justify-content:space-between;align-items:center} .yt-info b{font-size:9px;letter-spacing:1.4px} .yt-info span{font-size:9px;color:#676d67;font-weight:900}
-
 .split{display:grid;grid-template-columns:1fr 1fr;gap:17px}
 .split-card{min-height:370px;position:relative;overflow:hidden;border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:flex-end}
 .split-card:before{content:"";position:absolute;inset:0;z-index:0}
@@ -72,38 +61,23 @@ section{padding:105px 6%} .wrap{width:min(1140px,100%);margin:auto}
 .fb:before{background:radial-gradient(circle at 78% 25%,rgba(255,49,85,.23),transparent 32%),linear-gradient(0deg,rgba(0,0,0,.95),transparent 65%),#160d10}
 .split-card>*{position:relative;z-index:1} .big-icon{position:absolute!important;right:30px;top:24px;font-size:72px;opacity:.75}
 .split-card h3{font:800 66px/.8 "Barlow Condensed";text-transform:uppercase} .split-card p{max-width:520px;color:#a0a49e;font-size:13px;line-height:1.75;margin-top:13px}
-
 .player-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:17px;border:1px solid var(--line)}
 .player-box{padding:25px;background:#090a0a;min-height:140px;display:flex;flex-direction:column;justify-content:flex-end} .player-box strong{font:700 34px "Barlow Condensed";text-transform:uppercase} .player-box small{color:#656b65;font-size:8px;font-weight:900;letter-spacing:1.2px;margin-top:4px}
-
 .cta{min-height:390px;border:1px solid rgba(117,255,155,.2);background:radial-gradient(circle,rgba(117,255,155,.1),transparent 55%),#090b0b;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden}
 .cta:before{content:"D88";position:absolute;font:900 300px/1 "Barlow Condensed";color:rgba(255,255,255,.018)}
 .cta-inner{position:relative;z-index:1} .cta h2{font-size:clamp(70px,10vw,120px);margin:0} .cta h2 span{color:var(--green)} .cta p{max-width:560px;color:#8f958e;font-size:13px;line-height:1.75;margin:20px auto 27px}
-
 footer{padding:50px 20px;text-align:center;border-top:1px solid var(--line);color:#5f655f;font-size:9px;letter-spacing:1px} footer b{color:#a5aaa3}
 .reveal{opacity:0;transform:translateY(22px);transition:.7s ease} .reveal.show{opacity:1;transform:none}
-
-/* Interactive Cursor Glow */
-.cursor-glow{position:fixed;width:350px;height:350px;background:radial-gradient(circle,rgba(117,255,155,0.06),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);z-index:999;transition:transform 0.05s ease-out}
-
-/* Interactive Video Lightbox Modal */
-.modal-backdrop{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.92);backdrop-filter:blur(12px);display:grid;place-items:center;padding:20px;animation:fadeIn 0.2s ease-out}
-.modal-content{position:relative;width:min(900px,100%);aspect-ratio:16/9;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 0 50px rgba(0,0,0,0.8)}
-.modal-close{position:absolute;top:-40px;right:0;background:none;border:none;color:white;font:900 12px Inter;cursor:pointer;letter-spacing:1px}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
 @media(max-width:800px){.links a:not(.sub){display:none}.hero{padding:125px 5% 65px}h1{font-size:clamp(80px,19vw,150px)}section{padding:80px 5%}.top{display:block}.top p{margin-top:18px}.about,.split,.video-grid{grid-template-columns:1fr}.player-wall{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.hero-stats{display:grid;grid-template-columns:1fr 1fr;width:100%}.stat{min-width:0}.stat:last-child{grid-column:span 2}.player-wall{grid-template-columns:1fr}.panel{padding:26px}.panel h3{font-size:44px}}
 </style>
 </head>
 <body>
 
-<div class="cursor-glow" id="cursorGlow"></div>
-
 <nav>
 <a class="logo" href="#">DICESTACK<span>88</span></a>
 <div class="links">
-<a href="#about">ABOUT</a><a href="#videos">VIDEOS</a><a href="#football">FOOTBALL</a>
+<a href="#about">ABOUT</a><a href="#minecraft">MINECRAFT</a><a href="#football">FOOTBALL</a>
 <a class="sub" href="https://www.youtube.com/@dicestack88?sub_confirmation=1" target="_blank" rel="noopener">SUBSCRIBE ↗</a>
 </div>
 </nav>
@@ -111,22 +85,22 @@ footer{padding:50px 20px;text-align:center;border-top:1px solid var(--line);colo
 <header class="hero">
 <div class="hero-bg"></div>
 <div class="hero-content">
-<div class="status"><i></i><span id="subCounter">1.68K+</span> SUBSCRIBERS · @DICESTACK88</div>
+<div class="status"><i></i>1.68K+ SUBSCRIBERS · @DICESTACK88</div>
 <h1><span>PLAY.</span><span class="green">EDIT.</span><span>REPEAT.</span></h1>
 <p>Minecraft survival, PvP, server events, streams and challenges — plus football edits featuring the biggest stars in the game.</p>
 <div class="actions">
 <a class="btn red" href="https://www.youtube.com/@dicestack88" target="_blank" rel="noopener">▶ SUBSCRIBE TO DICESTACK88</a>
-<a class="btn dark" href="#videos">EXPLORE CONTENT ↓</a>
+<a class="btn dark" href="#minecraft">EXPLORE CONTENT ↓</a>
 </div>
 <div class="stats">
-<div class="stat"><strong id="statSub">1.68K+</strong><small>SUBSCRIBERS</small></div>
+<div class="stat"><strong>1.68K+</strong><small>SUBSCRIBERS</small></div>
 <div class="stat"><strong>🎮</strong><small>MINECRAFT</small></div>
 <div class="stat"><strong>⚽</strong><small>FOOTBALL</small></div>
 </div>
 </div>
 </header>
 
-<div class="marquee"><div class="track" id="marqueeTrack">
+<div class="marquee"><div class="track">
 <span>MINECRAFT</span><span class="g">×</span><span>PVP</span><span>×</span><span>SURVIVAL</span><span>×</span><span>SERVER EVENTS</span><span class="g">×</span><span>FOOTBALL EDITS</span><span>×</span><span>STREAMS</span><span class="g">×</span>
 <span>MINECRAFT</span><span class="g">×</span><span>PVP</span><span>×</span><span>SURVIVAL</span><span>×</span><span>SERVER EVENTS</span><span class="g">×</span><span>FOOTBALL EDITS</span><span>×</span><span>STREAMS</span><span class="g">×</span>
 </div></div>
@@ -141,40 +115,17 @@ footer{padding:50px 20px;text-align:center;border-top:1px solid var(--line);colo
 </div>
 </div></div></section>
 
-<section id="videos"><div class="wrap">
-<div class="top reveal"><div><div class="kicker">02 / MEDIA GALLERY</div><h2>INTO THE<br>BLOCKS & FIELD.</h2></div><p>Browse content directly on-page using the interactive player.</p></div>
-
-<div class="filter-bar">
-<button class="filter-btn active" data-filter="all">ALL VIDEOS</button>
-<button class="filter-btn" data-filter="minecraft">MINECRAFT</button>
-<button class="filter-btn" data-filter="football">FOOTBALL SHORTS</button>
-</div>
-
-<div class="video-grid" id="videoGrid">
-<a class="yt-card" data-cat="minecraft" href="https://www.youtube.com/watch?v=GA98brc17hU">
+<section id="minecraft"><div class="wrap">
+<div class="top reveal"><div><div class="kicker">02 / MINECRAFT</div><h2>INTO THE<br>BLOCKS.</h2></div><p>Four featured Minecraft videos from the channel.</p></div>
+<div class="video-grid"><a class="yt-card" href="https://www.youtube.com/watch?v=GA98brc17hU" target="_blank" rel="noopener">
 <div class="thumb"><img src="https://i.ytimg.com/vi/GA98brc17hU/hqdefault.jpg" alt="Minecraft video"><span class="play">▶</span></div>
-<div class="yt-info"><b>MINECRAFT EVENT</b><span>WATCH NOW ↗</span></div></a>
-
-<a class="yt-card" data-cat="minecraft" href="https://www.youtube.com/watch?v=1Xufp8fBzrE">
+<div class="yt-info"><b>MINECRAFT VIDEO</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/watch?v=1Xufp8fBzrE" target="_blank" rel="noopener">
 <div class="thumb"><img src="https://i.ytimg.com/vi/1Xufp8fBzrE/hqdefault.jpg" alt="Minecraft video"><span class="play">▶</span></div>
-<div class="yt-info"><b>MINECRAFT SURVIVAL</b><span>WATCH NOW ↗</span></div></a>
-
-<a class="yt-card" data-cat="minecraft" href="https://www.youtube.com/watch?v=1n0iFCjEZ9w">
+<div class="yt-info"><b>MINECRAFT VIDEO</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/watch?v=1n0iFCjEZ9w" target="_blank" rel="noopener">
 <div class="thumb"><img src="https://i.ytimg.com/vi/1n0iFCjEZ9w/hqdefault.jpg" alt="Minecraft video"><span class="play">▶</span></div>
-<div class="yt-info"><b>PVP HIGHLIGHTS</b><span>WATCH NOW ↗</span></div></a>
-
-<a class="yt-card" data-cat="minecraft" href="https://www.youtube.com/watch?v=xyZBnpt2Teg">
+<div class="yt-info"><b>MINECRAFT VIDEO</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/watch?v=xyZBnpt2Teg" target="_blank" rel="noopener">
 <div class="thumb"><img src="https://i.ytimg.com/vi/xyZBnpt2Teg/hqdefault.jpg" alt="Minecraft video"><span class="play">▶</span></div>
-<div class="yt-info"><b>SERVER CHALLENGE</b><span>WATCH NOW ↗</span></div></a>
-
-<a class="yt-card" data-cat="football" href="https://www.youtube.com/shorts/4Ly91aJmCEk">
-<div class="thumb"><img src="https://i.ytimg.com/vi/4Ly91aJmCEk/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
-<div class="yt-info"><b>RONALDO EDIT</b><span>WATCH NOW ↗</span></div></a>
-
-<a class="yt-card" data-cat="football" href="https://www.youtube.com/shorts/SrHaebr0jtA">
-<div class="thumb"><img src="https://i.ytimg.com/vi/SrHaebr0jtA/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
-<div class="yt-info"><b>NEYMAR SKILLS</b><span>WATCH NOW ↗</span></div></a>
-</div>
+<div class="yt-info"><b>MINECRAFT VIDEO</b><span>WATCH ↗</span></div></a></div>
 </div></section>
 
 <section><div class="wrap"><div class="split">
@@ -183,7 +134,18 @@ footer{padding:50px 20px;text-align:center;border-top:1px solid var(--line);colo
 </div></div></section>
 
 <section id="football"><div class="wrap">
-<div class="top reveal"><div><div class="kicker">03 / PLAYERS</div><h2>THE FEATURED<br>STARS.</h2></div><p>Four players featured across the channel's edits.</p></div>
+<div class="top reveal"><div><div class="kicker">03 / FOOTBALL</div><h2>THE STARS<br>GET EDITED.</h2></div><p>Five featured Shorts. Four players. Infinite football aura.</p></div>
+<div class="video-grid"><a class="yt-card" href="https://www.youtube.com/shorts/4Ly91aJmCEk" target="_blank" rel="noopener">
+<div class="thumb"><img src="https://i.ytimg.com/vi/4Ly91aJmCEk/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
+<div class="yt-info"><b>FOOTBALL EDIT</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/shorts/SrHaebr0jtA" target="_blank" rel="noopener">
+<div class="thumb"><img src="https://i.ytimg.com/vi/SrHaebr0jtA/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
+<div class="yt-info"><b>FOOTBALL EDIT</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/shorts/2Q0G9zurwCU" target="_blank" rel="noopener">
+<div class="thumb"><img src="https://i.ytimg.com/vi/2Q0G9zurwCU/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
+<div class="yt-info"><b>FOOTBALL EDIT</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/shorts/zpdPCM9ZjNM" target="_blank" rel="noopener">
+<div class="thumb"><img src="https://i.ytimg.com/vi/zpdPCM9ZjNM/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
+<div class="yt-info"><b>FOOTBALL EDIT</b><span>WATCH ↗</span></div></a><a class="yt-card" href="https://www.youtube.com/shorts/SXnUdybMwhQ" target="_blank" rel="noopener">
+<div class="thumb"><img src="https://i.ytimg.com/vi/SXnUdybMwhQ/hqdefault.jpg" alt="Football edit"><span class="play">▶</span><em>SHORT</em></div>
+<div class="yt-info"><b>FOOTBALL EDIT</b><span>WATCH ↗</span></div></a></div>
 <div class="player-wall">
 <div class="player-box reveal"><strong>Ronaldo</strong><small>THE GOAT DEBATE</small></div>
 <div class="player-box reveal"><strong>Neymar</strong><small>SKILLS & MAGIC</small></div>
@@ -202,94 +164,8 @@ footer{padding:50px 20px;text-align:center;border-top:1px solid var(--line);colo
 <footer><b>DICESTACK88</b> · MINECRAFT × FOOTBALL · @DICESTACK88</footer>
 
 <script>
-// 1. Intersection Observer for Scroll Animations
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) e.target.classList.add("show");
-}), { threshold: .08 });
-document.querySelectorAll(".reveal").forEach(e => io.observe(e));
-
-// 2. Custom Neon Glow Cursor Effect
-const cursor = document.getElementById('cursorGlow');
-window.addEventListener('mousemove', (e) => {
-  cursor.style.left = `${e.clientX}px`;
-  cursor.style.top = `${e.clientY}px`;
-});
-
-// 3. Dynamic Marquee Physics Speedup on Scroll
-let scrollTimer;
-const marqueeTrack = document.getElementById('marqueeTrack');
-window.addEventListener('scroll', () => {
-  marqueeTrack.style.animationDuration = '8s';
-  clearTimeout(scrollTimer);
-  scrollTimer = setTimeout(() => {
-    marqueeTrack.style.animationDuration = '25s';
-  }, 200);
-});
-
-// 4. Web Audio Synthesizer Hover Feedback Sound
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-function playHoverTone() {
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  const osc = audioCtx.createOscillator();
-  const gain = audioCtx.createGain();
-  osc.type = 'sine';
-  osc.frequency.setValueAtTime(520, audioCtx.currentTime); 
-  osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.03);
-  gain.gain.setValueAtTime(0.015, audioCtx.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03);
-  osc.connect(gain);
-  gain.connect(audioCtx.destination);
-  osc.start();
-  osc.stop(audioCtx.currentTime + 0.03);
-}
-document.querySelectorAll('.btn, .yt-card, .links a, .filter-btn').forEach(el => {
-  el.addEventListener('mouseenter', playHoverTone);
-});
-
-// 5. Video Lightbox Modal Launcher
-document.querySelectorAll('.yt-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    const videoUrl = card.getAttribute('href');
-    let embedUrl = videoUrl.includes('/shorts/') 
-      ? videoUrl.replace('/shorts/', '/embed/') 
-      : videoUrl.replace('watch?v=', 'embed/');
-
-    const modal = document.createElement('div');
-    modal.className = 'modal-backdrop';
-    modal.innerHTML = `
-      <div class="modal-content">
-        <button class="modal-close" id="modalClose">✕ CLOSE</button>
-        <iframe src="${embedUrl}?autoplay=1" style="width:100%;height:100%;border:none;" allow="autoplay" allowfullscreen></iframe>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    const removeModal = () => modal.remove();
-    modal.querySelector('#modalClose').onclick = removeModal;
-    modal.onclick = (evt) => { if (evt.target === modal) removeModal(); };
-  });
-});
-
-// 6. Interactive Category Filter Switcher
-const filterBtns = document.querySelectorAll('.filter-btn');
-const videoCards = document.querySelectorAll('.yt-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const category = btn.getAttribute('data-filter');
-
-    videoCards.forEach(card => {
-      if (category === 'all' || card.getAttribute('data-cat') === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
 </script>
 </body>
 </html>
