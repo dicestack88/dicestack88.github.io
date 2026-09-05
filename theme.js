@@ -60,3 +60,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+const darklandsVisits = JSON.parse(localStorage.getItem('darklands-visits') || '[]');
+const visitedPage = location.pathname.split('/').pop() || 'index.html';
+if (!darklandsVisits.includes(visitedPage)) {
+  darklandsVisits.push(visitedPage);
+  localStorage.setItem('darklands-visits', JSON.stringify(darklandsVisits));
+}

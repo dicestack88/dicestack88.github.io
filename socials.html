@@ -19,6 +19,7 @@
       <a href="clients.html">Clients</a>
       <a href="resourcepacks.html">Packs</a>
       <a href="socials.html">Community</a>
+      <a href="arcade.html">Play</a>
       <a href="about.html">About</a>
     </nav>
     <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
@@ -75,6 +76,16 @@
 
     </div>
 
+    <section class="community-poll" aria-labelledby="poll-title">
+      <div><p class="eyebrow">Community vote</p><h2 id="poll-title">What should drop first?</h2><p>Your vote is saved on this device. Join Discord to make your pick count in the real community discussion.</p></div>
+      <div class="poll-options" data-community-poll>
+        <button type="button" data-vote="Dark UI Pack">Dark UI Pack <span>🌑</span></button>
+        <button type="button" data-vote="Neon Pack">Neon Pack <span>⚡</span></button>
+        <button type="button" data-vote="Client Lab Review">Client Lab Review <span>🧪</span></button>
+      </div>
+      <p class="poll-result" data-poll-result aria-live="polite">Pick an idea to cast your vote.</p>
+    </section>
+
     <aside class="community-spotlight" aria-label="Community spotlight">
       <h2>Community HQ</h2>
       <p>Discord is the fastest route for client feedback, pack ideas, events, screenshots, and the occasional chaotic announcement.</p>
@@ -88,5 +99,6 @@
   </footer>
 
   <script src="theme.js"></script>
+  <script src="activities.js"></script>
 </body>
 </html>
