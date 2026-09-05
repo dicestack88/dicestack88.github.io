@@ -11,14 +11,18 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="socials.html">Socials</a>
+      <a href="dicestack88youtube.html">Videos</a>
       <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
+      <a href="arcade.html">Play</a>
       <a href="about.html">About</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -33,33 +37,32 @@
     <h1>Resource Packs</h1>
     <p>Custom resource packs and textures for Minecraft.</p>
 
-    <div class="client-list">
-
-      <div class="client-card eb">
-        <div>
-          <h2>Dark Aesthetic Pack</h2>
-          <p>Sleek dark textures and UI designs</p>
-        </div>
-        <span class="launch">→</span>
-      </div>
-
-      <div class="client-card modern">
-        <div>
-          <h2>Modern UI Pack</h2>
-          <p>Clean and contemporary interface textures</p>
-        </div>
-        <span class="launch">→</span>
-      </div>
-
-      <div class="client-card tuff">
-        <div>
-          <h2>Neon Pack</h2>
-          <p>Vibrant neon-themed resource pack</p>
-        </div>
-        <span class="launch">→</span>
-      </div>
-
+    <p class="eyebrow">Pack vault / coming online</p>
+    <div class="pack-grid">
+      <article class="pack-card" data-mark="D">
+        <span class="tag">Dark UI</span>
+        <h2>Dark Aesthetic Pack</h2>
+        <p>Moody textures, focused interfaces, and a Darklands-ready look for every session.</p>
+        <a class="btn btn-secondary" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Request this pack ↗</a>
+      </article>
+      <article class="pack-card" data-mark="M">
+        <span class="tag">Clean UI</span>
+        <h2>Modern UI Pack</h2>
+        <p>A cleaner, calmer HUD for builders, explorers, and anyone tired of visual clutter.</p>
+        <a class="btn btn-secondary" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Vote for this pack ↗</a>
+      </article>
+      <article class="pack-card" data-mark="N">
+        <span class="tag">Neon</span>
+        <h2>Neon Pack</h2>
+        <p>Vibrant accents, loud energy, and a perfect match for late-night PvP highlights.</p>
+        <a class="btn btn-secondary" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Join the waitlist ↗</a>
+      </article>
     </div>
+    <aside class="community-spotlight" aria-label="Resource pack community callout">
+      <h2>Help choose the first drop.</h2>
+      <p>The vault is being built. Join the Discord to vote on the next pack, share a screenshot, or suggest a style you want to play with.</p>
+      <a class="btn btn-primary" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Join the pack discussion ↗</a>
+    </aside>
   </section>
 
   <!-- Footer -->

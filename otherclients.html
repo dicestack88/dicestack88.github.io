@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clients - Dicestack88 Darklands</title>
+  <title>Other Clients - Dicestack88 Darklands</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -11,15 +11,18 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="socials.html">Socials</a>
+      <a href="dicestack88youtube.html">Videos</a>
+      <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
+      <a href="arcade.html">Play</a>
       <a href="about.html">About</a>
-      <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -32,14 +35,14 @@
   <!-- Page Content -->
   <section class="page">
     <h1>Other Clients</h1>
-    <p>A range of new clients that i found through scrolling the depths of discord...</p>
+    <p>Community finds from the depths of Discord. Treat these as experiments: explore, test, and share feedback.</p>
 
     <div class="client-list">
 
       <a href="https://dicestack88.github.io/files/voltan-launcher.html" class="client-card resent">
         <div>
           <h2>Voltan Client</h2>
-          <p>i dont even know what this is lmao</p>
+          <p>An unverified community find. Test carefully and tell the community what you discover.</p><div class="client-meta"><span class="tag experimental">Unverified</span></div>
         </div>
         <span class="launch">→</span>
       </a>
@@ -47,7 +50,7 @@
       <a href="https://dicestack88.github.io/AeroClient" class="client-card eb">
         <div>
           <h2>Aero Client</h2>
-          <p>Decent PvP client i found on github (uses 1.12 u3)</p>
+          <p>A community-found PvP client built on 1.12 u3.</p><div class="client-meta"><span class="tag">1.12</span><span class="tag">PvP</span></div>
         </div>
         <span class="launch">→</span>
       </a>
@@ -55,7 +58,7 @@
       <a href="https://dicestack88.github.io/PrecisionOffline.html" class="client-card modern">
         <div>
           <h2>Precision Client</h2>
-          <p>Pretty good client, I don't use it much tho</p>
+          <p>A client worth a test session—share your verdict in the community.</p><div class="client-meta"><span class="tag experimental">Community test</span></div>
         </div>
         <span class="launch">→</span>
       </a>

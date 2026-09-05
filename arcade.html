@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daily challenges, browser-saved achievements, and mini-games from Dicestack88 Darklands.">
+  <title>Play - Dicestack88 Darklands</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="dicestack88youtube.html">Videos</a><a href="clients.html">Clients</a><a href="resourcepacks.html">Packs</a><a href="socials.html">Community</a><a href="arcade.html">Play</a><a href="about.html">About</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
+  </header>
+  <div class="animated-bg"><div class="gradient-orb orb-1"></div><div class="gradient-orb orb-2"></div><div class="gradient-orb orb-3"></div></div>
+
+  <main class="page arcade-page">
+    <p class="eyebrow">Darklands Arcade</p>
+    <h1>Play something.</h1>
+    <p>Quick missions, tiny games, and browser-saved progress. No account needed.</p>
+
+    <section class="arcade-grid" aria-label="Darklands Arcade activities">
+      <article class="arcade-card challenge-card">
+        <p class="card-kicker">Today’s mission</p>
+        <h2 id="challengeTitle">Loading challenge…</h2>
+        <p id="challengeText"></p>
+        <div class="challenge-footer"><span id="challengeTag" class="tag">Daily</span><button class="btn btn-secondary" id="copyChallenge" type="button">Copy challenge</button></div>
+      </article>
+
+      <article class="arcade-card achievement-card">
+        <p class="card-kicker">Your progress</p>
+        <h2>Darklands Trials</h2>
+        <p id="achievementSummary">0 / 5 trials complete</p>
+        <div id="achievementList" class="achievement-list"></div>
+        <button class="text-button" id="resetProgress" type="button">Reset browser progress</button>
+      </article>
+    </section>
+
+    <section class="mini-games" aria-labelledby="mini-games-title">
+      <div><p class="eyebrow">Mini games</p><h2 id="mini-games-title">Fast hands. Good memory.</h2></div>
+      <div class="game-grid">
+        <article class="game-card">
+          <p class="card-kicker">Reaction test</p>
+          <h3>Creeper reflex</h3>
+          <p id="reactionStatus">Press start, then click the green block as soon as it appears.</p>
+          <button id="reactionButton" class="reaction-button" type="button">Start round</button>
+          <p id="reactionScore" class="game-score" aria-live="polite">Best: —</p>
+        </article>
+        <article class="game-card">
+          <p class="card-kicker">Memory test</p>
+          <h3>Block sequence</h3>
+          <p id="memoryStatus">Watch the blocks, then repeat the pattern.</p>
+          <div id="memoryBoard" class="memory-board" aria-label="Four block memory game"></div>
+          <button id="memoryStart" class="btn btn-secondary" type="button">Start sequence</button>
+          <p id="memoryScore" class="game-score" aria-live="polite">Level: 0</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><p>© 2026 Dicestack88 · Play fair. Have fun.</p></footer>
+  <script src="theme.js"></script><script src="activities.js"></script><script src="arcade.js"></script>
+</body>
+</html>

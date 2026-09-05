@@ -11,14 +11,18 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
+      <a href="dicestack88youtube.html">Videos</a>
       <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
+      <a href="arcade.html">Play</a>
       <a href="about.html">About</a>
-      <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -31,7 +35,7 @@
   <!-- Page Content -->
   <section class="page">
     <h1>Socials</h1>
-    <p>All my links and platforms.</p>
+    <p>Follow the content, join the conversation, and help decide what gets built next.</p>
 
     <div class="wide-list">
 
@@ -42,28 +46,28 @@
         </div>
       </a>
 
-      <a class="wide-card discord" href="https://discord.gg/Exha6Jz7Uk" target="_blank">
+      <a class="wide-card discord" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">
         <div class="wide-card-text">
           <h3>Discord</h3>
           <p>Join the community</p>
         </div>
       </a>
 
-      <a class="wide-card reddit" href="https://reddit.com/r/dicestack88" target="_blank">
+      <a class="wide-card reddit" href="https://reddit.com/r/dicestack88" target="_blank" rel="noopener noreferrer">
         <div class="wide-card-text">
           <h3>Reddit</h3>
           <p>Funny stuff</p>
         </div>
       </a>
 
-      <a class="wide-card instagram" href="https://instagram.com/dicestack88" target="_blank">
+      <a class="wide-card instagram" href="https://instagram.com/dicestack88" target="_blank" rel="noopener noreferrer">
         <div class="wide-card-text">
           <h3>Instagram</h3>
           <p>Clips and posts</p>
         </div>
       </a>
 
-      <a class="wide-card twitter" href="https://x.com/dicestack88" target="_blank">
+      <a class="wide-card twitter" href="https://x.com/dicestack88" target="_blank" rel="noopener noreferrer">
         <div class="wide-card-text">
           <h3>X (Twitter)</h3>
           <p>News and thoughts</p>
@@ -71,6 +75,22 @@
       </a>
 
     </div>
+
+    <section class="community-poll" aria-labelledby="poll-title">
+      <div><p class="eyebrow">Community vote</p><h2 id="poll-title">What should drop first?</h2><p>Your vote is saved on this device. Join Discord to make your pick count in the real community discussion.</p></div>
+      <div class="poll-options" data-community-poll>
+        <button type="button" data-vote="Dark UI Pack">Dark UI Pack <span>🌑</span></button>
+        <button type="button" data-vote="Neon Pack">Neon Pack <span>⚡</span></button>
+        <button type="button" data-vote="Client Lab Review">Client Lab Review <span>🧪</span></button>
+      </div>
+      <p class="poll-result" data-poll-result aria-live="polite">Pick an idea to cast your vote.</p>
+    </section>
+
+    <aside class="community-spotlight" aria-label="Community spotlight">
+      <h2>Community HQ</h2>
+      <p>Discord is the fastest route for client feedback, pack ideas, events, screenshots, and the occasional chaotic announcement.</p>
+      <a class="btn btn-secondary" href="https://discord.gg/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Enter the Discord ↗</a>
+    </aside>
   </section>
 
   <!-- Footer -->
@@ -79,5 +99,6 @@
   </footer>
 
   <script src="theme.js"></script>
+  <script src="activities.js"></script>
 </body>
 </html>

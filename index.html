@@ -11,14 +11,18 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
-      <a href="socials.html">Socials</a>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="dicestack88youtube.html">Videos</a>
       <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
+      <a href="arcade.html">Play</a>
       <a href="about.html">About</a>
-      <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -83,28 +87,43 @@
     </a>
   </section>
 
-  <!-- Experience Highlights -->
-  <section class="experience-panel" aria-labelledby="experience-title">
+  <!-- What is happening now -->
+  <section class="now-panel" aria-labelledby="now-title">
     <div>
-      <p class="eyebrow">Built for smoother browsing</p>
-      <h2 id="experience-title">More professional, more useful, more fun.</h2>
+      <p class="eyebrow">Now loading</p>
+      <h2 id="now-title">Pick your next adventure.</h2>
     </div>
-    <div class="feature-grid">
-      <article class="feature-card">
-        <span>🚀</span>
-        <h3>Fast paths</h3>
-        <p>Clear calls-to-action help visitors jump straight into clients, videos, or socials.</p>
+    <div class="update-grid">
+      <article class="update-card">
+        <span aria-hidden="true">⚔️</span>
+        <h3>Client lab</h3>
+        <p>Browse launchers by Minecraft version, performance, and stability—then jump straight in.</p>
+        <a class="inline-link" href="clients.html">Find a client →</a>
       </article>
-      <article class="feature-card">
-        <span>✨</span>
-        <h3>Premium feel</h3>
-        <p>Glass effects, subtle animations, and stronger spacing make the site feel more polished.</p>
+      <article class="update-card">
+        <span aria-hidden="true">▶</span>
+        <h3>Watch mode</h3>
+        <p>Minecraft videos, football edits, Shorts, and one big red subscribe button.</p>
+        <a class="inline-link" href="dicestack88youtube.html">Watch the channel →</a>
       </article>
-      <article class="feature-card">
-        <span>📱</span>
-        <h3>Mobile-ready</h3>
-        <p>Responsive sections keep the homepage easy to scan on phones, tablets, and desktops.</p>
+      <article class="update-card">
+        <span aria-hidden="true">✦</span>
+        <h3>Build your loadout</h3>
+        <p>Explore the upcoming pack vault and share the texture pack you want to see next.</p>
+        <a class="inline-link" href="resourcepacks.html">Open the pack vault →</a>
       </article>
+    </div>
+  </section>
+
+  <section class="daily-challenge" aria-labelledby="daily-title">
+    <div>
+      <p class="eyebrow">Daily Darklands challenge</p>
+      <h2 id="daily-title">Need a mission?</h2>
+      <p id="homeChallengeText">Loading today’s challenge…</p>
+    </div>
+    <div class="daily-challenge-actions">
+      <span id="homeChallengeTag" class="tag">Daily</span>
+      <a class="btn btn-primary" href="arcade.html">Play the Arcade →</a>
     </div>
   </section>
 
@@ -114,5 +133,6 @@
   </footer>
 
   <script src="theme.js"></script>
+  <script src="activities.js"></script>
 </body>
 </html>
