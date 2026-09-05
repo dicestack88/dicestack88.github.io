@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clients - Dicestack88 Darklands</title>
+  <title>Special Clients - Dicestack88 Darklands</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
@@ -11,14 +11,17 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="socials.html">Socials</a>
+      <a href="dicestack88youtube.html">Videos</a>
+      <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
       <a href="about.html">About</a>
-      <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->

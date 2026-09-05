@@ -11,14 +11,17 @@
 
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">Dicestack88 Darklands</div>
-    <nav>
+    <a class="logo" href="index.html" aria-label="Dicestack88 Darklands home">Dicestack88 <span>Darklands</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="socials.html">Socials</a>
+      <a href="dicestack88youtube.html">Videos</a>
+      <a href="clients.html">Clients</a>
+      <a href="resourcepacks.html">Packs</a>
+      <a href="socials.html">Community</a>
       <a href="about.html">About</a>
-      <a href="resourcepacks.html">Resource Packs</a>
     </nav>
-    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Switch to light mode" aria-label="Switch to light mode">🌙</button>
   </header>
 
   <!-- Animated Background -->
@@ -31,70 +34,77 @@
   <!-- Page Content -->
   <section class="page">
     <h1>Clients</h1>
-    <p>Eaglercraft launchers and clients.</p>
+    <p>Find a launchpad for your next session. Filter by version or vibe, then hit launch.</p>
+    <div class="filter-controls" aria-label="Filter clients">
+      <button class="filter-btn active" type="button" data-filter="all">All clients</button>
+      <button class="filter-btn" type="button" data-filter="latest">Latest versions</button>
+      <button class="filter-btn" type="button" data-filter="pvp">PvP</button>
+      <button class="filter-btn" type="button" data-filter="experimental">Experimental</button>
+    </div>
+    <p class="client-counter" aria-live="polite">Showing all launchpads.</p>
 
-    <div class="client-list">
+    <div class="client-list" data-client-list>
 
-      <a href="https://dicestack88.github.io/files/1.21.11-wasm.html" class="client-card resent">
+      <a href="https://dicestack88.github.io/files/1.21.11-wasm.html" class="client-card resent" data-tags="latest experimental">
         <div>
           <h2>Eaglercraft 1.21 IS HERE WHATTT</h2>
-          <p>HOLY SHIIIIIT</p>
+          <p>Fresh 1.21 build for players who want the newest world.</p><div class="client-meta"><span class="tag">1.21</span><span class="tag experimental">Experimental</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/specialclients.html" class="client-card resent">
+      <a href="https://dicestack88.github.io/specialclients.html" class="client-card resent" data-tags="latest experimental">
         <div>
           <h2>Newer version clients (1.21, 1.16, 1.14)</h2>
-          <p>SPECIAL CLIENTS (MAYBE BUGGY) THAT RUN ON NEWER VERSIONS. PROCEED WITH CAUTION</p>
+          <p>Newer versions, unusual builds, and a few rough edges. Proceed with curiosity.</p><div class="client-meta"><span class="tag">1.14–1.21</span><span class="tag experimental">Experimental</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/EBClient" class="client-card eb">
+      <a href="https://dicestack88.github.io/EBClient" class="client-card eb" data-tags="pvp">
         <div>
           <h2>EB Client</h2>
-          <p>Best low lag 1.8 client</p>
+          <p>Best low-lag 1.8 client.</p><div class="client-meta"><span class="tag">1.8</span><span class="tag">PvP</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/modernclient" class="client-card modern">
+      <a href="https://dicestack88.github.io/modernclient" class="client-card modern" data-tags="pvp">
         <div>
           <h2>Modern Client</h2>
-          <p>Best 1.12 PvP client, very low lag</p>
+          <p>Best 1.12 PvP client with a low-lag focus.</p><div class="client-meta"><span class="tag">1.12</span><span class="tag">PvP</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/Tuffclient" class="client-card tuff">
+      <a href="https://dicestack88.github.io/Tuffclient" class="client-card tuff" data-tags="fun">
         <div>
           <h2>Tuff Client</h2>
-          <p>Tons of fun mods to pla around with</p>
+          <p>Tons of fun mods to play around with.</p><div class="client-meta"><span class="tag">Mods</span><span class="tag">Fun</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/Resentclient" class="client-card resent">
+      <a href="https://dicestack88.github.io/Resentclient" class="client-card resent" data-tags="pvp">
         <div>
           <h2>Resent Client</h2>
-          <p>Best for wispcraft and playing on hypixel/minemen/other java servers</p>
+          <p>Built for Wispcraft and Java-server PvP sessions.</p><div class="client-meta"><span class="tag">PvP</span><span class="tag">Servers</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/otherclients" class="client-card eb">
+      <a href="https://dicestack88.github.io/otherclients" class="client-card eb" data-tags="pvp">
         <div>
           <h2>Other Clients</h2>
-          <p>Lots of other eaglercraft clients that i found on the internet</p>
+          <p>Community finds, unusual builds, and experimental options.</p><div class="client-meta"><span class="tag">Community finds</span></div>
         </div>
         <span class="launch">→</span>
       </a>
 
-      <a href="https://dicestack88.github.io/files/launcher.html" class="client-card launcher">
+      <a href="https://dicestack88.github.io/files/launcher.html" class="client-card launcher" data-tags="latest">
         <div>
           <h2>Custom Launcher</h2>
-          <p>Multi-version support and configuration</p>
+          <p>Multi-version support and configuration.</p><div class="client-meta"><span class="tag">Multi-version</span></div>
         </div>
         <span class="launch">→</span>
       </a>
@@ -110,5 +120,21 @@
   </footer>
 
   <script src="theme.js"></script>
+  <script>
+    const filters = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('[data-client-list] .client-card');
+    const counter = document.querySelector('.client-counter');
+    filters.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      let visible = 0;
+      filters.forEach((item) => item.classList.toggle('active', item === button));
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.tags.includes(filter);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      counter.textContent = `Showing ${visible} ${visible === 1 ? 'launchpad' : 'launchpads'}.`;
+    }));
+  </script>
 </body>
 </html>
