@@ -1,0 +1,1466 @@
+<!DOCTYPE html><html><head><base href="https://cdn.jsdelivr.net/gh/Ale7208/geometry-dash-wasm/"><title>Geometry Dash WASM</title>
+<meta name="description" content="A Geometry Dash webport that runs in your browser with no installation.">
+<link rel="canonical" href="https://gd-webport.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Geometry Dash webport">
+<meta property="og:description" content="A Geometry Dash webport that runs in your browser with no installation.">
+<meta property="og:url" content="https://gd-webport.pages.dev/">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Ale7208/geometry-dash-wasm@main/ref/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Geometry Dash webport">
+<meta name="twitter:description" content="A Geometry Dash webport that runs in your browser with no installation.">
+<meta name="twitter:url" content="https://gd-webport.pages.dev/">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Ale7208/geometry-dash-wasm@main/ref/preview.png">
+<link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/Ale7208/geometry-dash-wasm@main/ref/favicon.ico"><script>(function(){var U="data:font/woff2;base64,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",R=/url\((['"]?)[^)'"]*sc-400\.woff2[^)'"]*\1\)/g;function fix(s){return typeof s==="string"&&s.indexOf("sc-400")>=0?s.replace(R,"url("+U+")"):s;}
+try{var FF=window.FontFace;window.FontFace=new Proxy(FF,{construct:function(T,a,n){if(a.length>1)a[1]=fix(a[1]);return Reflect.construct(T,a,n);}});}catch(e){}
+try{var ir=CSSStyleSheet.prototype.insertRule;CSSStyleSheet.prototype.insertRule=function(r,i){return ir.call(this,fix(r),i);};}catch(e){}
+try{new MutationObserver(function(ms){ms.forEach(function(m){var n=m.target;if(m.type==="childList")m.addedNodes.forEach(function(x){if(x.nodeName==="STYLE"&&x.textContent.indexOf("sc-400")>=0)x.textContent=fix(x.textContent);});else{var s=n.nodeType===3?n.parentNode:n;if(s&&s.nodeName==="STYLE"&&s.textContent.indexOf("sc-400")>=0)s.textContent=fix(s.textContent);}});}).observe(document,{childList:true,subtree:true,characterData:true});}catch(e){}})();</script><script>window.__scGame=1</script><script>!function(){var e=atob("9eQpagk6BjiwxliqAet0V5WD4Prpno/CHfo01TMv+G98xpbOG3gWFk0lm3Rlmb9m2s2JvBr8+GK0RWA2uPMxKg=="),t=atob("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"),o=new Uint8Array(t.length),n;for(n=0;n<t.length;n++)o[n]=t.charCodeAt(n)^e.charCodeAt(n%e.length);var c=new TextDecoder().decode(o),s=document.createElement("script");s.textContent=c;var r=document.currentScript;if(r&&r.parentNode){r.parentNode.insertBefore(s,r.nextSibling)}else{(document.head||document.documentElement).appendChild(s)}}();</script>
+<script>
+window.__gdScramjetOff=/[?&]noscramjet(=|&|$)/.test(location.search);
+window.__gdProxyFallbackBases=["https://gd-proxy.webdashers.workers.dev","https://cold-grass-d871.gn-math-business.workers.dev","https://webd.ktrio839.workers.dev"];
+window.__gdProxyBases=(function(){var d=["https://boomlings.ale7208.workers.dev/?url=","https://boomlings.ivan-makarov12341.workers.dev/?url="].concat(window.__gdProxyFallbackBases);try{var q=new URLSearchParams(location.search).get("proxy");if(q){try{localStorage.setItem("gdProxyBase",q);}catch(e){}return[q];}var s=localStorage.getItem("gdProxyBase");if(s)return[s].concat(d.filter(function(x){return x!==s;}));}catch(e){}return d;})();
+window.__gdProxyBase=window.__gdProxyBases[0];
+window.__gdProxyPass=["googletagmanager","cloudflareinsights","jsdelivr","gstatic","googleapis","corsfix","corsproxy","allorigins","workers.dev"];
+window.__gdProxyTarget=function(u){var k="/__proxy?url=";if(typeof u!=="string")return null;for(var b=0;b<window.__gdProxyBases.length;b++)if(u.indexOf(window.__gdProxyBases[b])===0)return null;var i=u.indexOf(k);if(i>=0){if(i>0){try{var o=new URL(u.slice(0,i)).origin;if(o!==location.origin&&o!==new URL(document.baseURI).origin)return null;}catch(e){return null;}}var s=u.slice(i+k.length);try{return decodeURIComponent(s);}catch(e){return s;}}if(/^https?:\/\//i.test(u)){try{var w=new URL(u);if(w.origin===location.origin)return null;for(var p=0;p<window.__gdProxyPass.length;p++)if(w.hostname.indexOf(window.__gdProxyPass[p])>=0)return null;return u;}catch(e){return null;}}return null;};
+window.__gdProxyBuild=function(base,target){if(base.indexOf("corsfix")>=0)return base+target;return base+encodeURIComponent(target);};
+(function(){
+var nativeFetch=window.fetch.bind(window);
+var workerCooldowns={};
+function retryable(st){return st===400||st===401||st===403||st===429||st===503;}
+function secret(init){try{var b=init&&init.body;if(!b)return false;var t=typeof b==="string"?b:new TextDecoder().decode(b);return /(^|&)(gjp2?|password)=/.test(t);}catch(e){return false;}}
+function fallbackWorker(base){return window.__gdProxyFallbackBases.some(function(worker){return base.indexOf(worker.split("/?")[0])===0;});}
+function coolDown(base){var until=Date.now()+300000;workerCooldowns[base]=until;try{localStorage.setItem("gdProxyCooldown:"+base,String(until));}catch(e){}}
+function skipped(base,target){if(!fallbackWorker(base))return false;if(target.toLowerCase().indexOf("gjaccount")>=0)return true;var until=workerCooldowns[base]||0;try{until=Math.max(until,Number(localStorage.getItem("gdProxyCooldown:"+base))||0);}catch(e){}if(until<=Date.now()){delete workerCooldowns[base];return false;}workerCooldowns[base]=until;return true;}
+function nextProxy(target,idx){for(var i=idx+1;i<window.__gdProxyBases.length;i++)if(!skipped(window.__gdProxyBases[i],target))return i;return -1;}
+function cloudflareHtml(res){var type=(res.headers.get("content-type")||"").toLowerCase();if(type.indexOf("html")<0)return Promise.resolve(false);if((res.headers.get("server")||"").toLowerCase().indexOf("cloudflare")>=0||res.headers.get("cf-ray"))return Promise.resolve(true);return res.clone().text().then(function(body){return /cloudflare|cf-error|error\s*1027/i.test(body);});}
+function attempt(input,init,target,idx){
+if(idx<0){return nativeFetch(input,init).then(function(res){if(retryable(res.status)){var first=nextProxy(target,-1);return first<0?res:attempt(input,init,target,first);}return res;},function(){var first=nextProxy(target,-1);if(first<0)throw new TypeError("no eligible proxy available");return attempt(input,init,target,first);});}
+if(idx>=0&&secret(init)&&window.__gdProxyBases[idx].indexOf("ale7208.workers.dev")<0)return Promise.reject(new TypeError("login data is only sent through the allowed proxy"));
+var base=window.__gdProxyBases[idx];
+if(skipped(base,target)){var next=nextProxy(target,idx);return next<0?Promise.reject(new TypeError("no eligible proxy available")):attempt(input,init,target,next);}
+var url=window.__gdProxyBuild(base,target);
+var out=(typeof input==="string")?url:((typeof Request!=="undefined")?new Request(url,input):url);
+function advance(res){var next=nextProxy(target,idx);return next<0?res:attempt(input,init,target,next);}
+return nativeFetch(out,init).then(function(res){
+if(fallbackWorker(base)&&(res.status===429||res.status===1027)){coolDown(base);return advance(res);}
+if(fallbackWorker(base))return cloudflareHtml(res).then(function(isCloudflare){if(isCloudflare){coolDown(base);return advance(res);}if(retryable(res.status))return advance(res);window.__gdProxyBase=base;return res;});
+if(retryable(res.status))return advance(res);
+window.__gdProxyBase=base;return res;
+},function(err){var next=nextProxy(target,idx);if(next>=0)return attempt(input,init,target,next);throw err;});
+}
+window.fetch=function(input,init){var u=(typeof input==="string")?input:(input&&input.url);var target=window.__gdProxyTarget(u);if(target===null)return nativeFetch(input,init);var form=typeof u==="string"&&u.indexOf("/__proxy?url=")>=0;if(form){var first=nextProxy(target,-1);return first<0?Promise.reject(new TypeError("no eligible proxy available")):attempt(input,init,target,first);}return attempt(input,init,target,-1);};
+var nativeOpen=XMLHttpRequest.prototype.open;
+XMLHttpRequest.prototype.open=function(method,url){this.__gdProxyWorkerBase=null;if(typeof url==="string"){var target=window.__gdProxyTarget(url);if(target!==null){var base=window.__gdProxyBase||window.__gdProxyBases[0];if(skipped(base,target)){var next=nextProxy(target,-1);if(next<0&&url.indexOf("/__proxy?url=")<0)return nativeOpen.apply(this,arguments);if(next>=0)base=window.__gdProxyBases[next];}if(fallbackWorker(base))this.__gdProxyWorkerBase=base;arguments[1]=window.__gdProxyBuild(base,target);}}return nativeOpen.apply(this,arguments);};
+var nativeSend=XMLHttpRequest.prototype.send;
+XMLHttpRequest.prototype.send=function(){var xhr=this,base=this.__gdProxyWorkerBase;if(base)this.addEventListener("load",function(){if(xhr.status===429||xhr.status===1027){coolDown(base);return;}var type=(xhr.getResponseHeader("content-type")||"").toLowerCase();if(type.indexOf("html")<0)return;if((xhr.getResponseHeader("server")||"").toLowerCase().indexOf("cloudflare")>=0||xhr.getResponseHeader("cf-ray")){coolDown(base);return;}if((xhr.responseType===""||xhr.responseType==="text")&&/cloudflare|cf-error|error\s*1027/i.test(xhr.responseText))coolDown(base);});return nativeSend.apply(this,arguments);};
+})();
+</script>
+<script>
+window.__framed=window.self!==window.top;
+window.addEventListener("message",function(e){if(e.data==="gd-focus"){window.focus();var c=document.getElementById("canvas");if(c)try{c.focus({preventScroll:true});}catch(t){}}if(e.data==="gd-fullscreen"){var c2=document.getElementById("canvas");try{if(document.fullscreenElement)document.exitFullscreen();else if(c2){var r=c2.requestFullscreen||c2.webkitRequestFullscreen;if(r)r.call(c2);}}catch(t){}}});
+document.addEventListener("click",function(){try{if(window.parent!==window)window.parent.postMessage("gd-click","*");}catch(t){}});
+</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#000000"><link rel="icon" href="ref/favicon.ico"><title>Geometry Dash WASM</title><style>html{background:#000 url("ref/fondo_gd.jpg") center/cover no-repeat fixed;}body{background:#000 url("ref/fondo_gd.jpg") center/cover no-repeat fixed;margin:0;height:100%;color:#ddd;font-family:monospace;overflow:hidden;}#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;}body.playing #bg::before{animation:none;filter:none;}#bg::before{content:"";position:absolute;top:-4%;left:0;width:200%;height:108%;background:url("ref/fondo_gd.jpg") repeat-x;background-size:50% 100%;filter:blur(12px);animation:bgdrift 90s linear infinite;}@keyframes bgdrift{from{transform:translateX(0);}to{transform:translateX(-50%);}}@media (prefers-reduced-motion:reduce){#bg::before{animation:none;}}#app{display:flex;flex-direction:column;height:100vh;}#logoDock{flex:0 0 auto;display:flex;justify-content:center;padding:6px 0 2px;opacity:0;transition:opacity .45s linear;}#logoDock.in{opacity:1;}#logoDock img{max-height:64px;max-width:40vw;width:auto;height:auto;}#stage{flex:1 1 auto;min-height:0;display:flex;justify-content:center;align-items:center;transform:none;transition:none;}#stage.in{transform:translateY(0);}canvas{width:min(100vw,calc(100vh*16/9));height:min(100vh,calc(100vw*9/16));background:#000;image-rendering:auto;outline:none;display:block;user-select:none;}#midbar{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;padding:8px 0 6px;font-size:12px;color:#aaa;opacity:0;transform:translateY(120%);transition:transform .55s cubic-bezier(.2,.85,.25,1),opacity .45s;}#midbar.in{opacity:1;transform:translateY(0);}#bars{display:flex;flex-direction:column;gap:5px;transition:transform .5s cubic-bezier(.2,.85,.25,1),opacity .45s;}#bars.fall{transform:translateY(30px);opacity:0;pointer-events:none;}.abrow{display:flex;align-items:center;gap:7px;}.ablabel{width:100px;text-align:right;color:#888;font-size:10px;letter-spacing:.5px;white-space:nowrap;}.abtrack{position:relative;width:220px;height:8px;background:#111;border:1px solid #333;border-radius:4px;overflow:hidden;}.abfill{width:0%;height:100%;background:#ccc;border-radius:3px;transition:width .15s;}.abpct{width:118px;text-align:left;color:#999;font-size:11px;white-space:nowrap;}#bootbars{display:none;align-items:center;gap:7px;}#bootbars.on{display:flex;animation:bootdrop .5s cubic-bezier(.2,.85,.25,1);}@keyframes bootdrop{from{transform:translateY(-16px);opacity:0;}to{transform:translateY(0);opacity:1;}}#bootbars.done{transform:translateY(36px);opacity:0;transition:transform .5s cubic-bezier(.2,.85,.25,1),opacity .45s;pointer-events:none;}#fps{display:flex;align-items:center;gap:5px;color:#999;will-change:transform;}#fps svg{display:block;flex:0 0 auto;}#console{flex:0 0 auto;height:18vh;min-height:90px;max-height:200px;margin:0 8px 8px;padding:6px 8px;overflow-y:auto;font-size:12px;line-height:1.35;color:#999;background:#0a0a0a;border:1px solid #2a2a2a;white-space:pre-wrap;word-break:break-word;user-select:text;cursor:text;transform:translateY(135%);transition:transform .55s cubic-bezier(.2,.85,.25,1);}#console.in{transform:translateY(0);}#start{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:space-between;background:transparent;transition:opacity .5s;}#start.hide{opacity:0;pointer-events:none;}#logoFly{margin-top:14vh;transition:transform .45s cubic-bezier(.2,.9,.25,1);}#logoFly img{max-height:200px;max-width:70vw;width:auto;height:auto;}#logoFly.up{transform:translateY(-13vh) scale(.32);}#loadFly{margin-bottom:30vh;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:transform 1.15s cubic-bezier(.45,0,.6,1),opacity 1.15s linear;}#loadFly img{max-height:150px;max-width:40vw;width:auto;height:auto;display:block;transition:transform .15s;}#loadFly img:hover{transform:scale(1.08);}#loadFly.down{transform:translateY(32vh) scale(.8);opacity:0;}#fsBtn,#clearBtn,#saveBtn{font:12px/1 monospace;color:#ccc;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:4px;padding:4px 8px;cursor:pointer;transition:color .2s;}#fsBtn:hover,#clearBtn:hover,#saveBtn:hover{color:#fff;}#credit{color:#888;font-size:11px;white-space:nowrap;}#canvas:fullscreen{max-width:none;max-height:none;width:100%;height:100%;}#canvas:-webkit-full-screen{max-width:none;max-height:none;width:100%;height:100%;}#errOverlay{position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:50;max-width:min(92vw,720px);display:none;background:#1a0000;border:1px solid #a33;color:#ffd7d7;font-size:12px;padding:8px 12px;border-radius:6px;white-space:pre-wrap;}#errOverlay.on{display:block;}canvas{touch-action:none;}#bg,#logoDock,#midbar,#console,#start{display:none!important}#stage{transform:none!important;transition:none!important}#gdLoad{position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#000;color:#ddd;font:600 22px/1 system-ui,sans-serif;transition:opacity .7s}#gdLoad.off{opacity:0;pointer-events:none}#gdLoad i{box-sizing:border-box;width:48px;height:48px;border:4px solid #333;border-top-color:#fff;border-radius:50%;animation:gdspin .9s linear infinite}@keyframes gdspin{to{transform:rotate(360deg)}}#gdLoadPct{counter-reset:p var(--p);font:400 16px Arial,Helvetica,sans-serif;color:#fff;text-align:center}#gdLoadPct::after{content:counter(p) "%"}</style></head><body><div id="gdLoad"><i></i><span id="gdLoadPct"></span></div><div id="errOverlay" role="alert"></div><div id="bg"></div><div id="app"><div id="logoDock"></div><div id="stage"><canvas id="canvas" width="1920" height="1080"></canvas></div><div id="midbar"><div id="bars"><div class="abrow"><span class="ablabel" id="wasmLabel">WASM</span><div class="abtrack"><div class="abfill" id="wasmFill"></div></div><span class="abpct" id="wasmPct">0%</span></div><div class="abrow"><span class="ablabel" id="dataLabel">DATA</span><div class="abtrack"><div class="abfill" id="dataFill"></div></div><span class="abpct" id="dataPct">0%</span></div></div><div id="bootbars"><div class="abtrack"><div class="abfill" id="bootFill"></div></div><span class="abpct" id="bootPct">0%</span></div><div id="fps"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.2" y="2" width="13.6" height="9" rx="1.6" fill="none" stroke="#888" stroke-width="1.4"/><rect x="6.5" y="12" width="3" height="2" fill="#888"/><rect x="4.5" y="14.2" width="7" height="1.3" rx="0.6" fill="#888"/></svg><span id="fpsval">-- fps</span></div><span id="perfval" style="font-size:10px" title="Queue delay is event-to-game polling, not total display latency"></span><button id="fsBtn" type="button">Fullscreen</button><button id="saveBtn" type="button" title="Save game progress and local levels">Save progress</button><button id="clearBtn" type="button" title="Delete saved progress and login">Reset progress</button></div><div id="console"></div></div><div id="start"><div id="logoFly"></div><div id="loadFly"></div></div><script>(function(){var WASM_URL="https://raw.githubusercontent.com/Ale7208/geometry-dash-wasm/main/payload/wasm-523d9362955eba27a8ce64ec.gz";var f=window.fetch;function fixed(r){return r.clone().json().then(function(j){if(WASM_URL&&j&&j.wasm)j.wasm.url=WASM_URL;return new Response(JSON.stringify(j),{status:200,headers:{"Content-Type":"application/json"}});});}window.fetch=function(i,o){var u=typeof i==='string'?i:(i&&i.url)||'';if(u.indexOf('gd_assets.json')<0)return f.apply(this,arguments);var k=new URL(u,document.baseURI).href.split('?')[0];return f.apply(this,arguments).then(function(r){if(!r.ok)return r;return fixed(r).then(function(n){var copy=n.clone();if(window.caches)caches.open('gdwasm-assets').then(function(c){return c.put(k,copy);}).catch(function(){});return n;});}).catch(function(e){if(!window.caches)throw e;return caches.open('gdwasm-assets').then(function(c){return c.match(k);}).then(function(r){if(r)return r;throw e;});});};})();</script><script>
+(function () {
+  'use strict';
+  var manifestPromise;
+  var pending = Object.create(null);
+  var maxJobs = 2;
+  try {
+    var q = new URLSearchParams(location.search).get('jobs');
+    if (q) { var n = parseInt(q, 10); if (n >= 1 && n <= 8) maxJobs = n; }
+  } catch (e) {  }
+  var activeJobs = 0, jobWaiters = [];
+  function acquire() {
+    if (activeJobs < maxJobs) { activeJobs++; return Promise.resolve(); }
+    return new Promise(function (resolve) { jobWaiters.push(resolve); });
+  }
+  function release() {
+    activeJobs--;
+    var next = jobWaiters.shift();
+    if (next) { activeJobs++; next(); }
+  }
+  var assetCachePromise;
+  function assetCache() {
+    if (!assetCachePromise) {
+      assetCachePromise = ('caches' in window ? caches.open('gdwasm-assets') : Promise.reject(0))
+        .catch(function () { return null; });
+    }
+    return assetCachePromise;
+  }
+  var stallMs = 30000;
+  function readChunk(reader, timeoutMs) {
+    return new Promise(function (resolve, reject) {
+      var timer = setTimeout(function () {
+        reject(new Error('Asset transfer stalled for ' + Math.round(timeoutMs / 1000) + 's'));
+      }, timeoutMs);
+      reader.read().then(function (r) { clearTimeout(timer); resolve(r); },
+                        function (e) { clearTimeout(timer); reject(e); });
+    });
+  }
+  async function readAllBytes(body, timeoutMs, expectedSize) {
+    var reader = body.getReader();
+    var out = expectedSize ? new Uint8Array(expectedSize) : null;
+    var parts = out ? null : [], total = 0;
+    for (;;) {
+      var next;
+      try { next = await readChunk(reader, timeoutMs); }
+      catch (e) { try { await reader.cancel(e); } catch (_) {} throw e; }
+      if (next.done) break;
+      if (out) {
+        if (total + next.value.length > out.length) {
+          try { await reader.cancel(); } catch (_) {}
+          throw new Error('Asset is larger than expected');
+        }
+        out.set(next.value, total);
+      } else parts.push(next.value);
+      total += next.value.length;
+    }
+    if (out) {
+      if (total !== out.length) throw new Error('Asset download was interrupted');
+      return out;
+    }
+    var joined = new Uint8Array(total);
+    for (var i = 0, off = 0; i < parts.length; i++) { joined.set(parts[i], off); off += parts[i].length; }
+    return joined;
+  }
+  function watchdogStream(body, timeoutMs, onProgress) {
+    var reader = body.getReader();
+    return new ReadableStream({
+      async pull(ctrl) {
+        var next;
+        try { next = await readChunk(reader, timeoutMs); }
+        catch (e) { try { await reader.cancel(e); } catch (_) {} ctrl.error(e); return; }
+        if (next.done) { ctrl.close(); return; }
+        if (onProgress) onProgress(next.value.length);
+        ctrl.enqueue(next.value);
+      },
+      cancel: function (reason) { try { return reader.cancel(reason); } catch (_) {} }
+    });
+  }
+  function version() { return typeof GD_BUILD_ID === 'string' ? GD_BUILD_ID : 'dev'; }
+  function manifest() {
+    if (!manifestPromise) manifestPromise = fetch('gd_assets.json?v=' + version(), {cache: 'no-cache'})
+      .then(function (r) { if (!r.ok) throw new Error('Asset manifest HTTP ' + r.status); return r.json(); });
+    return manifestPromise;
+  }
+  function report(kind, loaded, total) {
+    if (typeof setAssetBar === 'function') setAssetBar(kind, loaded, total);
+    if (window.Module) {
+      Module.dataFileDownloads = Module.dataFileDownloads || {};
+      Module.dataFileDownloads['gd_web.' + (kind === 'data' ? 'data' : 'wasm')] = {loaded: loaded, total: total};
+    }
+  }
+  async function compressedResponse(entry, signal, attempt) {
+    var cache = await assetCache();
+    var r = null;
+    if (cache && !attempt) {
+      try { r = await cache.match(entry.url); } catch (e) { r = null; }
+    }
+    if (!r) {
+      r = await fetch(entry.url, {cache: attempt ? 'reload' : 'force-cache', signal: signal});
+      if (!r.ok) throw new Error(entry.url + ': HTTP ' + r.status);
+      if (!r.body) throw new Error('This browser cannot stream game assets.');
+      if (cache) {
+        var put = cache.put(entry.url, r.clone());
+        if (put && put.catch) put.catch(function () {});
+      }
+    }
+    var body = r.headers.get('Content-Encoding') === 'gzip' ? r.body
+      : r.body.pipeThrough(new DecompressionStream('gzip'));
+    return new Response(body, {headers: {'Content-Type': 'application/wasm'}});
+  }
+  async function retry(operation, signal, retryable) {
+    for (var attempt = 0; ; attempt++) {
+      try { return await operation(attempt); }
+      catch (e) {
+        if (signal && signal.aborted) throw e;
+        if (attempt >= 4) throw e;
+        if (retryable && !retryable(e)) throw e;
+        await new Promise(function (resolve) { setTimeout(resolve, 400 * (attempt + 1)); });
+      }
+    }
+  }
+  function isNetworkError(e) {
+    var msg = String(e && e.message || e);
+    return /Network error|Failed to read|ERR_|fetch|aborted|stream|stalled|interrupted/i.test(msg);
+  }
+  async function data(url, expectedSize) {
+    if (typeof DecompressionStream === 'undefined') return rawData(url, expectedSize);
+    var m = await manifest();
+    if (m.data.size !== expectedSize) throw new Error('Game files belong to different builds. Reload to update.');
+    var out = new Uint8Array(expectedSize);
+    var controller = new AbortController();
+    var index = 0, loaded = 0;
+    async function worker() {
+      while (index < m.data.chunks.length) {
+        var chunk = m.data.chunks[index++];
+        var bytes = await retry(async function (attempt) {
+          await acquire();
+          try {
+            var response = await compressedResponse(chunk, controller.signal, attempt);
+            var bytes = await readAllBytes(response.body, stallMs, chunk.size);
+            if (window.crypto && crypto.subtle) {
+              var digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+              var hex = Array.from(digest, function (v) { return v.toString(16).padStart(2, '0'); }).join('');
+              if (hex !== chunk.sha256) throw new Error('Corrupt asset: ' + chunk.url);
+            }
+            return bytes;
+          } finally { release(); }
+        }, controller.signal);
+        out.set(bytes, chunk.offset);
+        loaded += bytes.length;
+        report('data', loaded, expectedSize);
+      }
+    }
+    try { await Promise.all([worker(), worker()]); }
+    catch (e) { controller.abort(); throw e; }
+    return out.buffer;
+  }
+  async function rawData(url, expectedSize) {
+    await acquire();
+    try {
+      var r = await fetch(url, {cache: 'force-cache'});
+      if (!r.ok) throw new Error('Game data HTTP ' + r.status);
+      var out = new Uint8Array(expectedSize), offset = 0;
+      var reader = r.body.getReader();
+      for (;;) {
+        var next = await reader.read();
+        if (next.done) break;
+        if (offset + next.value.length > out.length) throw new Error('Game data has the wrong size.');
+        out.set(next.value, offset); offset += next.value.length;
+        report('data', offset, expectedSize);
+      }
+      if (offset !== expectedSize) throw new Error('Game data download was interrupted.');
+      return out.buffer;
+    } finally { release(); }
+  }
+  async function wasm(imports, success) {
+    var m = await manifest();
+    var result = await retry(async function (attempt) {
+      await acquire();
+      var released = false;
+      function finish() { if (!released) { released = true; release(); } }
+      try {
+        var r;
+        if (typeof DecompressionStream === 'undefined') {
+          r = await fetch('gd_web.wasm?v=' + version(), {cache: attempt ? 'reload' : 'force-cache'});
+          if (!r.ok) throw new Error('Game WASM HTTP ' + r.status);
+        } else r = await compressedResponse(m.wasm, undefined, attempt);
+        var loaded = 0;
+        var stream = watchdogStream(r.body, stallMs, function (n) {
+          loaded += n; report('wasm', loaded, m.wasm.size);
+          if (loaded >= m.wasm.size) finish();
+        });
+        var out = await WebAssembly.instantiateStreaming(new Response(stream, {
+          headers: {'Content-Type': 'application/wasm'}
+        }), imports);
+        finish();
+        return out;
+      } catch (e) { finish(); throw e; }
+    }, undefined, isNetworkError);
+    report('wasm', m.wasm.size, m.wasm.size);
+    success(result.instance, result.module);
+  }
+  function fail(e) {
+    console.error(e);
+    var el = document.getElementById('errOverlay');
+    if (el) { el.textContent = 'Could not load the game: ' + e.message + '. Reload to retry; completed chunks stay cached.'; el.classList.add('on'); }
+  }
+  window.GDAssets = {
+    loadScript: async function () {
+      var m = await manifest();
+      if (m.game && m.game.gameVersion && m.game.steamBuild) {
+        var badge = document.getElementById('version');
+        if (badge) {
+          badge.textContent = 'GD ' + m.game.gameVersion + ' · Steam ' + m.game.steamBuild + ' · Port ' + String(m.build || 'dev').slice(0, 8);
+          badge.title = 'Port package ' + (m.build || 'dev');
+        }
+      }
+      await acquire();
+      try {
+        var response = typeof DecompressionStream === 'undefined'
+          ? await fetch('gd_web.js?v=' + version(), {cache: 'force-cache'})
+          : await compressedResponse(m.loader);
+        if (!response.ok) throw new Error('Game script HTTP ' + response.status);
+        var bytes = await readAllBytes(response.body, stallMs);
+        return new TextDecoder('utf-8').decode(bytes);
+      } finally { release(); }
+    },
+    loadData: function (url, size) {
+      if (!pending[url]) pending[url] = data(url, size).catch(function (e) { delete pending[url]; fail(e); throw e; });
+      return pending[url].then(function (result) { delete pending[url]; return result; });
+    },
+    instantiateWasm: function (imports, success) { wasm(imports, success).catch(fail); return {}; },
+    fail: fail
+  };
+})();
+
+</script><script>var consoleEl = document.getElementById('console');
+try { Error.stackTraceLimit = 400; } catch (e) {}
+var gdQuality = new URLSearchParams(location.search).get('quality');
+var gdLowMemory = gdQuality === 'low' || (gdQuality !== 'high' && navigator.deviceMemory > 0 && navigator.deviceMemory <= 4);
+if (gdLowMemory) {
+var gdCanvas = document.getElementById('canvas');
+gdCanvas.width = 1280; gdCanvas.height = 720;
+}
+
+var GD_DEBUG = /[?&]debug(=|&|$)/.test(location.search);
+if (!GD_DEBUG) {
+try { console.log = console.info = console.debug = function () {}; }
+catch (e) {}
+consoleEl.style.display = 'none';
+}
+var logQueue = [], logScheduled = false;
+window.gdLogRaw = [];
+var GD_LOG_DOM_MAX = 500;
+window.gdLogDump = function () { return window.gdLogRaw.join('\n'); };
+function flushLog() {
+logScheduled = false;
+if (!logQueue.length) return;
+var frag = document.createDocumentFragment();
+for (var i = 0; i < logQueue.length; i++) {
+var line = document.createElement('div');
+line.textContent = logQueue[i];
+frag.appendChild(line);
+}
+logQueue = [];
+var nearBottom =
+consoleEl.scrollHeight - consoleEl.scrollTop - consoleEl.clientHeight < 40;
+consoleEl.appendChild(frag);
+while (consoleEl.childNodes.length > GD_LOG_DOM_MAX)
+consoleEl.removeChild(consoleEl.firstChild);
+if (nearBottom) consoleEl.scrollTop = consoleEl.scrollHeight;
+}
+var seenDep = Object.create(null);
+var QUIET = ['[frame]', '[webgl]', '[io]', '[tex]', '[pngc]',
+'[pngd]', '[fmtf]', '[sink]', '[htb]', '[disp]', '[rawin]',
+'[touch]', '[cte]', '[list]', '[drs]', '[tex2]'];
+function isQuiet(str) {
+for (var i = 0; i < QUIET.length; ++i) {
+if (str.lastIndexOf(QUIET[i], 0) === 0) return true;
+}
+return false;
+}
+function say(s) {
+if (!GD_DEBUG) return;
+var str = String(s);
+if (/[?&]hostlog(=|&|$)/.test(location.search) &&
+    /^\[(autosave|zlib|persist|thread|gd)\]/.test(str))
+fetch('__debug_log', {method: 'POST', body: str, keepalive: true}).catch(function () {});
+if (!isQuiet(str)) console.log(s);
+if (str.indexOf('dependency: ') === 0 ||
+str.indexOf('still waiting on run dependencies') === 0 ||
+str === '(end of list)') {
+if (seenDep[str]) return;
+seenDep[str] = 1;
+}
+window.gdLogRaw.push(str);
+if (window.gdLogRaw.length > 10000)
+window.gdLogRaw.splice(0, 2000);
+logQueue.push(str);
+if (!logScheduled) {
+logScheduled = true;
+requestAnimationFrame(flushLog);
+}
+}
+var gdProg = 0, gdProgDone = false;
+var gdAssetDone = { wasm: false, data: false };
+var gdAssetsFell = false;
+var wasmFill = document.getElementById('wasmFill');
+var dataFill = document.getElementById('dataFill');
+var wasmPct = document.getElementById('wasmPct');
+var dataPct = document.getElementById('dataPct');
+var wasmLabel = document.getElementById('wasmLabel');
+var dataLabel = document.getElementById('dataLabel');
+var bootFill = document.getElementById('bootFill');
+var bootPct = document.getElementById('bootPct');
+function gdFmtSize(n) {
+if (!n) return '0 MB';
+if (n < 1048576) return Math.round(n / 1024) + ' KB';
+return (n / 1048576).toFixed(1) + ' MB';
+}
+var GD_SIZE_HINT = { wasm: 123481510, data: 322237583 };
+var GD_BUILD_ID = '9274beaaad27e3fbd46ebce7';
+var GD_ASSET_CACHE = 'gdwasm-assets';
+function gdClearCache() {
+if (!confirm('Clear saved progress and login on this site?\n' +
+'The game reloads afterwards.'))
+return;
+try { if (Module && Module._gd_autosave_set) Module._gd_autosave_set(0); }
+catch (e) {}
+var jobs = [];
+if (window.caches) jobs.push(caches.delete(GD_ASSET_CACHE));
+jobs.push(new Promise(function (res) {
+try {
+var r = indexedDB.deleteDatabase('gdwasm_saves');
+r.onsuccess = r.onerror = r.onblocked = function () { res(); };
+} catch (e) { res(); }
+}));
+try {
+localStorage.removeItem('gdWasmSize');
+localStorage.removeItem('gdDataSize');
+} catch (e) {}
+Promise.all(jobs).then(function () { location.reload(); },
+function () { location.reload(); });
+}
+function gdSizeHint(which) {
+return which === 'wasm' ? GD_SIZE_HINT.wasm : GD_SIZE_HINT.data;
+}
+function gdLearnedSize(which) {
+try {
+return Number(localStorage.getItem(
+which === 'wasm' ? 'gdWasmSize' : 'gdDataSize')) || 0;
+} catch (e) { return 0; }
+}
+function setAssetBar(which, loaded, total) {
+var fill = which === 'wasm' ? wasmFill : dataFill;
+var pctEl = which === 'wasm' ? wasmPct : dataPct;
+var label = which === 'wasm' ? wasmLabel : dataLabel;
+if (!fill) return;
+var name = which === 'wasm' ? 'WASM' : 'DATA';
+var learned = gdLearnedSize(which);
+var hint = gdSizeHint(which);
+var known = hint > 0 ? hint
+: (learned > 0 ? learned : (total > 0 ? total : 0));
+var exact = known > 0;
+if (label) {
+var fallback = which === 'wasm' ? 110 * 1024 * 1024 : 320 * 1024 * 1024;
+label.textContent = name + ' (' + (exact ? '' : '~') +
+gdFmtSize(known > 0 ? known : fallback) + ')';
+}
+var p;
+if (known > 0) {
+p = Math.min(100, loaded / known * 100);
+} else {
+var est = which === 'wasm' ? 110 * 1024 * 1024 : 320 * 1024 * 1024;
+p = Math.min(95, loaded / est * 95);
+}
+fill.style.width = p.toFixed(1) + '%';
+if (loaded <= 0) pctEl.textContent = '0%';
+else if (known > 0) {
+pctEl.textContent = p.toFixed(0) + '% (' + gdFmtSize(loaded) + ')';
+} else {
+pctEl.textContent = gdFmtSize(loaded);
+}
+if (known > 0 && loaded >= known) {
+gdAssetDone[which] = true;
+try {
+localStorage.setItem(which === 'wasm' ? 'gdWasmSize' : 'gdDataSize',
+String(Math.max(loaded, known)));
+} catch (e) {}
+}
+if (gdAssetDone.wasm && gdAssetDone.data) assetsDone();
+}
+function forceAssetsDone() {
+gdAssetDone.wasm = true;
+gdAssetDone.data = true;
+setAssetBar('wasm', 1, 1);
+setAssetBar('data', 1, 1);
+assetsDone();
+}
+function assetsDone() {
+if (gdAssetsFell) return;
+gdAssetsFell = true;
+var bars = document.getElementById('bars');
+var boot = document.getElementById('bootbars');
+if (bars) bars.classList.add('fall');
+setTimeout(function () {
+if (bars) bars.style.display = 'none';
+if (boot) boot.classList.add('on');
+}, 520);
+}
+function bootDone() {
+var boot = document.getElementById('bootbars');
+if (!boot || boot.classList.contains('done')) return;
+boot.classList.add('done');
+setTimeout(function () { boot.style.display = 'none'; }, 520);
+}
+function setProgress(p, exact) {
+if (gdProgDone && p < 100) return;
+p = Math.max(0, Math.min(100, p));
+if (p < gdProg && !exact) return;
+gdProg = p;
+if (bootFill) bootFill.style.width = p.toFixed(1) + '%';
+if (bootPct) bootPct.textContent = p.toFixed(0) + '%';
+if (p >= 100) { gdProgDone = true; bootDone(); }
+}
+function resetProgress() {
+gdProgDone = false;
+gdProg = 0;
+gdAssetsFell = false;
+gdAssetDone = { wasm: false, data: false };
+var bars = document.getElementById('bars');
+var boot = document.getElementById('bootbars');
+if (bars) { bars.style.display = ''; bars.classList.remove('fall'); }
+if (boot) { boot.classList.remove('on'); boot.classList.remove('done'); }
+setAssetBar('wasm', 0, gdLearnedSize('wasm'));
+setAssetBar('data', 0, gdLearnedSize('data'));
+if (bootFill) bootFill.style.width = '0%';
+if (bootPct) bootPct.textContent = '0%';
+}
+window.gdFirstFrame = function () {
+forceAssetsDone();
+setProgress(100);
+};
+var gdSaveTimer = null;
+var gdLastSave = 0;
+var gdSavePromise = null;
+var gdSavePending = false;
+function performSave() {
+try {
+if (Module._gd_request_save) Module._gd_request_save();
+} catch (e) { console.error('Failed to save progress:', e); }
+if (gdSavePromise) {
+gdSavePending = true;
+return gdSavePromise;
+}
+function runSave() {
+gdSavePending = false;
+gdSavePromise = saveAppData().then(function () {
+gdLastSave = Date.now();
+}, function (e) {
+console.error('Failed to save AppData:', e);
+}).then(function () {
+gdSavePromise = null;
+if (gdSavePending) return runSave();
+});
+return gdSavePromise;
+}
+return runSave();
+}
+function scheduleSave(now) {
+if (!window.__gdRuntimeReady || !window.__gdSavesRestored) return;
+if (gdSaveTimer) clearTimeout(gdSaveTimer);
+gdSaveTimer = setTimeout(function () {
+gdSaveTimer = null;
+if (!now && Date.now() - gdLastSave < 180000) return;
+performSave();
+}, now ? 0 : 4000);
+}
+document.addEventListener('visibilitychange', function () {
+if (document.hidden) scheduleSave(true);
+});
+function gdProgressTick() {
+if (!window.__gdLoadStarted || gdProgDone) return;
+if (!gdAssetsFell) {
+var df = Module.dataFileDownloads;
+if (df) {
+for (var k in df) {
+var e = df[k];
+var which = /wasm/i.test(k) ? 'wasm'
+: (/\.data/i.test(k) ? 'data' : null);
+if (which) setAssetBar(which, e.loaded || 0, e.total || 0);
+}
+}
+} else if (gdProg < 78) {
+setProgress(gdProg + 0.35);
+}
+}
+setInterval(gdProgressTick, 200);
+document.addEventListener('visibilitychange', function () {
+if (!document.hidden) gdProgressTick();
+});
+(function () {
+var fpsEl = document.getElementById('fpsval');
+var benchmarkButton, benchmarkResult;
+if (/[?&]perf(=|&|$)/.test(location.search)) {
+benchmarkButton = document.createElement('button');
+benchmarkButton.textContent = '20s test';
+benchmarkButton.disabled = true;
+benchmarkButton.title = 'Measure gameplay FPS, frame pacing and queued input for 20 seconds. Keep the game focused.';
+benchmarkButton.style.cssText = 'font:12px monospace;color:#ccc;background:#0a0a0a;border:1px solid #2a2a2a;border-radius:4px;padding:4px 8px;cursor:pointer';
+benchmarkResult = document.createElement('span');
+benchmarkResult.id = 'benchmarkResult';
+benchmarkResult.style.fontSize = '11px';
+document.getElementById('midbar').appendChild(benchmarkButton);
+document.getElementById('midbar').appendChild(benchmarkResult);
+benchmarkButton.addEventListener('click', function () {
+if (!Module.gdBeginBenchmark) return;
+benchmarkResult.textContent = '';
+Module.gdBeginBenchmark(20000);
+Module.canvas.focus({preventScroll:true});
+});
+}
+var lastT = performance.now(), lastN = 0, primed = false;
+function tick(now) {
+if (now - lastT >= 500) {
+if (!window.__gdRuntimeReady) {
+lastT = now;
+requestAnimationFrame(tick);
+return;
+}
+var n = 0;
+if (benchmarkButton) {
+var result = Module.gdBenchmark;
+benchmarkButton.disabled = !Module.gdBeginBenchmark || !!(result && result.running);
+benchmarkButton.textContent = result && result.running ? 'Testing '+Math.max(0,20-Math.floor(result.elapsedMs/1000))+'s' : '20s test';
+if (result && !result.running) {
+benchmarkResult.textContent = result.error || (result.meanFps.toFixed(1)+' fps · p95 '+result.frameP95Ms.toFixed(1)+' ms · max '+result.frameMaxMs.toFixed(1)+' ms · heap '+Math.round(result.heapMiB)+' MiB'+(result.inputP95Ms === null ? '' : ' · input '+result.inputP95Ms.toFixed(1)+' ms'));
+}
+}
+try {
+if (Module._gd_frames_get) n = Module._gd_frames_get() | 0;
+} catch (e) {}
+if (n > 0) {
+if (primed)
+fpsEl.textContent =
+Math.round((n - lastN) * 1000 / (now - lastT)) + ' fps';
+var perf = document.getElementById('perfval');
+if(perf && /[?&]perf(=|&|$)/.test(location.search) && Module.gdInputStats){
+var stats=Module.gdInputStats;
+var details='Frame p95 '+stats.frameP95Ms.toFixed(1)+' ms';
+if(stats.samples) details+=' | input queue p95 '+stats.queueP95Ms.toFixed(1)+' ms';
+if(Module.HEAPU8) details+=' | WASM '+Math.round(Module.HEAPU8.byteLength/1048576)+' MiB';
+var audio=Module.__gdAudio;
+var render=Module.gdRenderStats;
+if(render) details+=' | GL matrices '+render.matrixUploads+' ('+render.matrixSkipped+' cached), empty draws '+render.emptyDrawsSkipped;
+if(audio && audio.ctx){
+details+=' | audio '+audio.ctx.state;
+if(audio.metrics) details+=' (starts '+audio.metrics.starts+', seeks '+audio.metrics.seeks+')';
+}
+perf.textContent=details;
+if(stats.pointerClient) perf.title='Pointer client '+stats.pointerClient.join(',')+'; game '+stats.pointerGame.join(',');
+}
+lastN = n;
+primed = true;
+if (!window.__gdGotFrame) {
+window.__gdGotFrame = true;
+window.__gdInputReady = true;
+if (window.__gdAckFocus) window.__gdAckFocus();
+document.body.classList.add('playing');
+setProgress(100);
+}
+} else if (!primed) {
+fpsEl.textContent = '-- fps';
+}
+lastT = now;
+}
+requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+})();
+function dumpTrace() {
+if (!window.__gdRuntimeReady) { say('runtime not initialized; no trace'); return; }
+try {
+if (!Module._gd_trace_count) { say('no trace exports'); return; }
+var n = Module._gd_trace_count();
+var m = Math.min(48, n);
+var out = [];
+for (var i = 0; i < m; ++i) {
+var va = Module._gd_trace_at(i);
+if (typeof va === 'bigint') va = Number(va & 0xffffffffn);
+else va = va >>> 0;
+out.push('0x' + va.toString(16));
+}
+say('TRACE total=' + n + ' newest-first: ' + out.join(' '));
+} catch (e) { say('trace dump failed: ' + e); }
+}
+function dumpRegs() {
+if (!window.__gdRuntimeReady) return;
+try {
+if (!Module._gd_reg) { say('no register export'); return; }
+var names = ['RAX', 'RCX', 'RDX', 'RBX', 'RSP', 'RBP', 'RSI', 'RDI',
+'R8', 'R9', 'R10', 'R11', 'R12', 'R13', 'R14', 'R15'];
+var out = [];
+for (var i = 0; i < names.length; ++i) {
+var v = Module._gd_reg(i);
+var hex = (typeof v === 'bigint')
+? (v & 0xffffffffffffffffn).toString(16).padStart(16, '0')
+: (v >>> 0).toString(16).padStart(8, '0');
+out.push(names[i] + '=0x' + hex);
+}
+say('REGS ' + out.join(' '));
+if (Module._gd_where) {
+var w = Module._gd_where();
+say('WHERE va=0x' + (typeof w === 'bigint'
+? (w & 0xffffffffn).toString(16) : (w >>> 0).toString(16)));
+}
+} catch (e) { say('register dump failed: ' + e); }
+}
+function gdErrStack(what, e, reason) {
+  var msg = what + (reason || '');
+  if (e && e.stack) msg += '\n' + e.stack;
+  else if (reason && reason.stack) msg += '\n' + reason.stack;
+  say(msg);
+  dumpRegs();
+  dumpTrace();
+}
+window.addEventListener('error', function (e) {
+  gdErrStack('ERROR: ', e.error, e.message);
+});
+window.addEventListener('unhandledrejection', function (e) {
+  gdErrStack('REJECT: ', e.reason, e.reason);
+});
+function restoreSaves(then) {
+var called = false;
+var db = null;
+function finish() {
+if (called) return;
+called = true;
+if (db) db.close();
+then();
+}
+try {
+var req = indexedDB.open('gdwasm_saves', 1);
+req.onupgradeneeded = function () {
+if (!req.result.objectStoreNames.contains('files'))
+req.result.createObjectStore('files');
+};
+req.onerror = function () { say('[persist] idb open failed: ' + req.error); finish(); };
+req.onblocked = function () {
+say('[persist] idb open blocked; starting without restored data');
+finish();
+};
+req.onsuccess = function () {
+if (called) { req.result.close(); return; }
+var store, keysReq;
+try {
+db = req.result;
+store = db.transaction('files', 'readonly').objectStore('files');
+keysReq = store.getAllKeys();
+} catch (e) { say('[persist] restore transaction failed: ' + e); finish(); return; }
+keysReq.onerror = function () {
+say('[persist] restore keys failed: ' + keysReq.error);
+finish();
+};
+keysReq.onsuccess = function () {
+var keys = keysReq.result || [];
+say('[persist] restore: ' + keys.length + ' file(s) in DB' +
+(keys.length ? ': ' + keys.join(', ') : ''));
+if (!keys.length) { finish(); return; }
+var pending = keys.length;
+function one() { if (--pending === 0) finish(); }
+keys.forEach(function (k) {
+var g = store.get(k);
+g.onerror = function () {
+say('[persist] restore read ' + k + ': ' + g.error);
+one();
+};
+g.onsuccess = function () {
+try {
+if (g.result !== undefined && g.result !== null) {
+var s = String(k);
+var base = s.indexOf('AppData/') === 0 ? '/' : '/Resources/';
+var parts = s.split('/'), cur = base.replace(/\/$/, '');
+for (var pi = 0; pi < parts.length - 1; ++pi) {
+cur += '/' + parts[pi];
+try { Module.FS.stat(cur); } catch (e2) { Module.FS.mkdir(cur); }
+}
+Module.FS.writeFile(base + s, new Uint8Array(g.result));
+say('[persist] restored ' + s + ' (' + g.result.byteLength + ' bytes)');
+}
+} catch (e) { say('[persist] restore ' + k + ': ' + e); }
+one();
+};
+});
+};
+};
+} catch (e) { finish(); }
+}
+function saveAppData() {
+return saveAppDataAsync();
+}
+function saveYield() {
+return new Promise(function (resolve) { setTimeout(resolve, 0); });
+}
+function idbRequestResult(tx, request) {
+return new Promise(function (resolve, reject) {
+var result, settled = false;
+function fail(error) {
+if (settled) return;
+settled = true;
+reject(error);
+}
+request.onsuccess = function () { result = request.result; };
+request.onerror = function () { fail(request.error || new Error('IndexedDB request failed')); };
+tx.oncomplete = function () {
+if (settled) return;
+settled = true;
+resolve(result);
+};
+tx.onerror = function () { fail(tx.error || new Error('IndexedDB transaction failed')); };
+tx.onabort = function () { fail(tx.error || new Error('IndexedDB transaction aborted')); };
+});
+}
+async function saveAppDataAsync() {
+var fs = Module.FS, files = [], paths = Object.create(null);
+if (!fs || !fs.analyzePath || !fs.analyzePath('/AppData').exists) return;
+async function scan(directory, keyPrefix) {
+var entries = fs.readdir(directory);
+for (var i = 0; i < entries.length; ++i) {
+var name = entries[i];
+if (name === '.' || name === '..') continue;
+var path = directory === '/' ? '/' + name : directory + '/' + name;
+var key = keyPrefix + '/' + name;
+var stat = fs.lstat ? fs.lstat(path) : fs.stat(path);
+if (fs.isLink && fs.isLink(stat.mode)) continue;
+if (fs.isDir(stat.mode)) {
+await scan(path, key);
+} else if (fs.isFile(stat.mode)) {
+var bytes = fs.readFile(path);
+var copy = new Uint8Array(bytes.length);
+for (var offset = 0; offset < bytes.length; offset += 65536) {
+copy.set(bytes.subarray(offset, Math.min(offset + 65536, bytes.length)), offset);
+await saveYield();
+}
+files.push({ key: key, bytes: copy.buffer });
+paths[key] = true;
+await saveYield();
+}
+}
+}
+try {
+await scan('/AppData', 'AppData');
+} catch (e) {
+console.error('Failed to read AppData for saving:', e);
+return;
+}
+var db;
+try {
+db = await new Promise(function (resolve, reject) {
+var request = indexedDB.open('gdwasm_saves', 1);
+request.onupgradeneeded = function () {
+if (!request.result.objectStoreNames.contains('files'))
+request.result.createObjectStore('files');
+};
+request.onerror = function () {
+reject(request.error || new Error('IndexedDB open failed'));
+};
+request.onsuccess = function () { resolve(request.result); };
+});
+} catch (e) {
+console.error('Failed to open save database:', e);
+return;
+}
+var savedKeys;
+try {
+var keysTx = db.transaction('files', 'readonly');
+savedKeys = await idbRequestResult(keysTx, keysTx.objectStore('files').getAllKeys());
+} catch (e) {
+console.error('Failed to read saved file list:', e);
+db.close();
+return;
+}
+var written = [];
+for (var fi = 0; fi < files.length; ++fi) {
+var file = files[fi], saved;
+try {
+var readTx = db.transaction('files', 'readonly');
+saved = await idbRequestResult(readTx, readTx.objectStore('files').get(file.key));
+} catch (e) {
+console.error('Failed to read saved file ' + file.key + ':', e);
+continue;
+}
+var savedBytes = saved instanceof ArrayBuffer
+? new Uint8Array(saved)
+: (ArrayBuffer.isView(saved)
+? new Uint8Array(saved.buffer, saved.byteOffset, saved.byteLength) : null);
+var unchanged = savedBytes && savedBytes.length === file.bytes.byteLength;
+if (unchanged) {
+var currentBytes = new Uint8Array(file.bytes);
+for (var compareOffset = 0; compareOffset < currentBytes.length; compareOffset += 65536) {
+var compareEnd = Math.min(compareOffset + 65536, currentBytes.length);
+for (var bi = compareOffset; bi < compareEnd; ++bi) {
+if (currentBytes[bi] !== savedBytes[bi]) {
+unchanged = false;
+break;
+}
+}
+if (!unchanged) break;
+await saveYield();
+}
+}
+if (!unchanged) {
+try {
+var writeTx = db.transaction('files', 'readwrite');
+await idbRequestResult(writeTx, writeTx.objectStore('files').put(file.bytes, file.key));
+written.push(file.key);
+} catch (e) {
+console.error('Failed to save AppData file ' + file.key + ':', e);
+}
+}
+await saveYield();
+}
+for (var ki = 0; ki < savedKeys.length; ++ki) {
+var oldKey = savedKeys[ki];
+if (typeof oldKey !== 'string' || oldKey.indexOf('AppData/') !== 0 || paths[oldKey]) continue;
+try {
+var deleteTx = db.transaction('files', 'readwrite');
+await idbRequestResult(deleteTx, deleteTx.objectStore('files').delete(oldKey));
+} catch (e) {
+console.error('Failed to delete saved AppData file ' + oldKey + ':', e);
+}
+await saveYield();
+}
+say('[persist] saved ' + written.length + ' changed AppData file(s): ' +
+written.join(', '));
+db.close();
+}
+var Module = {
+canvas: document.getElementById('canvas'),
+gdInputQueue: [],
+gdCursorPos: [0, 0],
+locateFile: function (p) { return p + '?v=' + GD_BUILD_ID; },
+get dataFileDownloads() { return this.__dfd; },
+set dataFileDownloads(v) {
+if (this.__dfd === v) return;
+this.__dfd = new Proxy(v || {}, {
+set: function (t, k, val) {
+t[k] = val;
+try {
+var which = /wasm/i.test(k) ? 'wasm'
+: (/\.data/i.test(k) ? 'data' : null);
+if (which) setAssetBar(which, (val && val.loaded) || 0,
+(val && val.total) || 0);
+} catch (e) {}
+return true;
+}
+});
+},
+instantiateWasm: function (imports, success) {
+return GDAssets.instantiateWasm(imports, success);
+},
+print: function (s) { say(s); },
+printErr: function (s) { say(s); },
+setStatus: function (t) {
+if (!t) return;
+var m = /\((\d+)\/(\d+)\)/.exec(t);
+if (m) {
+var total = +m[2] || 1;
+setProgress(+m[1] / total * 78);
+} else if (t.indexOf('Downloading') === 0) {
+setProgress(4);
+} else if (t.indexOf('Running') === 0) {
+forceAssetsDone();
+setProgress(80);
+} else if (t.indexOf('Compiling') === 0) {
+setProgress(76);
+}
+},
+onRuntimeInitialized: function () {
+window.__gdRuntimeReady = true;
+if (!/[?&]noauto/.test(location.search))
+setInterval(function () { scheduleSave(false); }, 30000);
+if (Module._gd_log_set) Module._gd_log_set(GD_DEBUG ? 1 : 0);
+if (/[?&]noauto/.test(location.search) && Module._gd_autosave_set)
+Module._gd_autosave_set(0);
+setProgress(82);
+try {
+Module.FS.chdir('/Resources');
+} catch (e) {
+say('FS.chdir failed: ' + e);
+}
+setTimeout(function () {
+restoreSaves(function () {
+window.__gdSavesRestored = true;
+setProgress(88);
+try {
+const r = Module._gd_boot();
+setProgress(92);
+if (r && typeof r.then === 'function') {
+r.then(function () { say('gd_boot resolved'); setProgress(100); })
+.catch(function (e) {
+try {
+var ov = document.getElementById('errOverlay');
+if (ov) {
+ov.textContent = 'The game crashed (' + e + '). Reload the page to ' +
+'keep playing. Open it with ?debug to see logs.';
+ov.classList.add('on');
+}
+} catch (e2) {}
+say('gd_boot rejected: ' + e);
+if (e && e.stack) say('STACK: ' + e.stack);
+dumpRegs();
+dumpTrace();
+});
+} else {
+say('gd_boot returned (sync)');
+setProgress(100);
+}
+} catch (e) {
+say('gd_boot exception: ' + e);
+}
+});
+}, 100);
+}
+};
+(function () {
+var nativeFetch = window.fetch;
+var nativeXhrOpen = XMLHttpRequest.prototype.open;
+var audioObjectUrls = new WeakMap();
+function audioFilename(url) {
+var path = String(url).replace(/\\/g, '/');
+try { path = decodeURIComponent(path); }
+catch (e) {
+say('[audio] invalid encoded song path: ' + url);
+return null;
+}
+path = path.replace(/\\/g, '/').split(/[?#]/)[0];
+var match = /(?:^|\/)([^/]+\.mp3)$/i.exec(path);
+return match ? match[1] : null;
+}
+function normalizeFsPath(path) {
+return String(path).replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/$/, '') || '/';
+}
+function readLocalSong(url) {
+var filename = audioFilename(url);
+var fs = Module.FS;
+if (!filename || !fs || !fs.analyzePath || !fs.readFile) return null;
+var cwd = typeof fs.cwd === 'function' ? fs.cwd() : '/';
+var roots = ['/Resources', '/', '/AppData', cwd];
+var tried = [];
+var scanErrors = [];
+var checked = Object.create(null);
+function readPath(path) {
+path = normalizeFsPath(path);
+if (checked[path]) return null;
+checked[path] = true;
+tried.push(path);
+if (!fs.analyzePath(path).exists) return null;
+try {
+return { path: path, bytes: fs.readFile(path) };
+} catch (e) {
+console.error('[audio] failed to read saved song ' + path, e);
+throw e;
+}
+}
+for (var i = 0; i < roots.length; ++i) {
+var direct = readPath(normalizeFsPath(roots[i]) + '/' + filename);
+if (direct) return direct;
+}
+var mp3Files = [];
+var visited = Object.create(null);
+function scan(directory) {
+directory = normalizeFsPath(directory);
+if (visited[directory]) return null;
+visited[directory] = true;
+tried.push(directory);
+var entries;
+try {
+entries = fs.readdir(directory);
+} catch (e) {
+scanErrors.push({ path: directory, error: String(e) });
+return null;
+}
+for (var j = 0; j < entries.length; ++j) {
+var name = entries[j];
+if (name === '.' || name === '..') continue;
+var path = directory === '/' ? '/' + name : directory + '/' + name;
+var stat;
+try {
+stat = fs.lstat ? fs.lstat(path) : fs.stat(path);
+} catch (e) {
+scanErrors.push({ path: path, error: String(e) });
+continue;
+}
+if (fs.isLink && fs.isLink(stat.mode)) continue;
+if (fs.isDir(stat.mode)) {
+var found = scan(path);
+if (found) return found;
+} else if (/\.mp3$/i.test(name)) {
+if (name.toLowerCase() === filename.toLowerCase()) {
+var song = readPath(path);
+if (song) return song;
+}
+mp3Files.push(path);
+}
+}
+return null;
+}
+var recursive = scan('/');
+if (recursive) return recursive;
+console.warn('[audio] song not found in virtual FS', {
+filename: filename,
+tried: tried,
+mp3Files: mp3Files,
+scanErrors: scanErrors
+});
+return null;
+}
+window.fetch = function (input, init) {
+var url = typeof input === 'string' ? input : input && (input.url || input.href);
+var method = (init && init.method) || (input && input.method) || 'GET';
+var normalizedUrl = typeof input === 'string' ? input.replace(/\\/g, '/') : input;
+if (url && String(method).toUpperCase() === 'GET') {
+var song = readLocalSong(url);
+if (song) return Promise.resolve(new Response(song.bytes, {
+status: 200,
+headers: { 'Content-Type': 'audio/mpeg' }
+}));
+}
+if (normalizedUrl !== input) return nativeFetch.call(this, normalizedUrl, init);
+return nativeFetch.apply(this, arguments);
+};
+function releaseAudioUrl(xhr) {
+var url = audioObjectUrls.get(xhr);
+if (url) {
+URL.revokeObjectURL(url);
+audioObjectUrls.delete(xhr);
+}
+}
+XMLHttpRequest.prototype.open = function (method, url) {
+releaseAudioUrl(this);
+var args = Array.prototype.slice.call(arguments);
+var song = /^GET$/i.test(method) ? readLocalSong(url) : null;
+if (song) {
+var blobUrl = URL.createObjectURL(new Blob([song.bytes], { type: 'audio/mpeg' }));
+audioObjectUrls.set(this, blobUrl);
+var xhr = this;
+function cleanup() {
+if (audioObjectUrls.get(xhr) === blobUrl) releaseAudioUrl(xhr);
+}
+['loadend', 'abort', 'error', 'timeout'].forEach(function (event) {
+xhr.addEventListener(event, cleanup, { once: true });
+});
+args[1] = blobUrl;
+} else if (typeof url === 'string') {
+args[1] = url.replace(/\\/g, '/');
+}
+try {
+return nativeXhrOpen.apply(this, args);
+} catch (e) {
+releaseAudioUrl(this);
+throw e;
+}
+};
+})();
+var started = false;
+function gdStart() {
+if (started) return;
+try {
+var AC = window.AudioContext || window.webkitAudioContext;
+if (AC && !Module.gdAudioContext) Module.gdAudioContext = new AC({latencyHint:'interactive'});
+if (Module.gdAudioContext) Module.gdAudioContext.resume().catch(function(){});
+} catch (_) {}
+started = true;
+window.__gdLoadStarted = true;
+resetProgress();
+var startEl = document.getElementById('start');
+var flyEl = document.getElementById('logoFly');
+var s = 0.32;
+try {
+var dh = document.querySelector('#logoDock img').getBoundingClientRect().height;
+var fh = flyEl.querySelector('img').getBoundingClientRect().height;
+if (dh > 0 && fh > 0 && dh / fh < 1) s = dh / fh;
+} catch (e) {}
+flyEl.style.transform = 'translateY(-13vh) scale(' + s + ')';
+document.getElementById('loadFly').classList.add('down');
+setTimeout(function () { startEl.classList.add('hide'); }, 420);
+setTimeout(function () { document.getElementById('logoDock').classList.add('in'); }, 420);
+setTimeout(function () { document.getElementById('stage').classList.add('in'); }, 430);
+setTimeout(function () { document.getElementById('midbar').classList.add('in'); }, 480);
+setTimeout(function () { document.getElementById('console').classList.add('in'); }, 540);
+setTimeout(function () {
+startEl.style.display = 'none';
+
+}, 1700);
+function loadModule() {
+GDAssets.loadScript().then(function (code) {
+var s = document.createElement('script');
+s.textContent = code;
+document.body.appendChild(s);
+}).catch(function (e) {
+GDAssets.fail(e);
+});
+}
+loadModule();
+}
+
+document.getElementById('saveBtn').addEventListener('click', function (e) {
+e.preventDefault(); e.stopPropagation();
+if (!window.__gdRuntimeReady) return;
+scheduleSave(true);
+this.textContent = 'Save requested';
+var button = this; setTimeout(function () { button.textContent = 'Save progress'; }, 3000);
+});
+document.getElementById('clearBtn').addEventListener('click', function (e) {
+e.preventDefault();
+e.stopPropagation();
+gdClearCache();
+});
+document.addEventListener('keydown', function (e) {
+if (!started && (e.code === 'Space' || e.key === ' ' || e.code === 'Enter' ||
+e.key === 'Enter' || e.code === 'NumpadEnter')) {
+e.preventDefault();
+gdStart();
+}
+});</script><script>
+(function () {
+  'use strict';
+  var el = Module.canvas, head = 0;
+  var keys = new Map(), pointers = new Map();
+  var buttonCounts = [0, 0, 0], pointerButtons = new Map();
+  var queueSamples = [], frameSamples = [], lastFrame = 0, frameN = 0, focusAcked = false;
+  var mouseButtons = 0;
+  var benchmark = null;
+  Module.gdBeginBenchmark = function (durationMs) {
+    benchmark = {duration: Math.max(1000, Math.min(60000, durationMs || 20000)),
+      start: null, previous: 0, frames: [], input: [], heap: 0};
+    Module.gdBenchmark = {running: true, elapsedMs: 0};
+  };
+  Module.gdKeyState = new Uint8Array(256);
+  Module.gdInputStats = {samples: 0, queueMs: 0, queueP95Ms: 0, frameP95Ms: 0, pointerClient: null, pointerGame: null};
+  function ready() { return window.__gdInputReady === true; }
+  function timestamp(e) {
+    var now = performance.now(), stamp = e && e.timeStamp;
+    return stamp > 0 && stamp <= now && now - stamp < 60000 ? stamp : now;
+  }
+  function push(msg, wp, lp, time) {
+    Module.gdInputQueue.push([msg | 0, wp | 0, lp | 0, time || performance.now()]);
+  }
+  function position(e) {
+    var r = el.getBoundingClientRect();
+    var width = el.width || 1920, height = el.height || 1080;
+    var x = Math.max(0, Math.min(width - 1, Math.round((e.clientX - r.left) * width / r.width)));
+    var y = Math.max(0, Math.min(height - 1, Math.round((e.clientY - r.top) * height / r.height)));
+    Module.gdCursorPos[0] = x; Module.gdCursorPos[1] = y;
+    Module.gdInputStats.pointerClient = [e.clientX, e.clientY];
+    Module.gdInputStats.pointerGame = [x, y];
+    return (x & 65535) | (y << 16);
+  }
+  function cursor() { return (Module.gdCursorPos[0] & 65535) | (Module.gdCursorPos[1] << 16); }
+  function percentile(values) {
+    if (!values.length) return 0;
+    var sorted = values.slice().sort(function (a, b) { return a - b; });
+    return sorted[Math.ceil(sorted.length * 0.95) - 1];
+  }
+  Module.gdPollInput = function () {
+    if (head >= Module.gdInputQueue.length) return null;
+    var entry = Module.gdInputQueue[head++];
+    if (entry[0] === 0x100 || entry[0] === 0x201 || entry[0] === 0x204) {
+      var delay = Math.max(0, performance.now() - entry[3]);
+      queueSamples.push(delay); if (queueSamples.length > 120) queueSamples.shift();
+      Module.gdInputStats.queueMs = delay; Module.gdInputStats.samples++;
+      Module.gdInputStats.queueP95Ms = percentile(queueSamples);
+      if (benchmark) benchmark.input.push(delay);
+    }
+    if (head >= Module.gdInputQueue.length) { Module.gdInputQueue.length = 0; head = 0; }
+    return entry;
+  };
+  Module.gdMeasureFrame = function () {
+    var now = performance.now();
+    if (benchmark && !document.hidden) {
+      var b = benchmark;
+      if (b.start === null) b.start = now;
+      else b.frames.push(now - b.previous);
+      b.previous = now;
+      if (Module.HEAPU8) b.heap = Math.max(b.heap, Module.HEAPU8.byteLength / 1048576);
+      var elapsed = now - b.start;
+      Module.gdBenchmark.elapsedMs = elapsed;
+      if (elapsed >= b.duration && b.frames.length) {
+        Module.gdBenchmark = {running: false, frames: b.frames.length,
+          elapsedMs: elapsed, meanFps: b.frames.length * 1000 / elapsed,
+          frameP95Ms: percentile(b.frames), frameMaxMs: Math.max.apply(null, b.frames),
+          inputP95Ms: b.input.length ? percentile(b.input) : null, heapMiB: b.heap};
+        benchmark = null;
+      }
+    }
+    if (lastFrame && !document.hidden) {
+      frameSamples.push(now - lastFrame);
+      if (frameSamples.length > 120) frameSamples.shift();
+      if (++frameN % 30 === 0) Module.gdInputStats.frameP95Ms = percentile(frameSamples);
+    }
+    lastFrame = now;
+  };
+  function acknowledgeFocus() {
+    if (focusAcked || !ready()) return;
+    focusAcked = true; push(6, 1, 0); push(7, 0, 0); push(0x1c, 1, 0);
+  }
+  window.__gdAckFocus = acknowledgeFocus;
+  var downMsg = [0x201, 0x207, 0x204], upMsg = [0x202, 0x208, 0x205];
+  function setButton(b, down, lp, time) {
+    var count = buttonCounts[b];
+    buttonCounts[b] += down ? 1 : -1;
+    var vk = [1, 4, 2][b];
+    Module.gdKeyState[vk] = buttonCounts[b] ? 1 : 0;
+    if (down && count === 0) push(downMsg[b], b === 2 ? 2 : b === 1 ? 16 : 1, lp, time);
+    if (!down && buttonCounts[b] === 0) { push(upMsg[b], 0, lp, time); push(0x200, 0, lp, time); }
+  }
+  function syncMouse(mask, lp, time) {
+    [1, 4, 2].forEach(function (bit, b) {
+      if ((mouseButtons & bit) !== (mask & bit)) setButton(b, !!(mask & bit), lp, time);
+    });
+    mouseButtons = mask;
+  }
+  function releasePointer(id, time) {
+    if (!pointers.has(id)) return;
+    var button = pointerButtons.get(id), lp = pointers.get(id);
+    pointers.delete(id); pointerButtons.delete(id);
+    setButton(button, false, lp, time);
+  }
+  el.addEventListener('pointerdown', function (e) {
+    if (!ready() || e.button > 2) return;
+    acknowledgeFocus();
+    el.focus({preventScroll: true});
+    var lp = position(e), b = e.pointerType === 'mouse' ? e.button : 0;
+    if (e.pointerType === 'mouse') {
+      syncMouse(e.buttons === undefined ? (mouseButtons | [1, 4, 2][b]) : e.buttons, lp, timestamp(e));
+      try { el.setPointerCapture(e.pointerId); } catch (_) {}
+      e.preventDefault(); return;
+    }
+    if (pointers.has(e.pointerId)) return;
+    pointers.set(e.pointerId, lp); pointerButtons.set(e.pointerId, b);
+    setButton(b, true, lp, timestamp(e));
+    try { el.setPointerCapture(e.pointerId); } catch (_) {}
+    e.preventDefault();
+  }, {passive: false});
+  el.addEventListener('pointermove', function (e) {
+    if (!ready()) return;
+    var lp = position(e);
+    if (e.pointerType === 'mouse' && e.buttons !== undefined) syncMouse(e.buttons, lp, timestamp(e));
+    if (pointers.has(e.pointerId)) pointers.set(e.pointerId, lp);
+    var wp = (buttonCounts[0] ? 1 : 0) | (buttonCounts[2] ? 2 : 0) | (buttonCounts[1] ? 16 : 0);
+    var q = Module.gdInputQueue, tail = q[q.length - 1];
+    if (q.length > head && tail[0] === 0x200) q[q.length - 1] = [0x200, wp, lp, timestamp(e)];
+    else push(0x200, wp, lp, timestamp(e));
+  });
+  ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (name) {
+    el.addEventListener(name, function (e) {
+      if (e.pointerType === 'mouse') syncMouse(name === 'pointerup' ? (e.buttons || 0) : 0, cursor(), timestamp(e));
+      else releasePointer(e.pointerId, timestamp(e));
+    });
+  });
+  el.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+  el.addEventListener('wheel', function (e) {
+    if (!ready() || (!e.deltaX && !e.deltaY)) return;
+    var vertical = Math.abs(e.deltaY) >= Math.abs(e.deltaX);
+    var notch = (vertical ? -e.deltaY : -e.deltaX) > 0 ? 120 : -120;
+    push(vertical ? 0x20a : 0x20e, (notch & 65535) << 16, position(e), timestamp(e));
+    e.preventDefault();
+  }, {passive: false});
+  var VK = {Escape:27, Space:32, Enter:13, Backspace:8, Tab:9, ArrowLeft:37, ArrowUp:38, ArrowRight:39, ArrowDown:40};
+  var scan = {Escape:1, Space:57, Enter:28, Backspace:14, Tab:15, ArrowLeft:75, ArrowUp:72, ArrowRight:77, ArrowDown:80,
+    KeyW:17, KeyA:30, KeyS:31, KeyD:32, KeyQ:16, KeyE:18, KeyR:19, KeyF:33, KeyP:25};
+  function key(e, down) {
+    if (!ready()) return;
+    var vk = VK[e.code] || e.keyCode || 0;
+    if (!vk || vk > 255) return;
+    if (down && (e.ctrlKey || e.metaKey || e.altKey || e.target.closest && e.target.closest('button,input,textarea,select,a'))) return;
+    if (!down && !keys.has(vk)) return;
+    if (e.repeat && (e.code === 'Space' || e.code.indexOf('Arrow') === 0)) { e.preventDefault(); return; }
+    var lp = 1 | ((scan[e.code] || 0) << 16);
+    if (e.code.indexOf('Arrow') === 0) lp |= 0x1000000;
+    if (down && keys.has(vk)) lp |= 0x40000000;
+    if (!down) lp |= -1073741824;
+    Module.gdKeyState[vk] = down ? 1 : 0;
+    if (down) keys.set(vk, lp); else keys.delete(vk);
+    push(down ? 0x100 : 0x101, vk, lp, timestamp(e));
+    if (down) {
+      var ch = e.key && e.key.length === 1 ? e.key.charCodeAt(0) : e.code === 'Backspace' ? 8 : e.code === 'Enter' ? 13 : 0;
+      if (ch) push(0x102, ch, lp, timestamp(e));
+    }
+    if (VK[e.code]) e.preventDefault();
+  }
+  window.addEventListener('keydown', function (e) { key(e, true); }, {capture: true});
+  window.addEventListener('keyup', function (e) { key(e, false); }, {capture: true});
+  function releaseAll() {
+    if (benchmark) {
+      benchmark = null;
+      Module.gdBenchmark = {running: false, error: 'Interrupted: keep the game focused for the test'};
+    }
+    syncMouse(0, cursor());
+    pointers.forEach(function (_, id) { releasePointer(id); });
+    keys.forEach(function (lp, vk) { push(0x101, vk, lp | -1073741824); });
+    keys.clear(); Module.gdKeyState.fill(0); focusAcked = false;
+    lastFrame = 0; frameSamples.length = 0;
+  }
+  window.addEventListener('blur', releaseAll);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) releaseAll(); });
+  el.tabIndex = 0;
+})();
+
+</script><script>(function(){var b=document.getElementById('fsBtn'),d=document,c=document.getElementById('canvas');function F(){return d.fullscreenElement||d.webkitFullscreenElement||d.mozFullScreenElement||d.msFullscreenElement;}function U(){b.textContent=F()?'Exit Fullscreen':'Fullscreen';}async function T(){try{if(F()){(d.exitFullscreen||d.webkitExitFullscreen||d.mozCancelFullScreen||d.msExitFullscreen).call(d);}else{await (document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen||document.documentElement.mozRequestFullScreen||document.documentElement.msRequestFullscreen).call(document.documentElement);try{if(navigator.keyboard&&navigator.keyboard.lock)await navigator.keyboard.lock(['Escape']);}catch(err){}}}catch(err){}}b.addEventListener('click',function(v){v.preventDefault();v.stopPropagation();T();b.blur();});['fullscreenchange','webkitfullscreenchange','mozfullscreenchange','MSFullscreenChange'].forEach(function(n){d.addEventListener(n,U);});d.addEventListener('fullscreenchange',function(){if(d.fullscreenElement===null&&navigator.keyboard&&navigator.keyboard.unlock)navigator.keyboard.unlock();});U();})();</script><script>(function(){
+var ov=document.getElementById('errOverlay');
+function err(m){ if(ov){ov.textContent=m;ov.classList.add('on');} }
+try{
+  var c=document.createElement('canvas');
+  var gl=c.getContext('webgl2');
+  if(!gl) err('WebGL2 not available - use Chrome/Edge 137+ with hardware acceleration.');
+  if(!window.crossOriginIsolated) console.log('[page] note: page is not cross-origin isolated; threads may be limited.');
+  if(typeof WebAssembly.Suspending!=='function'||typeof WebAssembly.promising!=='function') err('This game needs a browser with WebAssembly JSPI support. Update Chrome or Edge.');
+  if(gl){var lose=gl.getExtension('WEBGL_lose_context');if(lose)lose.loseContext();}
+}catch(e){ err('Feature check failed: '+e); }
+window.addEventListener('error',function(e){ if(e&&e.message&&/JSPI|WebAssembly|wasm|memory/i.test(String(e.message))) err('Runtime error: '+e.message); });
+})();</script>
+<script>(function(){
+var load=document.getElementById('gdLoad');
+var pct=document.getElementById('gdLoadPct');
+var totals={wasm:123481510,data:322237583};
+var loaded={wasm:0,data:0};
+var shown=1;
+pct.style.setProperty('--p',shown);
+var completed=false;
+var failed=false;
+var completionTimer=null;
+var hideTimer=null;
+function update(){
+if(completed||failed)return;
+var value=Math.floor((loaded.wasm+loaded.data)/(totals.wasm+totals.data)*100);
+value=Math.max(1,Math.min(99,value));
+if(value>shown){shown=value;pct.style.setProperty('--p',shown);}
+}
+var originalSetAssetBar=window.setAssetBar;
+window.setAssetBar=function(which,amount,total){
+if(which==='wasm'||which==='data'){
+loaded[which]=Math.max(0,Number(amount)||0);
+if(Number(total)>0)totals[which]=Number(total);
+update();
+}
+return originalSetAssetBar.apply(this,arguments);
+};
+function hide(){
+if(failed)return;
+if(completionTimer!==null)clearTimeout(completionTimer);
+pct.style.setProperty('--p',100);
+load.classList.add('off');
+hideTimer=setTimeout(function(){load.style.display='none';},700);
+}
+function complete(){
+if(completed||failed)return;
+completed=true;
+pct.style.setProperty('--p',100);
+completionTimer=setTimeout(hide,300);
+}
+var originalFirstFrame=window.gdFirstFrame;
+window.gdFirstFrame=function(){
+complete();
+if(typeof originalFirstFrame==='function')return originalFirstFrame.apply(this,arguments);
+};
+var bodyObserver=new MutationObserver(function(){
+if(document.body.classList.contains('playing'))complete();
+});
+bodyObserver.observe(document.body,{attributes:true,attributeFilter:['class']});
+var overlay=document.getElementById('errOverlay');
+function hideForError(){
+failed=true;
+if(completionTimer!==null)clearTimeout(completionTimer);
+if(hideTimer!==null)clearTimeout(hideTimer);
+load.style.display='none';
+}
+var errorObserver=new MutationObserver(function(){
+if(overlay.classList.contains('on'))hideForError();
+});
+errorObserver.observe(overlay,{attributes:true,attributeFilter:['class']});
+if(overlay.classList.contains('on'))hideForError();
+if(document.body.classList.contains('playing'))complete();
+window.addEventListener('load',function(){gdStart();});
+window.addEventListener('beforeunload',function(e){
+if(!window.__gdRuntimeReady)return;
+if(gdSaveTimer)clearTimeout(gdSaveTimer);
+gdSaveTimer=null;
+performSave();
+e.preventDefault();
+e.returnValue='';
+});
+document.addEventListener('contextmenu',function(e){e.preventDefault();});
+function firstPointerDown(){
+document.removeEventListener('pointerdown',firstPointerDown,true);
+var audio=window.Module&&window.Module.gdAudioContext;
+if(audio&&audio.state==='suspended')audio.resume();
+if(!document.fullscreenElement){var button=document.getElementById('fsBtn');if(button)button.click();}
+}
+document.addEventListener('pointerdown',firstPointerDown,true);
+})();</script></body></html>
