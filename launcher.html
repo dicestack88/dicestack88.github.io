@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eaglercraft Launcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0a0a0a;--side:#101010;--card:#161616;--line:#2a2a2a;--txt:#f2f2f2;--mut:#8a8a8a;--acc:#ff8a2a;--g1:#2fcf4f;--g2:#1c8f35;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;flex-direction:column;overflow:hidden}
+.title{height:30px;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:12px;border-bottom:1px solid #1c1c1c;background:#050505;flex:none}
+.tav{width:18px;height:18px;border-radius:50%;display:block}
+.app{flex:1;display:flex;min-height:0}
+nav{width:66px;background:var(--side);border-right:1px solid #1c1c1c;display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:10px;flex:none}
+nav button{width:44px;height:44px;border:0;border-radius:10px;background:none;color:#9a9a9a;cursor:pointer;display:grid;place-items:center}
+nav button:hover{color:#fff}
+nav button.on{background:#2a1a0c;color:var(--acc)}
+nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+nav .sp{flex:1}
+nav .bell{position:relative}.badge{position:absolute;top:1px;right:0;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:#ff3b30;color:#fff;font:800 11px/18px Inter,sans-serif;text-align:center;box-shadow:0 0 0 2px var(--side)}
+#notif{position:fixed;left:74px;bottom:14px;width:320px;max-width:calc(100vw - 20px);background:#181818;border:1px solid #3a3a3a;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.65);z-index:45;display:none;overflow:hidden}#notif.on{display:block;animation:pop .18s ease-out}
+#notif .hd{display:flex;align-items:center;padding:12px 14px;font-weight:800;font-size:14px;border-bottom:1px solid #2a2a2a}#notif .hd button{margin-left:auto;background:none;border:0;color:#999;font-size:18px;cursor:pointer;line-height:1}
+.nm{display:flex;align-items:center;gap:11px;padding:12px 14px;border-bottom:1px solid #232323;opacity:0;transform:translateY(8px)}#notif.on .nm{animation:msg .3s ease-out forwards}#notif.on .nm:nth-child(2){animation-delay:.12s}#notif.on .nm:nth-child(3){animation-delay:.26s}#notif.on .nm:nth-child(4){animation-delay:.4s;border-bottom:0}
+.nm .ic{width:34px;height:34px;border-radius:9px;flex:none;display:grid;place-items:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,.45)}.nm p{margin:0;flex:1;font-size:13px;font-weight:600;line-height:1.3}.nm a{flex:none;text-decoration:none;color:#fff;font:800 12px Inter,sans-serif;padding:7px 12px;border-radius:8px}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}@keyframes msg{to{opacity:1;transform:none}}
+main{flex:1;min-width:0;overflow:auto}
+.page{display:none;padding:22px 26px 40px}
+.page.on{display:block}
+h1{font-size:30px;font-weight:800;margin:0 0 18px}
+/* home */
+.hero{container-type:inline-size;position:relative;max-width:1100px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.hero-placeholder{display:grid;width:100%;aspect-ratio:16/7;place-items:center}
+.hero .shade{position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.hero .cta{position:absolute;left:3%;bottom:6%;display:flex;gap:14px;align-items:center}
+.credit{max-width:1100px;margin:16px auto 0;text-align:center;color:var(--mut);font-size:14px}
+.credit b{color:var(--txt)}
+.play{border:2px solid #6dff8a;background:linear-gradient(var(--g1),var(--g2));color:#fff;font:800 17px Inter,sans-serif;padding:11px 28px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:9px;box-shadow:0 3px 0 #0f5a20}
+.play:hover{filter:brightness(1.1)}
+.play svg{width:16px;height:16px;fill:#fff}
+@container (max-width:560px){.hero .cta{left:50%;transform:translateX(-50%);bottom:4%}.hero .cta .play{padding:8px 18px;font-size:14px}}
+/* profiles */
+.search{width:100%;max-width:100%;background:#0d0d0d;border:2px solid var(--line);border-radius:10px;color:var(--txt);padding:11px 14px;font:500 14px Inter,sans-serif;margin-bottom:20px;outline:none}
+.search:focus{border-color:#555}
+.folder{font-weight:700;font-size:14px;margin:14px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;max-width:1100px}
+.card{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid #1f1f1f}
+.card .image-placeholder{display:grid;width:100%;aspect-ratio:295/110;place-items:center}
+.image-placeholder{color:var(--mut);background:repeating-linear-gradient(135deg,#171717,#171717 12px,#1d1d1d 12px,#1d1d1d 24px);font-size:12px}
+.card .in{padding:16px 18px 18px}
+.card h3{margin:0 0 6px;font-size:18px;font-weight:800}
+.card small{color:var(--mut);font-size:11px;display:block;margin-bottom:14px}
+.card .row{display:flex;gap:10px}
+.card .play{flex:1;justify-content:center;padding:9px 0;font-size:15px}
+.card .cog{width:40px;border:1px solid var(--line);background:#222;border-radius:8px;color:#ccc;cursor:pointer;display:grid;place-items:center}
+.card .cog svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+.lnk{display:block;width:100%;margin-top:6px;background:#0d0d0d;border:1px solid var(--line);border-radius:8px;color:var(--txt);padding:9px 11px;font:500 12px Inter,sans-serif;outline:none}#menu{position:fixed;z-index:40;display:none;width:210px;background:#1b1b1b;border:1px solid #3a3a3a;border-radius:11px;padding:8px;box-shadow:0 10px 30px rgba(0,0,0,.6)}#menu.on{display:block}#menu .lb{font-size:11px;color:var(--mut);padding:4px 6px}#menu .opt{display:flex;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;color:var(--txt);font:700 14px Inter,sans-serif;padding:9px 8px;border-radius:7px;cursor:pointer}#menu .opt:hover{background:#2a2a2a}#menu .opt.cur{color:#6dff8a}#menu .opt.cur:before{content:"\2713"}#menu .opt:not(.cur):before{content:"";width:1em}
+.card a.play{text-decoration:none;width:100%;justify-content:center;padding:9px 0;font-size:15px}.yt{background:linear-gradient(#ff5252,#c4161c)!important;border-color:#ff9a9a!important;box-shadow:0 3px 0 #7a0c10!important}.dc{background:linear-gradient(#6b78ff,#4752c4)!important;border-color:#a5adff!important;box-shadow:0 3px 0 #2a3280!important}
+.ban{aspect-ratio:295/110;display:grid;place-items:center;overflow:hidden}
+.empty{color:var(--mut);padding:30px 0}
+/* overlay */
+#ov{position:fixed;inset:0;background:#000;display:none;flex-direction:column;z-index:50}
+#ov.on{display:flex}
+#ov .bar{display:flex;align-items:center;gap:12px;padding:calc(8px + env(safe-area-inset-top,0px)) 12px 8px;background:#050505;font-size:13px}
+#ov .bar #ovh{margin-left:auto}#ov .bar button{background:#222;color:#fff;border:1px solid var(--line);border-radius:7px;padding:6px 14px;cursor:pointer;font:700 13px Inter,sans-serif}
+#ov iframe{flex:1;border:0;width:100%;background:#000}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#222;border:1px solid #444;padding:10px 16px;border-radius:9px;font-size:13px;display:none;z-index:60;max-width:90vw;text-align:center}
+@media(max-width:680px){
+ #notif{left:10px;bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+ .app{flex-direction:column-reverse}
+ nav{width:100%;flex-direction:row;justify-content:center;padding:8px;border-right:0;border-top:1px solid #1c1c1c}
+ nav .sp{display:none}
+ .page{padding:16px 14px 30px}
+ h1{font-size:24px}
+}
+
+/* ===== motion ===== */
+body::before,body::after{content:"";position:fixed;width:520px;height:520px;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+body::before{background:rgba(47,207,79,.11);top:-160px;left:90px;animation:drift 19s ease-in-out infinite alternate}
+body::after{background:rgba(88,101,242,.12);bottom:-200px;right:-60px;animation:drift 23s ease-in-out infinite alternate-reverse}
+.title,.app{position:relative;z-index:1}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(120px,70px) scale(1.18)}100%{transform:translate(-50px,150px) scale(.92)}}
+.page.on{animation:pageIn .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+h1{background:linear-gradient(90deg,#fff 0%,#6dff8a 45%,#fff 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s linear infinite}
+@keyframes shim{to{background-position:-220% 0}}
+.folder{animation:slideIn .6s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes slideIn{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+/* sidebar */
+nav button{position:relative;transition:transform .2s cubic-bezier(.3,1.6,.5,1),color .2s,background .2s,box-shadow .3s}
+nav button:hover{transform:translateY(-2px) scale(1.1)}
+nav button.on{box-shadow:0 0 18px rgba(255,138,42,.35)}
+nav button.on svg{animation:iconPop .45s cubic-bezier(.3,1.7,.5,1)}
+nav button.on:before{content:"";position:absolute;left:-11px;top:11px;bottom:11px;width:3px;border-radius:3px;background:var(--acc);box-shadow:0 0 10px var(--acc);animation:ind .35s cubic-bezier(.2,.9,.3,1.3)}
+@keyframes iconPop{0%{transform:scale(.6) rotate(-14deg)}100%{transform:none}}
+@keyframes ind{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+nav .bell svg{transform-origin:50% 8%;animation:ring 5.5s ease-in-out infinite}
+@keyframes ring{0%,76%,100%{transform:rotate(0)}79%{transform:rotate(16deg)}82%{transform:rotate(-14deg)}85%{transform:rotate(10deg)}88%{transform:rotate(-7deg)}91%{transform:rotate(3deg)}}
+.badge{isolation:isolate}.badge:after{content:"";position:absolute;inset:0;border-radius:9px;background:#ff3b30;z-index:-1;animation:ping 1.9s ease-out infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.4);opacity:0}}
+.tav{box-shadow:0 0 0 2px rgba(109,255,138,.0);animation:avGlow 3s ease-in-out infinite}
+@keyframes avGlow{50%{box-shadow:0 0 0 2px rgba(109,255,138,.55),0 0 12px rgba(109,255,138,.5)}}
+/* hero */
+.hero{animation:heroIn .9s cubic-bezier(.2,.8,.2,1) backwards;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+@keyframes heroIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.26) 50%,transparent 62%);transform:translateX(-120%);animation:sweep 8s ease-in-out 1.6s infinite}
+@keyframes sweep{0%{transform:translateX(-120%)}22%,100%{transform:translateX(120%)}}
+.hero .shade,.hero .cta{z-index:2}
+.hero .cta{animation:ctaIn .8s cubic-bezier(.2,.8,.2,1) .5s backwards}
+@keyframes ctaIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.hero .play{animation:glow 2.6s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 3px 0 #0f5a20,0 0 0 0 rgba(109,255,138,.55)}60%{box-shadow:0 3px 0 #0f5a20,0 0 0 16px rgba(109,255,138,0)}}
+.credit{animation:ctaIn .8s ease .9s backwards}
+.px{position:absolute;bottom:-14px;opacity:0;pointer-events:none;z-index:1;animation:rise linear infinite;box-shadow:inset -2px -2px 0 rgba(0,0,0,.18)}
+@keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.95}85%{opacity:.7}100%{transform:translateY(-460px) rotate(200deg);opacity:0}}
+/* buttons */
+.play{position:relative;overflow:hidden;transition:transform .15s,filter .2s}
+.play:before{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg);transition:left .65s}
+.play:hover:before{left:140%}
+.play:hover{transform:translateY(-2px)}
+.play:active{transform:translateY(2px) scale(.97);box-shadow:none}
+.card .cog{transition:transform .3s,background .2s,color .2s}
+.card .cog:hover{transform:rotate(90deg);background:#2e2e2e;color:#fff}
+/* cards */
+.page.on .card{animation:cardIn .6s cubic-bezier(.2,.8,.2,1) backwards;animation-delay:calc(var(--i,0)*70ms)}
+.static .card{animation:none!important}
+@keyframes cardIn{from{opacity:0;transform:translateY(34px) scale(.92) rotateX(12deg)}to{opacity:1;transform:none}}
+.grid .card:nth-child(1){--i:0}.grid .card:nth-child(2){--i:1}.grid .card:nth-child(3){--i:2}.grid .card:nth-child(4){--i:3}.grid .card:nth-child(5){--i:4}.grid .card:nth-child(6){--i:5}.grid .card:nth-child(7){--i:6}.grid .card:nth-child(8){--i:7}.grid .card:nth-child(9){--i:8}.grid .card:nth-child(10){--i:9}.grid .card:nth-child(11){--i:10}.grid .card:nth-child(12){--i:11}
+.card{position:relative;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .18s ease-out,box-shadow .3s,border-color .3s;will-change:transform}
+.card:hover{border-color:rgba(109,255,138,.45);box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 28px rgba(47,207,79,.18)}
+.card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .25s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.14),transparent 60%)}
+.card:hover:after{opacity:1}
+/* popups */
+#menu.on{animation:pop .18s ease-out}
+#toast{animation:toastIn .3s cubic-bezier(.3,1.5,.5,1)}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,16px) scale(.9)}to{opacity:1;transform:translate(-50%,0)}}
+#ov.on{animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(hover:none){.card{transform:none!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+#ov .bar{max-height:90px;overflow:hidden;transition:max-height .3s ease,padding .3s ease,opacity .25s ease}
+#ov.nobar .bar{max-height:0;padding-top:0;padding-bottom:0;opacity:0}
+#hz{position:absolute;top:0;left:50%;width:200px;margin-left:-100px;height:10px;z-index:3;display:none}
+#ov.nobar #hz{display:block}
+#pill{position:absolute;top:12px;left:50%;transform:translate(-50%,-70px);opacity:0;pointer-events:none;z-index:4;background:#1c1c1c;color:#fff;border:1px solid #444;border-radius:999px;padding:7px 18px;font:700 12px Inter,sans-serif;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.6);transition:transform .3s cubic-bezier(.3,1.4,.5,1),opacity .2s}
+#pill.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+#pill:hover{background:#2a2a2a}
+#blk{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(420px,88vw);background:#181818;border:1px solid #3a3a3a;border-radius:16px;padding:24px;text-align:center;z-index:5;display:none;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+#blk.on{display:block;animation:pop .2s ease-out}#blk h3{margin:0 0 10px;font-size:18px}#blk p{margin:0 0 18px;color:#aaa;font-size:13px;line-height:1.5}#blk a{text-decoration:none;display:inline-flex}
+
+</style>
+</head>
+<body>
+<div class="title"><span class="tav image-placeholder" aria-hidden="true"></span>Eaglercraft Launcher</div>
+<div class="app">
+ <nav>
+  <button class="on" data-p="home" title="Home" aria-label="Home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></button>
+  <button data-p="profiles" title="Clients" aria-label="Clients"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></button>
+  <button data-p="youtube" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg></button>
+  <button data-p="discord" title="Discord" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M7 7.5c3-1.3 7-1.3 10 0 2 3 2.800 6.200 2.500 9.500-1.300 1-2.700 1.600-4.100 2l-.9-1.600m-9-9.900c-2 3-2.800 6.200-2.500 9.500 1.300 1 2.700 1.600 4.100 2l.9-1.600"/><circle cx="9.200" cy="12.500" r="1.200"/><circle cx="14.800" cy="12.500" r="1.200"/></svg></button>
+  <span class="sp"></span>
+  <button class="bell" data-bell title="Notifications" aria-label="Notifications, 3 new"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 6 2 7.500 2 7.500H4S6 15 6 9z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="badge">3</span></button>
+ </nav>
+ <main id="main">
+  <section class="page on" id="home">
+   <div class="hero">
+    <div class="hero-placeholder image-placeholder">Add hero image</div>
+    <div class="shade"></div>
+    <div class="cta"><button class="play" data-quick><svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z"/></svg>Play now</button></div>
+   </div>
+   <div class="credit">Made by <b>Dicestack88</b> &middot; Eaglercraft runs Minecraft right in your browser</div>
+  </section>
+  <section class="page" id="profiles">
+   <h1>Clients</h1>
+   <input class="search" id="q" type="search" placeholder="Search clients" autocomplete="off">
+   <div id="list"></div>
+  </section>
+  <section class="page" id="youtube">
+   <h1>YouTube</h1>
+   <div class="grid" id="ytg"></div>
+  </section>
+  <section class="page" id="discord">
+   <h1>Discord</h1>
+   <div class="grid" id="dcg"></div>
+  </section>
+ </main>
+</div>
+<div id="ov"><div class="bar"><span id="ovt"></span><button id="ovh">Hide bar</button><button id="ovx">Close</button></div><div id="hz"></div><button id="pill">&#9660; Show bar</button><div id="blk"><h3>Can’t show this client here</h3><p>This preview doesn’t allow other websites to open inside it. Put this launcher file on your own site (like GitHub Pages) to play inside it.</p></div><iframe id="fr" allow="fullscreen; autoplay; clipboard-read; clipboard-write"></iframe></div>
+<div id="notif"><div class="hd">Notifications<button id="nx" aria-label="Close">&times;</button></div>
+ <div class="nm"><span class="ic image-placeholder" aria-hidden="true"></span><p>Have you subscribed to the main channel?</p><a class="yt" href="https://youtube.com/@Dicestack88" target="_blank" rel="noopener noreferrer">Subscribe</a></div>
+ <div class="nm"><span class="ic image-placeholder" aria-hidden="true"></span><p>Have you joined the Discord server?</p><a class="dc" href="https://discord.com/invite/Exha6Jz7Uk" target="_blank" rel="noopener noreferrer">Join</a></div>
+</div>
+<div id="menu"></div>
+<div id="toast"></div>
+<script>
+/* Add each client file path under files/ in its matching urls entry. Keep urls aligned with vers. */
+var PROFILES=[
+ {folder:"Clients",name:"Modern Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/modernclient"]},
+ {folder:"Clients",name:"Tuff Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/Tuffclient"]},
+ {folder:"Clients",name:"EB Client",ver:"Eaglercraft client",vers:["1.8.8"],sel:0,urls:["https://dicestack88.github.io/files/ebclient.html"]},
+ {folder:"Clients",name:"Dylan Client",ver:"Eaglercraft client",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/files/eaglercraft-26,2-r46-music.html"]},
+ {folder:"Clients",name:"Chromium Client",ver:"Eaglercraft client",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/ChromiumClient/ChromiumLauncher.html"]},
+ {folder:"Clients",name:"Stratus Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/files/Stratus_U2.html"]},
+ {folder:"Clients",name:"Reflex Client",ver:"Eaglercraft client",vers:["1.8.8"],sel:0,urls:["https://dicestack88.github.io/files/Reflex-0.0.2-1.8_WASM-GC_Offline_Download.html"]},
+ {folder:"Clients",name:"Astra Client",ver:"Eaglercraft client",vers:["1.8.8"],sel:0,urls:["https://dicestack88.github.io/files/astraclient.html"]},
+ {folder:"Versions",name:"Eagler 1.14",ver:"Eaglercraft 1.14",vers:["1.14.4"],sel:0,urls:["https://dicestack88.github.io/files/Eaglercraft_1.14.4_WASM-GC_Offline_Download.html"]},
+ {folder:"Versions",name:"Eagler 1.16",ver:"Eaglercraft 1.16",vers:["1.16.5"],sel:0,urls:["https://dicestack88.github.io/files/EaglercraftX_1.16_WASM-GC_Offline_Download.html"]},
+ {folder:"Versions",name:"Eagler 1.20.6",ver:"Eaglercraft 1.20.6",vers:["1.20.6"],sel:0,urls:["https://dicestack88.github.io/files/1.20.6-wasm.html"]},
+ {folder:"Versions",name:"Eagler 1.21.11",ver:"Eaglercraft 1.21.11",vers:["1.21.11"],sel:0,urls:["https://dicestack88.github.io/files/1.21.11-wasm.html"]},
+ {folder:"Versions",name:"Eagler 26.2",ver:"Eaglercraft 26.2",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/files/26.2.html"]},
+ {folder:"Versions",name:"Eagler 26.3",ver:"Eaglercraft 26.3",vers:["26.3"],sel:0,urls:["https://dicestack88.github.io/files/26.3.html"]}
+];
+function saved(i,p){try{return localStorage.getItem("ec_"+p+"_"+PROFILES[i].name)||""}catch(x){return ""}}
+function save(i,p,v){try{localStorage.setItem("ec_"+p+"_"+PROFILES[i].name,v)}catch(x){}}
+["Modern Client","Tuff Client","EB Client","Eagler 1.16","Eagler 1.20.6","Eagler 1.21.11","Eagler 26.2","Eagler 26.3"].forEach(function(n,k){try{var u=localStorage.getItem("ec_url_"+k),v=localStorage.getItem("ec_url_v"+k);if(u&&!localStorage.getItem("ec_url_"+n))localStorage.setItem("ec_url_"+n,u);if(v&&!localStorage.getItem("ec_ver_"+n))localStorage.setItem("ec_ver_"+n,v)}catch(x){}});
+PROFILES.forEach(function(p,i){var v=+(saved(i,"ver")||0);if(v<p.vers.length)p.sel=v});
+var $=function(s){return document.querySelector(s)};
+var PLAY='<svg viewBox="0 0 24 24"><path d="M6 3l15 9-15 9z"/></svg>';
+var COG='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12a7 7 0 0 0 .1 1.2l-2 1.5 2 3.4 2.3-.9a7 7 0 0 0 2 1.2L10 21h4l.6-2.6a7 7 0 0 0 2-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z"/></svg>';
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function toast(m){var t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(function(){t.style.display="none"},3200)}
+var lastUrl="";
+document.addEventListener("securitypolicyviolation",function(e){
+ if(/frame|child/.test(e.violatedDirective)&&$("#ov").classList.contains("on")){$("#blk").classList.add("on");$("#ov").classList.remove("nobar")}
+});
+function launch(p){
+ var u=p.urls[p.sel];
+ if(!u){toast("No link set for \u201C"+p.name+"\u201D yet.");return}
+ lastUrl=u;$("#blk").classList.remove("on");$("#ov").classList.remove("nobar");$("#pill").classList.remove("on");
+ $("#ovt").textContent=p.name+" \u00B7 "+p.vers[p.sel];$("#fr").src=u;$("#ov").classList.add("on")
+}
+var BG=["#001b44", "#fdd022", "#5865f2"];
+function linkCard(av,title,sub,href,label,cls){
+ return '<div class="card"><div class="ban image-placeholder" style="background:'+BG[av]+'">Add image</div><div class="in"><h3>'+title+'</h3><small>'+sub+'</small><a class="play '+cls+'" href="'+href+'" target="_blank" rel="noopener noreferrer">'+label+'</a></div></div>'
+}
+$("#ytg").innerHTML=linkCard(0,"Dicestack88","@Dicestack88","https://youtube.com/@Dicestack88","Visit channel","yt")+linkCard(1,"Dicestack88 Extras","@Dicestack88-Extras","https://youtube.com/@Dicestack88-Extras","Visit channel","yt");
+$("#dcg").innerHTML=linkCard(2,"Dicestack88 Discord","Join the community server","https://discord.com/invite/Exha6Jz7Uk","Join server","dc");
+function openMenu(i,btn){
+ var p=PROFILES[i],m=$("#menu");
+ if(m.classList.contains("on")&&m.dataset.i==i){m.classList.remove("on");return}
+ var h='<div class="lb">Select version</div>';
+ p.vers.forEach(function(v,k){h+='<button class="opt'+(k===p.sel?' cur':'')+'" data-v="'+k+'">'+esc(v)+'</button>'});
+ m.innerHTML=h;m.dataset.i=i;m.classList.add("on");
+ var r=btn.getBoundingClientRect(),w=210,x=Math.max(8,Math.min(r.right-w,innerWidth-w-8)),y=r.bottom+6;
+ if(y+m.offsetHeight>innerHeight-8)y=Math.max(8,r.top-m.offsetHeight-6);
+ m.style.left=x+"px";m.style.top=y+"px"
+}
+function fill(ls,qs,cat,none){
+ var f=$(qs).value.trim().toLowerCase(),h="",last=null,n=0;
+ PROFILES.forEach(function(p,i){
+  if((p.cat||"clients")!==cat)return;
+  if(f&&(p.name+" "+p.ver).toLowerCase().indexOf(f)<0)return;
+  n++;
+  if(p.folder!==last){if(last!==null)h+="</div>";h+='<div class="folder">'+esc(p.folder)+'</div><div class="grid">';last=p.folder}
+  h+='<div class="card"><div class="image-placeholder">Add image</div><div class="in"><h3>'+esc(p.name)+'</h3><small>'+esc(p.ver)+' \u00B7 '+esc(p.vers[p.sel])+'</small><div class="row"><button class="play" data-i="'+i+'">'+PLAY+'Play now</button><button class="cog" data-s="'+i+'" aria-label="Select version" title="Select version">'+COG+'</button></div></div></div>';
+ });
+ if(last!==null)h+="</div>";
+ $(ls).innerHTML=n?h:'<div class="empty">'+none+'</div>'
+}
+function render(){fill("#list","#q","clients","No clients match your search.")}
+document.addEventListener("click",function(e){
+ var b=e.target.closest("button");if(!b)return;
+ if(b.dataset.p){document.querySelectorAll("nav button[data-p]").forEach(function(x){x.classList.toggle("on",x===b)});document.querySelectorAll(".page").forEach(function(s){s.classList.toggle("on",s.id===b.dataset.p)});$("#list").classList.remove("static");return}
+ if(b.hasAttribute("data-bell")){$("#notif").classList.toggle("on");return}
+ if(b.id==="nx"){$("#notif").classList.remove("on");return}
+ if(b.hasAttribute("data-quick")){launch(PROFILES[0]);return}
+ if(b.dataset.i!==undefined){launch(PROFILES[+b.dataset.i]);return}
+ if(b.dataset.s!==undefined){openMenu(+b.dataset.s,b);return}
+ if(b.dataset.v!==undefined){var m=$("#menu");PROFILES[+m.dataset.i].sel=+b.dataset.v;save(+m.dataset.i,"ver",b.dataset.v);m.classList.remove("on");$("#list").classList.add("static");render();return}
+ if(b.id==="ovh"){$("#ov").classList.add("nobar");return}
+ if(b.id==="pill"){$("#ov").classList.remove("nobar");$("#pill").classList.remove("on");return}
+ if(b.id==="ovx"){$("#blk").classList.remove("on");$("#ov").classList.remove("on","nobar");$("#pill").classList.remove("on");$("#fr").src="about:blank"}
+});
+(function(){
+ var dwell,hide,hz=$("#hz"),pill=$("#pill");
+ function off(){pill.classList.remove("on")}
+ hz.addEventListener("pointerenter",function(){clearTimeout(dwell);dwell=setTimeout(function(){pill.classList.add("on");clearTimeout(hide);hide=setTimeout(off,2500)},700)});
+ hz.addEventListener("pointerleave",function(){clearTimeout(dwell)});
+ pill.addEventListener("pointerenter",function(){clearTimeout(hide)});
+ pill.addEventListener("pointerleave",function(){clearTimeout(hide);hide=setTimeout(off,1200)});
+})();
+$("#q").addEventListener("input",function(){$("#list").classList.add("static");render()});
+(function(){
+ var hero=document.querySelector(".hero");if(!hero)return;
+ var cols=["#6dff8a","#ffffff","#ffd23a","#ff9ed0","#7ad7ff"];
+ for(var i=0;i<18;i++){var s=document.createElement("span"),z=4+Math.random()*7;s.className="px";
+  s.style.cssText="left:"+(Math.random()*96)+"%;width:"+z+"px;height:"+z+"px;background:"+cols[i%cols.length]+";animation-duration:"+(7+Math.random()*8)+"s;animation-delay:"+(-Math.random()*12)+"s";hero.appendChild(s)}
+})();
+document.addEventListener("pointermove",function(e){
+ if(e.pointerType!=="mouse")return;var c=e.target.closest&&e.target.closest(".card");if(!c)return;
+ var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ c.style.setProperty("--ry",(x*10).toFixed(2)+"deg");c.style.setProperty("--rx",(-y*8).toFixed(2)+"deg");c.style.setProperty("--ty","-6px");
+ c.style.setProperty("--mx",(e.clientX-r.left)+"px");c.style.setProperty("--my",(e.clientY-r.top)+"px")
+});
+document.addEventListener("pointerout",function(e){var c=e.target.closest&&e.target.closest(".card");
+ if(c&&!c.contains(e.relatedTarget)){c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");c.style.setProperty("--ty","0px")}
+});
+document.addEventListener("mousedown",function(e){if(!e.target.closest("#notif")&&!e.target.closest("[data-bell]"))$("#notif").classList.remove("on")});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")$("#notif").classList.remove("on")});
+document.addEventListener("mousedown",function(e){if(!e.target.closest("#menu")&&!e.target.closest(".cog"))$("#menu").classList.remove("on")});
+$("#main").addEventListener("scroll",function(){$("#menu").classList.remove("on")});
+render();
+
+</script>
+</body>
+</html>
