@@ -200,7 +200,7 @@ var PROFILES=[
  {folder:"Clients",name:"Modern Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/modernclient"]},
  {folder:"Clients",name:"Tuff Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/Tuffclient"]},
  {folder:"Clients",name:"EB Client",ver:"Eaglercraft client",vers:["1.8.8"],sel:0,urls:["https://dicestack88.github.io/files/ebclient.html"]},
- {folder:"Clients",name:"Dylan Client",ver:"Eaglercraft client",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/files/eaglercraft-26,2-r46-music.html"]},
+ {folder:"Clients",name:"Dylan Client",ver:"Eaglercraft client",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/files/eaglercraft-26.2-r46-music.html"]},
  {folder:"Clients",name:"Chromium Client",ver:"Eaglercraft client",vers:["26.2"],sel:0,urls:["https://dicestack88.github.io/ChromiumClient/ChromiumLauncher.html"]},
  {folder:"Clients",name:"Stratus Client",ver:"Eaglercraft client",vers:["1.12.2"],sel:0,urls:["https://dicestack88.github.io/files/Stratus_U2.html"]},
  {folder:"Clients",name:"Reflex Client",ver:"Eaglercraft client",vers:["1.8.8"],sel:0,urls:["https://dicestack88.github.io/files/Reflex-0.0.2-1.8_WASM-GC_Offline_Download.html"]},
@@ -265,7 +265,7 @@ document.addEventListener("click",function(e){
  if(b.dataset.p){document.querySelectorAll("nav button[data-p]").forEach(function(x){x.classList.toggle("on",x===b)});document.querySelectorAll(".page").forEach(function(s){s.classList.toggle("on",s.id===b.dataset.p)});$("#list").classList.remove("static");return}
  if(b.hasAttribute("data-bell")){$("#notif").classList.toggle("on");return}
  if(b.id==="nx"){$("#notif").classList.remove("on");return}
- if(b.hasAttribute("data-quick")){launch(PROFILES[0]);return}
+ if(b.hasAttribute("data-quick")){document.querySelector('nav button[data-p="profiles"]').click();return}
  if(b.dataset.i!==undefined){launch(PROFILES[+b.dataset.i]);return}
  if(b.dataset.s!==undefined){openMenu(+b.dataset.s,b);return}
  if(b.dataset.v!==undefined){var m=$("#menu");PROFILES[+m.dataset.i].sel=+b.dataset.v;save(+m.dataset.i,"ver",b.dataset.v);m.classList.remove("on");$("#list").classList.add("static");render();return}
