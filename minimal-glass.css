@@ -1,0 +1,69 @@
+/* Minimal Liquid Glass — restrained shared visual system */
+:root{
+  --primary:#a9c8e8;--primary-dark:#7fa9d3;--bg:#090d13;--bg-light:#111a25;
+  --text:#edf3fa;--text-muted:#a1afbf;--glass-bg:rgba(19,29,42,.48);
+  --glass-border:rgba(190,215,242,.14);--lg-blur:16px;
+}
+body{background:#090d13;color:var(--text);font-family:Inter,system-ui,sans-serif;transition:background .25s,color .25s}
+body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:linear-gradient(135deg,rgba(5,10,18,.88),rgba(8,16,27,.72)),url("files/liquid-glass-wallpaper.png") center/cover no-repeat,radial-gradient(ellipse at 18% 0%,rgba(93,145,197,.16),transparent 42%),#090d13}
+.animated-bg{display:none!important}
+.gradient-orb{display:none!important}
+.logo,.hero-title,.card h2,.hero-stats strong,.experience-panel h2,.feature-card h3{font-family:Inter,system-ui,sans-serif;letter-spacing:-.035em}
+.logo{font-size:1.12rem;font-weight:750;color:#eaf2fb;letter-spacing:-.04em}
+.navbar{position:sticky;top:12px;margin:12px auto 0;width:calc(100% - 40px);max-width:1440px;padding:13px 22px;border:1px solid rgba(190,215,242,.13);border-radius:18px;background:rgba(12,19,29,.68);backdrop-filter:blur(22px) saturate(1.25);-webkit-backdrop-filter:blur(22px) saturate(1.25);box-shadow:0 12px 40px rgba(0,0,0,.22);gap:14px}
+.navbar nav{gap:clamp(10px,1.5vw,22px)}
+.navbar nav a{font-size:.86rem;font-weight:550;color:#aab8c8;transition:color .18s}
+.navbar nav a:hover{color:#f4f8fc}
+.navbar nav a::after{height:1px;background:#a9c8e8}
+.theme-toggle{padding:8px 11px;border-radius:12px;color:#e4eef9;background:rgba(255,255,255,.055);border:1px solid rgba(190,215,242,.14);backdrop-filter:blur(14px);box-shadow:none}
+.theme-toggle:hover{transform:translateY(-1px);background:rgba(150,190,230,.14);color:#fff}
+.hero{padding:clamp(105px,15vh,170px) 24px 76px;max-width:1120px;margin:auto}
+.hero-badge,.eyebrow{font-size:.72rem;letter-spacing:.13em;color:#a9c8e8}
+.hero-badge{display:inline-flex;padding:9px 14px;border-radius:999px;background:rgba(151,190,229,.08);border:1px solid rgba(190,215,242,.16);box-shadow:none}
+.hero-title{max-width:900px;margin:0 auto 18px;font-size:clamp(2.6rem,6vw,5rem);line-height:1.02;font-weight:750;background:none;color:#f1f6fc;-webkit-text-fill-color:currentColor;animation:none}
+.hero-subtitle{max-width:620px;font-size:1.04rem;line-height:1.75;color:#a9b7c7;animation:none}
+.hero-actions,.hero-stats{animation:none}
+.btn{min-width:145px;border-radius:13px;padding:13px 19px;font-size:.9rem;font-weight:650;transition:transform .2s,border-color .2s,background .2s;box-shadow:none}
+.btn:hover,.btn:focus-visible{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,#b9d3ed,#7fa9d3);color:#0a111a;box-shadow:0 8px 24px rgba(113,159,207,.15)}
+.btn-primary:hover{box-shadow:0 10px 28px rgba(113,159,207,.22)}
+.btn-secondary{background:rgba(255,255,255,.055);border:1px solid rgba(190,215,242,.17);color:#e8f0f8}
+.hero-stats{gap:10px}
+.hero-stats div{min-width:125px;padding:14px 18px;border-radius:15px;background:rgba(18,29,43,.48);border:1px solid rgba(190,215,242,.12);backdrop-filter:blur(16px);box-shadow:none}
+.hero-stats strong{font-size:1.35rem;color:#d8e8f8}
+.hero-stats span{color:#9eacbd}
+.sections{max-width:1120px;padding:30px 24px 80px;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.card,.glass-card,.feature-card,.experience-panel,.client-card,.wide-card,.about-section,.footer{background:rgba(17,27,40,.52)!important;background-image:none!important;border:1px solid rgba(190,215,242,.12);box-shadow:0 12px 34px rgba(0,0,0,.16);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2)}
+.card,.glass-card{border-radius:18px;min-height:190px;padding:27px;transition:transform .22s,border-color .22s,background .22s}
+.card:hover,.glass-card:hover,.feature-card:hover,.client-card:hover,.wide-card:hover{transform:translateY(-3px);border-color:rgba(190,215,242,.25);box-shadow:0 18px 42px rgba(0,0,0,.22)}
+.card::before{display:none}
+.card-icon{width:36px;height:36px;border-radius:11px;background:rgba(169,200,232,.1);color:#c7ddf2}
+.card h2{font-size:1.24rem;font-weight:680}
+.card p,.feature-card p,.page>p,.about-section p,.client-card p,.wide-card p{color:#a5b2c1;line-height:1.7}
+.card-link,.page h1,.about-section h2{color:#c5dcf3}
+.experience-panel{max-width:1072px;margin:0 auto 76px;padding:34px;border-radius:22px}
+.experience-panel h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.15}
+.feature-grid{gap:13px}
+.feature-card{border-radius:16px;padding:22px}
+.feature-card h3{font-size:1.05rem;font-weight:650}
+.page{max-width:1120px;margin:0 auto;padding:86px 24px 80px}
+.page h1{font-family:Inter,system-ui,sans-serif;font-size:clamp(2.3rem,5vw,3.6rem);font-weight:750;letter-spacing:-.045em;margin-bottom:12px}
+.page>p{font-size:1rem;margin-bottom:30px}
+.client-list,.wide-list,.about-container{gap:14px}
+.client-card,.wide-card,.about-section{border-radius:17px;padding:23px}
+.client-card h2,.wide-card h3,.about-section h2{font-family:Inter,system-ui,sans-serif;font-weight:680;letter-spacing:-.025em}
+.client-card .launch{color:#c8def3}
+.footer{max-width:1120px;margin:0 auto 20px;padding:20px 24px;border-radius:15px;text-align:center;color:#8e9daf}
+body.light-mode{--primary:#315c83;--primary-dark:#234c72;--bg:#e9eff6;--bg-light:#f7f9fc;--text:#172536;--text-muted:#536477;--glass-bg:rgba(255,255,255,.62);--glass-border:rgba(50,76,105,.14);background:#e9eff6;color:#172536}
+body.light-mode::before{background:linear-gradient(135deg,rgba(232,239,247,.78),rgba(239,244,250,.7)),url("files/liquid-glass-wallpaper.png") center/cover no-repeat,linear-gradient(135deg,#e9eff6,#f4f6fa)}
+body.light-mode .navbar{background:rgba(248,251,255,.72);border-color:rgba(50,76,105,.13);box-shadow:0 10px 32px rgba(35,55,80,.08)}
+body.light-mode .logo,body.light-mode .hero-title{color:#172536}
+body.light-mode .navbar nav a{color:#536477}
+body.light-mode .navbar nav a:hover{color:#172536}
+body.light-mode .theme-toggle,body.light-mode .btn-secondary{background:rgba(255,255,255,.62);border-color:rgba(50,76,105,.15);color:#24384e}
+body.light-mode .hero-subtitle,body.light-mode .card p,body.light-mode .feature-card p,body.light-mode .page>p,body.light-mode .about-section p,body.light-mode .client-card p,body.light-mode .wide-card p{color:#536477}
+body.light-mode .hero-stats div,body.light-mode .card,body.light-mode .glass-card,body.light-mode .feature-card,body.light-mode .experience-panel,body.light-mode .client-card,body.light-mode .wide-card,body.light-mode .about-section,body.light-mode .footer{background:rgba(255,255,255,.58)!important;border-color:rgba(50,76,105,.13);box-shadow:0 10px 28px rgba(35,55,80,.06)}
+body.light-mode .page h1,body.light-mode .about-section h2,body.light-mode .card-link{color:#285477}
+@media(max-width:900px){.sections{grid-template-columns:repeat(2,minmax(0,1fr))}.navbar{justify-content:center}.navbar nav{order:3;flex-basis:100%;flex-wrap:wrap}.logo{margin-right:auto}}
+@media(max-width:600px){.navbar{width:calc(100% - 20px);top:6px;margin-top:6px;padding:12px 14px;border-radius:15px}.navbar nav{gap:9px 14px}.navbar nav a{font-size:.8rem}.hero{padding:95px 20px 55px}.sections{grid-template-columns:1fr;padding:20px 18px 55px}.card{min-height:155px}.experience-panel{margin:0 18px 55px;padding:24px}.page{padding:55px 18px 60px}.client-card,.wide-card,.about-section{padding:19px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
