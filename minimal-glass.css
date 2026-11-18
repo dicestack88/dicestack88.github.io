@@ -67,3 +67,24 @@ body.light-mode .page h1,body.light-mode .about-section h2,body.light-mode .card
 @media(max-width:900px){.sections{grid-template-columns:repeat(2,minmax(0,1fr))}.navbar{justify-content:center}.navbar nav{order:3;flex-basis:100%;flex-wrap:wrap}.logo{margin-right:auto}}
 @media(max-width:600px){.navbar{width:calc(100% - 20px);top:6px;margin-top:6px;padding:12px 14px;border-radius:15px}.navbar nav{gap:9px 14px}.navbar nav a{font-size:.8rem}.hero{padding:95px 20px 55px}.sections{grid-template-columns:1fr;padding:20px 18px 55px}.card{min-height:155px}.experience-panel{margin:0 18px 55px;padding:24px}.page{padding:55px 18px 60px}.client-card,.wide-card,.about-section{padding:19px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+
+/* ===== Site traffic milestone ===== */
+.visitor-milestone{position:relative;max-width:1120px;margin:0 auto 76px;padding:clamp(28px,5vw,54px);border:1px solid rgba(190,215,242,.16);border-radius:26px;background:linear-gradient(135deg,rgba(24,39,57,.76),rgba(13,22,34,.64));backdrop-filter:blur(22px) saturate(1.25);-webkit-backdrop-filter:blur(22px) saturate(1.25);box-shadow:0 22px 70px rgba(0,0,0,.25);overflow:hidden}
+.visitor-milestone:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 15% 0%,rgba(169,200,232,.13),transparent 48%)}
+.visitor-milestone-heading,.visitor-metrics,.visitor-footnote{position:relative;z-index:1}
+.visitor-milestone-heading{text-align:center;margin-bottom:34px}
+.visitor-milestone-heading .eyebrow{margin-bottom:12px}
+.visitor-milestone-heading h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:750;letter-spacing:-.055em;color:#f1f6fc;margin-bottom:9px}
+.visitor-milestone-heading>p:last-child{color:#a5b5c7;font-size:.98rem}
+.visitor-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.visitor-metric{min-width:0;padding:clamp(22px,3vw,34px);border:1px solid rgba(190,215,242,.14);border-radius:19px;background:rgba(7,14,23,.38);text-align:center}
+.visitor-metric-total{background:linear-gradient(145deg,rgba(169,200,232,.11),rgba(7,14,23,.38))}
+.visitor-label{display:block;color:#a9c8e8;font-size:.7rem;font-weight:700;letter-spacing:.13em;margin-bottom:19px}
+.visitor-number{min-height:1em;color:#edf3fa;font-size:clamp(2.8rem,7vw,5.4rem);font-weight:780;line-height:1;letter-spacing:-.075em;font-variant-numeric:tabular-nums}
+.visitor-number>div{width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+.visitor-number #gcvc-views{font:inherit!important;color:inherit!important}
+.visitor-number #gcvc-for,.visitor-number #gcvc-by{display:none!important}
+.visitor-caption{display:block;margin-top:14px;color:#9eacbd;font-size:.84rem}
+.visitor-footnote{text-align:center;margin-top:20px;color:#8192a5;font-size:.75rem}
+@media(max-width:700px){.visitor-milestone{margin:0 18px 58px;padding:26px 18px}.visitor-metrics{grid-template-columns:1fr}.visitor-metric{padding:25px 16px}.visitor-number{font-size:clamp(3rem,14vw,4.5rem)}}
