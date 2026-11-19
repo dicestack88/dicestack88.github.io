@@ -1101,3 +1101,87 @@ a {
     padding: 28px;
   }
 }
+
+
+/* ===== Darklands feature and navigation ===== */
+.navbar nav a.darklands-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  margin: -9px 0;
+  border: 1px solid rgba(154, 112, 255, .55);
+  border-radius: 999px;
+  color: #f2eaff;
+  background: linear-gradient(110deg, rgba(111, 55, 190, .42), rgba(24, 16, 48, .78));
+  box-shadow: 0 0 18px rgba(142, 82, 255, .2), inset 0 1px rgba(255,255,255,.12);
+  font-weight: 800;
+  white-space: nowrap;
+}
+.navbar nav a.darklands-nav-link::after { display: none; }
+.navbar nav a.darklands-nav-link:hover,
+.navbar nav a.darklands-nav-link:focus-visible {
+  color: #fff;
+  border-color: rgba(197, 165, 255, .95);
+  background: linear-gradient(110deg, rgba(133, 73, 225, .72), rgba(38, 24, 75, .92));
+  box-shadow: 0 0 26px rgba(142, 82, 255, .38);
+  transform: translateY(-2px);
+}
+.darklands-feature {
+  max-width: 1100px;
+  margin: 12px auto 30px;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.darklands-feature-link {
+  min-height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: clamp(30px, 5vw, 54px);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(176, 139, 255, .48);
+  border-radius: 26px;
+  color: #fff;
+  text-decoration: none;
+  background: radial-gradient(ellipse at 82% 15%, rgba(145, 82, 255, .35), transparent 42%), linear-gradient(120deg, rgba(18, 13, 35, .97), rgba(44, 22, 75, .92) 55%, rgba(15, 20, 39, .96));
+  box-shadow: 0 22px 55px rgba(0,0,0,.3), 0 0 38px rgba(125,75,220,.14), inset 0 1px rgba(255,255,255,.12);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.darklands-feature-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .6;
+  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.08) 48%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform .7s ease;
+}
+.darklands-feature-link:hover,
+.darklands-feature-link:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(207, 181, 255, .85);
+  box-shadow: 0 28px 65px rgba(0,0,0,.38), 0 0 48px rgba(125,75,220,.28);
+}
+.darklands-feature-link:hover::before,
+.darklands-feature-link:focus-visible::before { transform: translateX(100%); }
+.darklands-feature-content { max-width: 700px; position: relative; z-index: 1; }
+.darklands-feature-kicker { color: #c8a8ff; font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+.darklands-feature-content h2 { margin: 13px 0 10px; font: 800 clamp(2rem, 4vw, 3rem)/1.12 'Orbitron', sans-serif; letter-spacing: -.04em; }
+.darklands-feature-content p { max-width: 620px; color: rgba(241,235,255,.78); font-size: 1.05rem; line-height: 1.65; }
+.darklands-feature-cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 23px; padding: 12px 19px; border-radius: 999px; color: #1b102c; background: linear-gradient(110deg, #d8c0ff, #a77aff); font-weight: 900; box-shadow: 0 8px 24px rgba(160,110,255,.25); }
+.darklands-feature-mark { flex: 0 0 auto; display: grid; place-items: center; width: clamp(100px, 17vw, 190px); aspect-ratio: 1; border: 1px solid rgba(210,185,255,.35); border-radius: 34%; color: rgba(230,215,255,.9); background: linear-gradient(145deg, rgba(191,153,255,.2), rgba(255,255,255,.025)); box-shadow: 0 0 65px rgba(139,85,255,.18), inset 0 1px rgba(255,255,255,.18); font: 900 clamp(4rem, 10vw, 8rem)/1 'Orbitron', sans-serif; transform: rotate(-8deg); }
+@media (max-width: 760px) {
+  .darklands-feature { padding: 0 20px; margin-top: 4px; }
+  .darklands-feature-link { min-height: 0; padding: 28px 24px; }
+  .darklands-feature-mark { width: 76px; border-radius: 24%; font-size: 3.5rem; }
+}
+@media (max-width: 480px) {
+  .darklands-feature-link { align-items: flex-start; }
+  .darklands-feature-mark { display: none; }
+}
