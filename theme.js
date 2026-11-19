@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Insert the glass toggle button next to the theme toggle if possible
   setupGlassToggle(savedGlass);
 
+  // Mark the selected material mode for shared CSS, including browsers without SVG refraction support.
+  document.documentElement.classList.toggle('lg-frosted-mode', savedGlass === 'frosted');
+
   // Broadcast initial glass mode so liquid-glass.js can respond
   window.dispatchEvent(new CustomEvent('glass-mode-change', { detail: savedGlass }));
 });
@@ -102,6 +105,7 @@ function setupGlassToggle(initialMode) {
     const current = localStorage.getItem('glass') || initialMode;
     const next = current === 'liquid' ? 'frosted' : 'liquid';
     localStorage.setItem('glass', next);
+    document.documentElement.classList.toggle('lg-frosted-mode', next === 'frosted');
     updateGlassButton(next);
 
     // notify other scripts (and other tabs via storage event)
@@ -111,7 +115,9 @@ function setupGlassToggle(initialMode) {
   // Sync button if other tabs change the preference
   window.addEventListener('storage', (e) => {
     if (e.key === 'glass') {
-      updateGlassButton(e.newValue || initialMode);
+      const mode = e.newValue || initialMode;
+      document.documentElement.classList.toggle('lg-frosted-mode', mode === 'frosted');
+      updateGlassButton(mode);
     }
   });
 }

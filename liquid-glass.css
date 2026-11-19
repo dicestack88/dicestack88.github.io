@@ -688,3 +688,51 @@ html:has(body.light-mode).lg-refraction-supported .lg-lens-active {
   backdrop-filter: blur(var(--lg-blur)) saturate(1.6) !important;
 }
 
+
+
+/* Frosted mode: give the shared navbar a more substantial, softly etched-glass finish.
+   Scoped to the Frosted Glass preference so Liquid Glass mode remains unchanged. */
+html.lg-frosted-mode :is(.navbar, body > nav) {
+  background:
+    linear-gradient(125deg, rgba(225, 240, 255, .12), rgba(175, 205, 240, .055) 48%, rgba(225, 240, 255, .10)),
+    rgba(18, 34, 58, .22) !important;
+  border: 1px solid rgba(225, 240, 255, .22) !important;
+  box-shadow:
+    0 14px 42px rgba(0, 0, 0, .22),
+    inset 0 1px 0 rgba(255, 255, 255, .24),
+    inset 0 -1px 0 rgba(180, 215, 255, .08) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.55) contrast(1.04) !important;
+  backdrop-filter: blur(22px) saturate(1.55) contrast(1.04) !important;
+}
+html.lg-frosted-mode :is(.navbar, body > nav)::before {
+  background:
+    linear-gradient(150deg, rgba(255,255,255,.19), rgba(255,255,255,.055) 28%, transparent 62%, rgba(125,190,255,.075)) !important;
+  opacity: .9 !important;
+}
+html.lg-frosted-mode :is(.navbar, body > nav)::after {
+  background: linear-gradient(135deg, rgba(255,255,255,.42), rgba(255,255,255,.07) 24%, transparent 54%, rgba(135,200,255,.16) 78%, rgba(255,255,255,.16)) !important;
+  opacity: .58 !important;
+}
+html.light-mode.lg-frosted-mode :is(.navbar, body > nav),
+html:has(body.light-mode).lg-frosted-mode :is(.navbar, body > nav) {
+  background:
+    linear-gradient(125deg, rgba(255,255,255,.34), rgba(235,243,252,.18) 48%, rgba(255,255,255,.30)),
+    rgba(242,247,255,.58) !important;
+  border-color: rgba(65,88,116,.20) !important;
+  box-shadow:
+    0 12px 34px rgba(45,65,90,.12),
+    inset 0 1px 0 rgba(255,255,255,.88),
+    inset 0 -1px 0 rgba(70,100,135,.06) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.3) contrast(1.02) !important;
+  backdrop-filter: blur(22px) saturate(1.3) contrast(1.02) !important;
+}
+html.light-mode.lg-frosted-mode :is(.navbar, body > nav)::before,
+html:has(body.light-mode).lg-frosted-mode :is(.navbar, body > nav)::before {
+  background: linear-gradient(150deg, rgba(255,255,255,.72), rgba(255,255,255,.20) 32%, transparent 68%, rgba(115,160,210,.08)) !important;
+}
+@media (max-width: 700px) {
+  html.lg-frosted-mode :is(.navbar, body > nav) {
+    -webkit-backdrop-filter: blur(17px) saturate(1.45) !important;
+    backdrop-filter: blur(17px) saturate(1.45) !important;
+  }
+}
