@@ -32,6 +32,69 @@ jobs:
           git lfs pull
           test "$(wc -c < files/eaglercraft-26.2-r46-music.html)" -gt 100000000
 
+      - name: Add visitor tracking to eligible HTML pages
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import os
+          import re
+
+          root = Path(".")
+          max_bytes = 100 * 1024 * 1024
+          protected_client_dirs = {"ChromiumClient"}
+          allowed_files_launcher_pages = {
+              "files/launcher.html",
+              "files/voltan-launcher.html",
+          }
+
+          updated = []
+          skipped = []
+
+          for page in root.rglob("*.html"):
+              relative = page.as_posix().removeprefix("./")
+
+              if any(part in protected_client_dirs for part in page.parts):
+                  skipped.append((relative, "protected Minecraft client directory"))
+                  continue
+
+              if relative.startswith("files/") and relative not in allowed_files_launcher_pages:
+                  skipped.append((relative, "standalone Minecraft client bundle"))
+                  continue
+
+              try:
+                  size = page.stat().st_size
+              except OSError:
+                  continue
+
+              if size > max_bytes:
+                  skipped.append((relative, "larger than 100 MiB"))
+                  continue
+
+              html = page.read_text(encoding="utf-8", errors="ignore")
+              if "visitor-stats.js" in html:
+                  continue
+
+              script_path = os.path.relpath(root / "visitor-stats.js", page.parent).replace(os.sep, "/")
+              tag = f'<script src="{script_path}" defer></script>'
+
+              if re.search(r"</body\s*>", html, flags=re.IGNORECASE):
+                  html = re.sub(r"</body\s*>", lambda match: tag + "\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
+              elif re.search(r"</html\s*>", html, flags=re.IGNORECASE):
+                  html = re.sub(r"</html\s*>", lambda match: tag + "\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
+              else:
+                  html += "\n" + tag + "\n"
+
+              page.write_text(html, encoding="utf-8")
+              updated.append(relative)
+
+          print(f"Added visitor tracking to {len(updated)} HTML pages:")
+          for item in updated:
+              print(f"  + {item}")
+          print(f"Skipped {len(skipped)} protected/large pages:")
+          for item, reason in skipped:
+              print(f"  - {item}: {reason}")
+          PY
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
