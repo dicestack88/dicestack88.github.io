@@ -1,5 +1,7 @@
 (function () {
-  const API = "https://fragrant-bird-c4c0.dicestack88.workers.dev/";
+  // Netlify is the public-facing endpoint. It forwards requests to the
+  // existing counter database server-side, avoiding browser requests to workers.dev.
+  const API = "https://netlify-counter-test.netlify.app/.netlify/functions/counter";
 
   async function updateVisitorCounters() {
     const visitResponse = await fetch(API, {
@@ -36,6 +38,6 @@
   }
 
   updateVisitorCounters().catch(error => {
-    console.error("[visitor-stats] Cloudflare counter failed:", error);
+    console.error("[visitor-stats] Netlify visitor counter failed:", error);
   });
 })();
