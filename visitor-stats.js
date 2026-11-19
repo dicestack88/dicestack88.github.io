@@ -1,81 +1,41 @@
 (function () {
-  const dateParts = new Intl.DateTimeFormat("en", {
-    timeZone: "Australia/Canberra",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  }).formatToParts(new Date());
+  const API = "https://fragrant-bird-c4c0.dicestack88.workers.dev/";
 
-  const values = Object.fromEntries(
-    dateParts.map((part) => [part.type, part.value])
-  );
-  const today = values.year + "-" + values.month + "-" + values.day;
-
-  const style = `
-    div {
-      width: auto;
-      height: auto;
-      padding: 0;
-      margin: 0;
-      border: 0;
-      background: transparent;
-      color: #edf3fa;
-      font-family: Inter, system-ui, sans-serif;
-    }
-    #gcvc-views {
-      color: #edf3fa;
-      font-size: clamp(2.8rem, 7vw, 5.4rem);
-      line-height: 1;
-      font-weight: 780;
-      letter-spacing: -.075em;
-    }
-    #gcvc-for, #gcvc-by {
-      display: none !important;
-    }
-  `;
-
-  // GoatCounter documents this polling pattern because count.js loads async.
-  // Keep checking until its public visit_count API is ready.
-  const timer = window.setInterval(function () {
-    if (
-      !window.goatcounter ||
-      typeof window.goatcounter.visit_count !== "function"
-    ) {
-      return;
+  async function updateVisitorCounters() {
+    const visitResponse = await fetch(API, {
+      method: "POST",
+      mode: "cors",
+      credentials: "omit",
+      cache: "no-store"
+    });
+    if (!visitResponse.ok) {
+      throw new Error("The visitor counter rejected this page view (" + visitResponse.status + ").");
     }
 
-    window.clearInterval(timer);
-
-    try {
-      window.goatcounter.visit_count({
-        append: "#visitors-today",
-        path: "TOTAL",
-        start: today,
-        end: today,
-        no_branding: true,
-        style: style
-      });
-
-      window.goatcounter.visit_count({
-        append: "#visitors-total",
-        path: "TOTAL",
-        start: "2026-11-19",
-        no_branding: true,
-        style: style
-      });
-    } catch (error) {
-      console.error("[visitor-stats] GoatCounter could not render the counters:", error);
+    const statsResponse = await fetch(API, {
+      method: "GET",
+      mode: "cors",
+      credentials: "omit",
+      cache: "no-store"
+    });
+    if (!statsResponse.ok) {
+      throw new Error("Could not retrieve visitor totals (" + statsResponse.status + ").");
     }
-  }, 100);
 
-  // Equivalent to the documented async count.js script tag.
-  const counterScript = document.createElement("script");
-  counterScript.dataset.goatcounter = "https://dicestack88.goatcounter.com/count";
-  counterScript.async = true;
-  counterScript.src = "https://gc.zgo.at/count.js";
-  counterScript.onerror = function () {
-    window.clearInterval(timer);
-    console.error("[visitor-stats] Failed to load GoatCounter count.js.");
-  };
-  document.head.appendChild(counterScript);
+    const stats = await statsResponse.json();
+    const format = new Intl.NumberFormat("en-AU");
+    const today = document.getElementById("visitors-today");
+    const lifetime = document.getElementById("visitors-total");
+
+    if (today && Number.isFinite(Number(stats.today))) {
+      today.textContent = format.format(Number(stats.today));
+    }
+    if (lifetime && Number.isFinite(Number(stats.lifetime))) {
+      lifetime.textContent = format.format(Number(stats.lifetime));
+    }
+  }
+
+  updateVisitorCounters().catch(error => {
+    console.error("[visitor-stats] Cloudflare counter failed:", error);
+  });
 })();
