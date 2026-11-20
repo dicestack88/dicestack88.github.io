@@ -29,10 +29,12 @@
     const defs = document.createElementNS(svgNS, 'defs');
     const filter = document.createElementNS(svgNS, 'filter');
     filter.setAttribute('id', 'liquidGlassRefraction');
-    filter.setAttribute('x', '-12%');
-    filter.setAttribute('y', '-12%');
-    filter.setAttribute('width', '124%');
-    filter.setAttribute('height', '124%');
+    // Keep displacement output inside each glass element's own bounds.
+    // Expanded filter bounds let highlights bleed past rounded borders.
+    filter.setAttribute('x', '0%');
+    filter.setAttribute('y', '0%');
+    filter.setAttribute('width', '100%');
+    filter.setAttribute('height', '100%');
     filter.setAttribute('color-interpolation-filters', 'sRGB');
 
     const noise = document.createElementNS(svgNS, 'feTurbulence');
