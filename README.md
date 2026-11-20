@@ -1,4 +1,4 @@
-# Dicestack88 Darklands
+# Dicestack88 Dicestack Dimension
 
 Welcome to my personal portfolio and projects hub. This is where I showcase my clients, games, and more.
 
