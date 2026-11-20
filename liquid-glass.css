@@ -560,3 +560,15 @@ html[data-glass-mode="liquid"] .lg-surface {
   html[data-glass-mode="liquid"] .lg-surface,html[data-glass-mode="frosted"] .lg-surface,
   .dicestack-glass-picker>summary,.dicestack-glass-panel{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 }
+
+html[data-glass-mode="frosted"] .lg-surface::before { display:block !important; }
+html[data-glass-mode="liquid"] .lg-surface {
+  background:rgba(190,215,245,.055)!important;
+  border-color:rgba(225,239,255,.22)!important;
+  box-shadow:0 15px 42px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(255,255,255,.05)!important;
+}
+html[data-glass-mode="liquid"] .lg-surface::before {
+  display:block!important;opacity:.95!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.035) 25%,transparent 58%,rgba(135,205,255,.09))!important;
+}
+html[data-glass-mode="liquid"] .lg-surface::after { opacity:.72!important; }
