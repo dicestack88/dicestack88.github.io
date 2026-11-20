@@ -54,16 +54,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;ba
 .client-card h2,.wide-card h3,.about-section h2{font-family:Inter,system-ui,sans-serif;font-weight:680;letter-spacing:-.025em}
 .client-card .launch{color:#c8def3}
 .footer{max-width:1120px;margin:0 auto 20px;padding:20px 24px;border-radius:15px;text-align:center;color:#8e9daf}
-body.light-mode{--primary:#315c83;--primary-dark:#234c72;--bg:#e9eff6;--bg-light:#f7f9fc;--text:#172536;--text-muted:#536477;--glass-bg:rgba(255,255,255,.62);--glass-border:rgba(50,76,105,.14);background:#e9eff6;color:#172536}
-body.light-mode::before{background:linear-gradient(135deg,rgba(232,239,247,.78),rgba(239,244,250,.7)),url("files/liquid-glass-wallpaper.png") center/cover no-repeat,linear-gradient(135deg,#e9eff6,#f4f6fa)}
-body.light-mode .navbar{background:rgba(248,251,255,.72);border-color:rgba(50,76,105,.13);box-shadow:0 10px 32px rgba(35,55,80,.08)}
-body.light-mode .logo,body.light-mode .hero-title{color:#172536}
-body.light-mode .navbar nav a{color:#536477}
-body.light-mode .navbar nav a:hover{color:#172536}
-body.light-mode .theme-toggle,body.light-mode .btn-secondary{background:rgba(255,255,255,.62);border-color:rgba(50,76,105,.15);color:#24384e}
-body.light-mode .hero-subtitle,body.light-mode .card p,body.light-mode .feature-card p,body.light-mode .page>p,body.light-mode .about-section p,body.light-mode .client-card p,body.light-mode .wide-card p{color:#536477}
-body.light-mode .hero-stats div,body.light-mode .card,body.light-mode .glass-card,body.light-mode .feature-card,body.light-mode .experience-panel,body.light-mode .client-card,body.light-mode .wide-card,body.light-mode .about-section,body.light-mode .footer{background:rgba(255,255,255,.58)!important;border-color:rgba(50,76,105,.13);box-shadow:0 10px 28px rgba(35,55,80,.06)}
-body.light-mode .page h1,body.light-mode .about-section h2,body.light-mode .card-link{color:#285477}
 @media(max-width:900px){.sections{grid-template-columns:repeat(2,minmax(0,1fr))}.navbar{justify-content:center}.navbar nav{order:3;flex-basis:100%;flex-wrap:wrap}.logo{margin-right:auto}}
 @media(max-width:600px){.navbar{width:calc(100% - 20px);top:6px;margin-top:6px;padding:12px 14px;border-radius:15px}.navbar nav{gap:9px 14px}.navbar nav a{font-size:.8rem}.hero{padding:95px 20px 55px}.sections{grid-template-columns:1fr;padding:20px 18px 55px}.card{min-height:155px}.experience-panel{margin:0 18px 55px;padding:24px}.page{padding:55px 18px 60px}.client-card,.wide-card,.about-section{padding:19px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}

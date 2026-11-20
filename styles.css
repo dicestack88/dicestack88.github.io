@@ -12,17 +12,6 @@
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-body.light-mode {
-  --primary: #00cc99;
-  --primary-dark: #009977;
-  --bg: #f3f7fc;
-  --bg-light: #ffffff;
-  --text: #1a1a1a;
-  --text-muted: #555;
-  --glass-bg: rgba(0, 0, 0, 0.05);
-  --glass-border: rgba(0, 0, 0, 0.1);
-}
-
 /* ===== Global ===== */
 * {
   margin: 0;
