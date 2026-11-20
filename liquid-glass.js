@@ -62,6 +62,12 @@
 
   function init() {
     const root = document.documentElement;
+    if (!document.querySelector('script[data-glass-mode-loader]')) {
+      const pickerScript = document.createElement('script');
+      pickerScript.src = 'glass-mode.js';
+      pickerScript.dataset.glassModeLoader = 'true';
+      document.head.append(pickerScript);
+    }
     const surfaces = Array.from(document.querySelectorAll(surfaceSelectors));
     surfaces.forEach(el => el.classList.add('lg-surface'));
 
