@@ -76,12 +76,6 @@
     addFilter();
 
     function applyMode(mode) {
-      const deviceMemory = navigator.deviceMemory || 0;
-      const cores = navigator.hardwareConcurrency || 0;
-      if (mode === 'liquid' && ((deviceMemory && deviceMemory < 1.5) || (cores && cores < 2))) {
-        mode = 'frosted';
-      }
-
       if (mode === 'liquid') {
         surfaces.forEach(el => el.classList.add('lg-lens-active'));
         root.classList.add('lg-refraction-supported', 'lg-svg-filter-supported');
@@ -91,7 +85,7 @@
       }
     }
 
-    const initialMode = localStorage.getItem('glass') || 'liquid';
+    const initialMode = localStorage.getItem('dicestack-glass-mode') || 'frosted';
     applyMode(initialMode);
 
     window.addEventListener('glass-mode-change', (e) => {
@@ -100,8 +94,8 @@
     });
 
     window.addEventListener('storage', (e) => {
-      if (e.key === 'glass') {
-        applyMode(e.newValue || 'liquid');
+      if (e.key === 'dicestack-glass-mode') {
+        applyMode(e.newValue || 'frosted');
       }
     });
 
