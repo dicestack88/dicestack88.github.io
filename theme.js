@@ -1,15 +1,16 @@
-/* Dicestack88 ecosystem appearance: fixed dark Liquid Glass. */
+/* Dicestack88 ecosystem appearance: dark-only, Frosted Glass by default. */
 (() => {
   'use strict';
   const root = document.documentElement;
-  root.classList.remove('light-mode', 'lg-frosted-mode');
+  root.classList.remove('light-mode');
   root.style.colorScheme = 'dark';
   document.body?.classList.remove('light-mode');
   try {
     localStorage.setItem('theme', 'dark');
-    localStorage.setItem('glass', 'liquid');
+    if (!['liquid', 'frosted'].includes(localStorage.getItem('dicestack-glass-mode'))) {
+      localStorage.setItem('dicestack-glass-mode', 'frosted');
+    }
   } catch (_) {}
-  window.dispatchEvent(new CustomEvent('glass-mode-change', { detail: 'liquid' }));
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', event => {
       const target = document.querySelector(anchor.getAttribute('href'));
