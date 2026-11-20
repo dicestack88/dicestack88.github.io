@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Eaglercraft Launcher</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="liquid-glass.css">
 <style>
 :root{color-scheme:dark;--bg:#0a0a0a;--side:#101010;--card:#161616;--line:#2a2a2a;--txt:#f2f2f2;--mut:#8a8a8a;--acc:#ff8a2a;--g1:#2fcf4f;--g2:#1c8f35;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
@@ -151,6 +152,19 @@ nav .bell svg{transform-origin:50% 8%;animation:ring 5.5s ease-in-out infinite}
 #pill:hover{background:#2a2a2a}
 #blk{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(420px,88vw);background:#181818;border:1px solid #3a3a3a;border-radius:16px;padding:24px;text-align:center;z-index:5;display:none;box-shadow:0 20px 60px rgba(0,0,0,.7)}
 #blk.on{display:block;animation:pop .2s ease-out}#blk h3{margin:0 0 10px;font-size:18px}#blk p{margin:0 0 18px;color:#aaa;font-size:13px;line-height:1.5}#blk a{text-decoration:none;display:inline-flex}
+
+
+/* Dicestack ecosystem Liquid Glass surfaces */
+.title{background:linear-gradient(110deg,rgba(28,35,47,.78),rgba(10,13,20,.62))!important;border-bottom:1px solid rgba(255,255,255,.13)!important;backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%)}
+.app nav{background:linear-gradient(180deg,rgba(24,31,44,.76),rgba(10,13,20,.66))!important;border-color:rgba(255,255,255,.13)!important;backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%)}
+.card,.hero,#notif,#menu,#blk,#toast,#pill,#ov .bar,.search,.lnk,.legacy-link,.card .cog,nav button{background-color:rgba(255,255,255,.055);border-color:rgba(220,235,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 14px 38px rgba(0,0,0,.22);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%)}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025) 62%),rgba(16,22,32,.68)!important}
+#notif,#menu,#blk{background:linear-gradient(145deg,rgba(35,44,60,.9),rgba(12,17,27,.86))!important;border:1px solid rgba(225,238,255,.2)!important}
+.search,.lnk{background:rgba(255,255,255,.055)!important;color:var(--txt)}
+nav button.on,.card .cog{background:rgba(255,138,42,.16)!important;border:1px solid rgba(255,190,130,.26)}
+.play{border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 8px 24px rgba(0,0,0,.25)}
+.legacy-link{background:rgba(255,255,255,.07)!important}
+#ov .bar{background:rgba(8,11,17,.82)!important}
 
 </style>
 </head>
@@ -310,5 +324,6 @@ render();
 
   <script data-goatcounter="https://dicestack88.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script src="visitor-stats.js"></script>
+<script src="liquid-glass.js"></script>
 </body>
 </html>
