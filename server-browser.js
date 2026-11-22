@@ -50,12 +50,17 @@
     var controller=new AbortController(),timer=setTimeout(function(){controller.abort()},ms);
     return fetch(url,{signal:controller.signal,cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).finally(function(){clearTimeout(timer)});
   }
-  function checkServer(s){
-    var url=s.edition==="eagler"?"https://topeaglerservers.com/api/status/"+encodeURIComponent(s.host):"https://api.mcsrvstat.us/3/"+encodeURIComponent(s.host);
-    return timeoutFetch(url,10000).then(function(d){
-      if(s.edition==="eagler")return parseEagler(d);
-      return {online:d.online===true,players:firstNumber(d,[["players","online"]]),max:firstNumber(d,[["players","max"]]),version:d.version||"",latency:firstNumber(d,[["debug","pingMs"],["latency"]])};
-    }).catch(function(e){return {online:false,players:null,max:null,error:e.name==="AbortError"?"Timed out":"Status unavailable"}});
+  var STATUS_API="https://dicestack-netlify-api.netlify.app/.netlify/functions/server-status";
+  function fetchStatuses(){
+    var requested=servers.map(function(s){return s.edition+":"+s.host}).join(",");
+    var url=STATUS_API+"?servers="+encodeURIComponent(requested);
+    return timeoutFetch(url,15000).then(function(payload){
+      if(!payload||!payload.results||typeof payload.results!=="object")throw new Error("Invalid status response");
+      servers.forEach(function(s){
+        var result=payload.results[s.host];
+        s.live=result&&typeof result==="object"?result:{online:false,players:null,max:null,version:"",error:"Status unavailable"};
+      });
+    });
   }
   function render(){
     var shown=servers.filter(function(s){return state.filter==="all"||state.filter===s.edition});
@@ -79,14 +84,10 @@
   function refreshAll(){
     if(state.loading)return;
     state.loading=true;refresh.disabled=true;refresh.textContent="Refreshing…";
-    var index=0,active=0,finished=0;
-    return new Promise(function(resolve){
-      function next(){
-        while(active<4&&index<servers.length){
-          (function(s){active++;checkServer(s).then(function(data){s.live=data}).finally(function(){active--;finished++;if(finished===servers.length){state.updated=new Date();state.loading=false;refresh.disabled=false;refresh.textContent="↻ Refresh";render();resolve()}else next()})})(servers[index++]);
-        }
-      }
-      next();
+    return fetchStatuses().catch(function(){
+      servers.forEach(function(s){s.live={online:false,players:null,max:null,version:"",error:"Status service unavailable"}});
+    }).finally(function(){
+      state.updated=new Date();state.loading=false;refresh.disabled=false;refresh.textContent="↻ Refresh";render();
     });
   }
   root.addEventListener("click",function(e){
