@@ -77,12 +77,12 @@ jobs:
               script_path = os.path.relpath(root / "visitor-stats.js", page.parent).replace(os.sep, "/")
               tag = f'<script src="{script_path}" defer></script>'
 
-              if re.search(r"</body\\s*>", html, flags=re.IGNORECASE):
-                  html = re.sub(r"</body\\s*>", lambda match: tag + "\\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
-              elif re.search(r"</html\\s*>", html, flags=re.IGNORECASE):
-                  html = re.sub(r"</html\\s*>", lambda match: tag + "\\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
+              if re.search(r"</body\s*>", html, flags=re.IGNORECASE):
+                  html = re.sub(r"</body\s*>", lambda match: tag + "\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
+              elif re.search(r"</html\s*>", html, flags=re.IGNORECASE):
+                  html = re.sub(r"</html\s*>", lambda match: tag + "\n" + match.group(0), html, count=1, flags=re.IGNORECASE)
               else:
-                  html += "\\n" + tag + "\\n"
+                  html += "\n" + tag + "\n"
 
               page.write_text(html, encoding="utf-8")
               updated.append(relative)
