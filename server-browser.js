@@ -1,7 +1,7 @@
 /* Live server browser: live player counts only; never substitutes advertised averages. */
 (function(){
   "use strict";
-  var root=document.getElementById("server-browser");
+  var root=document.getElementById("servers");
   if(!root)return;
   var servers=[
     {name:"ArchMC",edition:"eagler",host:"arch.mc",address:"wss://arch.mc",source:"TopEaglerServers"},
@@ -33,6 +33,7 @@
   ];
   var state={filter:"all",loading:false,updated:null};
   var list=root.querySelector(".server-list"),summary=root.querySelector(".server-summary"),refresh=root.querySelector(".server-refresh");
+  if(!list||!summary||!refresh)return;
   function safeText(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
   function firstNumber(obj,paths){for(var i=0;i<paths.length;i++){var v=obj;for(var j=0;j<paths[i].length;j++)v=v&&v[paths[i][j]];if(typeof v==="number"&&isFinite(v))return v}return null}
   function parseEagler(data){
