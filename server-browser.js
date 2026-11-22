@@ -35,27 +35,31 @@
   var list=root.querySelector(".server-list"),summary=root.querySelector(".server-summary"),refresh=root.querySelector(".server-refresh");
   if(!list||!summary||!refresh)return;
   function safeText(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-  function firstNumber(obj,paths){for(var i=0;i<paths.length;i++){var v=obj;for(var j=0;j<paths[i].length;j++)v=v&&v[paths[i][j]];if(typeof v==="number"&&isFinite(v))return v}return null}
-  function parseEagler(data){
-    var payload=data&&data.data&&typeof data.data==="object"?data.data:data;
-    var online=payload.online===true||payload.status==="online"||payload.isOnline===true||data.online===true||data.status==="online";
-    var count=firstNumber(payload,[["players","online"],["players","current"],["playerCount"],["onlinePlayers"],["online"],["playersOnline"]]);
-    var max=firstNumber(payload,[["players","max"],["maxPlayers"],["max"]]);
-    if(count===null)count=firstNumber(data,[["players","online"],["playerCount"],["onlinePlayers"]]);
-    if(max===null)max=firstNumber(data,[["players","max"],["maxPlayers"]]);
-    if(typeof payload.online==="number"&&count===null)count=payload.online;
-    return {online:online,players:count,max:max,version:payload.version||data.version||"",latency:firstNumber(payload,[["latency"],["responseTime"],["ping"]])};
+  function unavailableResult(message){
+    return {online:false,players:null,max:null,error:message,source:"Dicestack proxy"};
   }
-  function timeoutFetch(url,ms){
-    var controller=new AbortController(),timer=setTimeout(function(){controller.abort()},ms);
-    return fetch(url,{signal:controller.signal,cache:"no-store"}).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).finally(function(){clearTimeout(timer)});
-  }
-  function checkServer(s){
-    var url=s.edition==="eagler"?"https://topeaglerservers.com/api/status/"+encodeURIComponent(s.host):"https://api.mcsrvstat.us/3/"+encodeURIComponent(s.host);
-    return timeoutFetch(url,10000).then(function(d){
-      if(s.edition==="eagler")return parseEagler(d);
-      return {online:d.online===true,players:firstNumber(d,[["players","online"]]),max:firstNumber(d,[["players","max"]]),version:d.version||"",latency:firstNumber(d,[["debug","pingMs"],["latency"]])};
-    }).catch(function(e){return {online:false,players:null,max:null,error:e.name==="AbortError"?"Timed out":"Status unavailable"}});
+  function refreshStatuses(){
+    var endpoint=window.DICESTACK_SERVER_STATUS_ENDPOINT;
+    if(!endpoint){
+      servers.forEach(function(s){s.live=unavailableResult("Proxy not configured")});
+      return Promise.resolve();
+    }
+    var requested=servers.map(function(s){return s.edition+":"+s.host}).join(",");
+    var url=endpoint+(endpoint.indexOf("?")===-1?"?":"&")+"servers="+encodeURIComponent(requested);
+    var controller=new AbortController(),timer=setTimeout(function(){controller.abort()},12000);
+    return fetch(url,{signal:controller.signal,headers:{"Accept":"application/json"},cache:"no-store"})
+      .then(function(response){if(!response.ok)throw new Error("Proxy returned HTTP "+response.status);return response.json()})
+      .then(function(payload){
+        servers.forEach(function(s){
+          var result=payload.results&&payload.results[s.host];
+          s.live=result?result:unavailableResult("No status returned");
+        });
+      })
+      .catch(function(error){
+        var message=error.name==="AbortError"?"Proxy request timed out":"Proxy unavailable";
+        servers.forEach(function(s){s.live=unavailableResult(message)});
+      })
+      .finally(function(){clearTimeout(timer)});
   }
   function render(){
     var shown=servers.filter(function(s){return state.filter==="all"||state.filter===s.edition});
@@ -79,14 +83,8 @@
   function refreshAll(){
     if(state.loading)return;
     state.loading=true;refresh.disabled=true;refresh.textContent="Refreshing…";
-    var index=0,active=0,finished=0;
-    return new Promise(function(resolve){
-      function next(){
-        while(active<4&&index<servers.length){
-          (function(s){active++;checkServer(s).then(function(data){s.live=data}).finally(function(){active--;finished++;if(finished===servers.length){state.updated=new Date();state.loading=false;refresh.disabled=false;refresh.textContent="↻ Refresh";render();resolve()}else next()})})(servers[index++]);
-        }
-      }
-      next();
+    return refreshStatuses().finally(function(){
+      state.updated=new Date();state.loading=false;refresh.disabled=false;refresh.textContent="↻ Refresh";render();
     });
   }
   root.addEventListener("click",function(e){
