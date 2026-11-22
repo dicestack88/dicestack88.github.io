@@ -1,7 +1,7 @@
 (function () {
   // Netlify is the public-facing endpoint. It forwards requests to the
   // existing counter database server-side, avoiding browser requests to workers.dev.
-  const API = "https://netlify-counter-test.netlify.app/.netlify/functions/counter";
+  const API = "https://dicestack-netlify-api.netlify.app/.netlify/functions/counter";
 
   async function updateVisitorCounters() {
     const visitResponse = await fetch(API, {
