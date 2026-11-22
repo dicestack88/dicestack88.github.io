@@ -223,10 +223,10 @@ nav button.on,.card .cog{background:rgba(255,138,42,.16)!important;border:1px so
     <button type="button" data-server-filter="all" aria-pressed="true">All servers</button>
     <button type="button" data-server-filter="eagler" aria-pressed="false">Eaglercraft</button>
     <button type="button" data-server-filter="java" aria-pressed="false">Java Minecraft</button>
-   </div><button type="button" class="server-refresh">↻ Refresh</button></div>
+   </div><select class="server-mode-filter" aria-label="Filter by game mode"><option value="all">All game modes</option><option>Survival</option><option>SMP</option><option>Minigames</option><option>PvP</option><option>SkyBlock</option><option>Prison</option><option>RPG</option><option value="Other">Other / untagged</option></select><input class="server-search" type="search" placeholder="Search servers or modes" aria-label="Search servers"><button type="button" class="server-refresh">↻ Refresh</button></div>
    <div class="server-summary" aria-live="polite"></div>
    <div class="server-list" aria-live="polite"><div class="server-empty">Checking server status…</div></div>
-   <p class="server-footnote">Player counts are live status snapshots, not guaranteed exact totals. Servers with unavailable status are shown without a count and are never assigned estimated averages. Eaglercraft listings are sourced from the community list you supplied; Java status checks use MCSrvStat. Use Copy address to paste a server into your game’s multiplayer screen.</p>
+   <p class="server-footnote">Player counts are live status snapshots, not guaranteed exact totals. Servers with unavailable status are shown without a count and are never assigned estimated averages. Eaglercraft listings are sourced from the community list you supplied; Java status checks use MCSrvStat. Game-mode labels are directory categories, not live server metadata. Use Copy address to paste a server into your game’s multiplayer screen.</p>
   </section>
   <section class="page" id="socials">
    <h1>Socials</h1>
