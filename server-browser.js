@@ -36,11 +36,14 @@
   function safeText(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
   function firstNumber(obj,paths){for(var i=0;i<paths.length;i++){var v=obj;for(var j=0;j<paths[i].length;j++)v=v&&v[paths[i][j]];if(typeof v==="number"&&isFinite(v))return v}return null}
   function parseEagler(data){
-    var online=data.online===true||data.status==="online"||data.isOnline===true;
-    var count=firstNumber(data,[["players","online"],["players","current"],["playerCount"],["onlinePlayers"],["online"],["data","players","online"],["data","playerCount"]]);
-    var max=firstNumber(data,[["players","max"],["maxPlayers"],["max"],["data","players","max"]]);
-    if(typeof data.online==="number"&&count===null)count=data.online;
-    return {online:online,players:count,max:max,version:data.version||data.data&&data.data.version||"",latency:firstNumber(data,[["latency"],["responseTime"],["ping"],["data","latency"]])};
+    var payload=data&&data.data&&typeof data.data==="object"?data.data:data;
+    var online=payload.online===true||payload.status==="online"||payload.isOnline===true||data.online===true||data.status==="online";
+    var count=firstNumber(payload,[["players","online"],["players","current"],["playerCount"],["onlinePlayers"],["online"],["playersOnline"]]);
+    var max=firstNumber(payload,[["players","max"],["maxPlayers"],["max"]]);
+    if(count===null)count=firstNumber(data,[["players","online"],["playerCount"],["onlinePlayers"]]);
+    if(max===null)max=firstNumber(data,[["players","max"],["maxPlayers"]]);
+    if(typeof payload.online==="number"&&count===null)count=payload.online;
+    return {online:online,players:count,max:max,version:payload.version||data.version||"",latency:firstNumber(payload,[["latency"],["responseTime"],["ping"]])};
   }
   function timeoutFetch(url,ms){
     var controller=new AbortController(),timer=setTimeout(function(){controller.abort()},ms);
