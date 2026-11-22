@@ -101,8 +101,13 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Each rerun gets a distinct name so deploy-pages never sees duplicate
+          # github-pages artifacts retained from an earlier attempt of this run.
+          name: github-pages-${{ github.run_attempt }}
           path: .
 
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
