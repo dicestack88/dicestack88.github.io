@@ -35,3 +35,11 @@
 .server-updated{font-variant-numeric:tabular-nums}
 @media(max-width:650px){.server-row{grid-template-columns:minmax(0,1fr) auto;gap:9px;padding:12px}.server-count{grid-column:2;grid-row:1;text-align:right}.server-actions{grid-column:1/-1}.server-copy{flex:1}.server-refresh{margin-left:0}.server-summary{gap:8px}}
 @media(prefers-reduced-transparency:reduce){.server-row{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(9,17,13,.96)}}
+
+.server-mode-filter,.server-search{border:1px solid rgba(220,235,255,.18);background:rgba(255,255,255,.06);color:#eaf5ec;border-radius:10px;padding:9px 12px;font:600 12px Inter,sans-serif;min-height:36px;outline:none}
+.server-mode-filter option{background:#151a20;color:#f2f2f2}
+.server-search{flex:1;min-width:190px}
+.server-mode-filter:focus,.server-search:focus{border-color:rgba(109,255,138,.55)}
+.server-modes{color:#8fe3a0!important}
+.server-count small{display:block;line-height:1.4}
+@media(max-width:650px){.server-mode-filter,.server-search{width:100%;min-width:0}.server-search{flex-basis:100%}}

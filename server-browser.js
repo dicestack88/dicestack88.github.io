@@ -24,25 +24,33 @@
     {name:"SHADOW NETWORK 2",edition:"eagler",host:"play.shadownetwork.shop",address:"wss://play.shadownetwork.shop",source:"TopEaglerServers"},
     {name:"Ethereal",edition:"eagler",host:"ethereal.mov",address:"wss://ethereal.mov",source:"TopEaglerServers"},
     {name:"RagePVP Network",edition:"eagler",host:"ragepvp.us",address:"wss://ragepvp.us",source:"TopEaglerServers"},
-    {name:"Hypixel",edition:"java",host:"mc.hypixel.net",address:"mc.hypixel.net",source:"MCSrvStat"},
-    {name:"Wynncraft",edition:"java",host:"play.wynncraft.com",address:"play.wynncraft.com",source:"MCSrvStat"},
-    {name:"CubeCraft",edition:"java",host:"play.cubecraft.net",address:"play.cubecraft.net",source:"MCSrvStat"},
-    {name:"MCC Island",edition:"java",host:"play.mccisland.net",address:"play.mccisland.net",source:"MCSrvStat"},
-    {name:"PvP Legacy",edition:"java",host:"play.pvplegacy.net",address:"play.pvplegacy.net",source:"MCSrvStat"},
-    {name:"JartexNetwork",edition:"java",host:"play.jartexnetwork.com",address:"play.jartexnetwork.com",source:"MCSrvStat"},
-    {name:"DonutSMP",edition:"java",host:"donutsmp.net",address:"donutsmp.net",source:"MCSrvStat"},
-    {name:"Minehut",edition:"java",host:"minehut.com",address:"minehut.com",source:"MCSrvStat"},
-    {name:"Minemen Club",edition:"java",host:"minemen.club",address:"minemen.club",source:"MCSrvStat"},
-    {name:"Complex Gaming",edition:"java",host:"hub.mc-complex.com",address:"hub.mc-complex.com",source:"MCSrvStat"},
-    {name:"ManaCube",edition:"java",host:"hub.manacube.net",address:"hub.manacube.net",source:"MCSrvStat"},
-    {name:"PikaNetwork",edition:"java",host:"play.pika-network.net",address:"play.pika-network.net",source:"MCSrvStat"},
-    {name:"OPBlocks",edition:"java",host:"play.opblocks.com",address:"play.opblocks.com",source:"MCSrvStat"},
-    {name:"Purple Prison",edition:"java",host:"purpleprison.net",address:"purpleprison.net",source:"MCSrvStat"},
-    {name:"EarthMC",edition:"java",host:"play.earthmc.net",address:"play.earthmc.net",source:"MCSrvStat"},
-    {name:"MC Central",edition:"java",host:"mccentral.org",address:"mccentral.org",source:"MCSrvStat"}
+    {name:"Hypixel",edition:"java",host:"mc.hypixel.net",address:"mc.hypixel.net",source:"MCSrvStat",modes:["Minigames","SkyBlock"]},
+    {name:"Wynncraft",edition:"java",host:"play.wynncraft.com",address:"play.wynncraft.com",source:"MCSrvStat",modes:["RPG"]},
+    {name:"CubeCraft",edition:"java",host:"play.cubecraft.net",address:"play.cubecraft.net",source:"MCSrvStat",modes:["Minigames"]},
+    {name:"MCC Island",edition:"java",host:"play.mccisland.net",address:"play.mccisland.net",source:"MCSrvStat",modes:["Minigames"]},
+    {name:"PvP Legacy",edition:"java",host:"play.pvplegacy.net",address:"play.pvplegacy.net",source:"MCSrvStat",modes:["PvP"]},
+    {name:"JartexNetwork",edition:"java",host:"play.jartexnetwork.com",address:"play.jartexnetwork.com",source:"MCSrvStat",modes:["Minigames","Survival","SkyBlock"]},
+    {name:"DonutSMP",edition:"java",host:"donutsmp.net",address:"donutsmp.net",source:"MCSrvStat",modes:["Survival","SMP","PvP"]},
+    {name:"Minehut",edition:"java",host:"minehut.com",address:"minehut.com",source:"MCSrvStat",modes:["Survival","SMP"]},
+    {name:"Minemen Club",edition:"java",host:"minemen.club",address:"minemen.club",source:"MCSrvStat",modes:["PvP"]},
+    {name:"Complex Gaming",edition:"java",host:"hub.mc-complex.com",address:"hub.mc-complex.com",source:"MCSrvStat",modes:["Survival","Prison","SkyBlock"]},
+    {name:"ManaCube",edition:"java",host:"hub.manacube.net",address:"hub.manacube.net",source:"MCSrvStat",modes:["Survival","Prison","SkyBlock"]},
+    {name:"PikaNetwork",edition:"java",host:"play.pika-network.net",address:"play.pika-network.net",source:"MCSrvStat",modes:["Minigames","SkyBlock","PvP"]},
+    {name:"OPBlocks",edition:"java",host:"play.opblocks.com",address:"play.opblocks.com",source:"MCSrvStat",modes:["SkyBlock","Survival","Prison"]},
+    {name:"Purple Prison",edition:"java",host:"purpleprison.net",address:"purpleprison.net",source:"MCSrvStat",modes:["Prison","PvP"]},
+    {name:"EarthMC",edition:"java",host:"play.earthmc.net",address:"play.earthmc.net",source:"MCSrvStat",modes:["Survival","SMP"]},
+    {name:"MC Central",edition:"java",host:"mccentral.org",address:"mccentral.org",source:"MCSrvStat",modes:["Minigames","Survival"]},
+    {name:"Vortex Network",edition:"java",host:"sm.vortexnetwork.net",address:"sm.vortexnetwork.net",source:"MCSrvStat",modes:["SkyBlock"]},
+    {name:"Mineberry",edition:"java",host:"go.mineberry.org",address:"go.mineberry.org",source:"MCSrvStat",modes:["Survival","Minigames","PvP"]},
+    {name:"FadeCloud",edition:"java",host:"mbs.fadecloud.com",address:"mbs.fadecloud.com",source:"MCSrvStat",modes:["Prison","SkyBlock","Survival"]},
+    {name:"EnchantedMC",edition:"java",host:"jms.enchantedmc.net",address:"jms.enchantedmc.net",source:"MCSrvStat",modes:["SkyBlock"]},
+    {name:"WildNetwork",edition:"java",host:"mbs.wildnetwork.net",address:"mbs.wildnetwork.net",source:"MCSrvStat",modes:["Survival","Prison"]},
+    {name:"FreshSMP",edition:"java",host:"play.freshsmp.fun",address:"play.freshsmp.fun",source:"MCSrvStat",modes:["Survival","SMP"]},
+    {name:"MinePeak",edition:"java",host:"go.minepeak.org",address:"go.minepeak.org",source:"MCSrvStat",modes:["Survival","PvP","Minigames"]},
+    {name:"Hoplite",edition:"java",host:"play.hoplite.gg",address:"play.hoplite.gg",source:"MCSrvStat",modes:["PvP","Minigames"]}
   ];
-  var state={filter:"all",loading:false,updated:null};
-  var list=root.querySelector(".server-list"),summary=root.querySelector(".server-summary"),refresh=root.querySelector(".server-refresh");
+  var state={filter:"all",mode:"all",search:"",loading:false,updated:null};
+  var list=root.querySelector(".server-list"),summary=root.querySelector(".server-summary"),refresh=root.querySelector(".server-refresh"),modeSelect=root.querySelector(".server-mode-filter"),searchInput=root.querySelector(".server-search");
   if(!list||!summary||!refresh)return;
   function safeText(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
   function firstNumber(obj,paths){for(var i=0;i<paths.length;i++){var v=obj;for(var j=0;j<paths[i].length;j++)v=v&&v[paths[i][j]];if(typeof v==="number"&&isFinite(v))return v}return null}
@@ -73,7 +81,13 @@
     });
   }
   function render(){
-    var shown=servers.filter(function(s){return state.filter==="all"||state.filter===s.edition});
+    var shown=servers.filter(function(s){
+      var editionMatch=state.filter==="all"||state.filter===s.edition;
+      var modes=s.modes||[];
+      var modeMatch=state.mode==="all"||(state.mode==="Other"?!modes.length:modes.indexOf(state.mode)>=0);
+      var searchText=(s.name+" "+s.host+" "+modes.join(" ")).toLowerCase();
+      return editionMatch&&modeMatch&&(!state.search||searchText.indexOf(state.search)>=0);
+    });
     shown.sort(function(a,b){
       var ao=a.live&&a.live.online&&typeof a.live.players==="number",bo=b.live&&b.live.online&&typeof b.live.players==="number";
       if(ao!==bo)return ao?-1:1;
@@ -88,7 +102,10 @@
       var d=s.live||{},status=d.online?"online":d.error?"unknown":"offline";
       var count=d.online&&typeof d.players==="number"?d.players.toLocaleString():"—";
       var max=d.online&&typeof d.max==="number"?"/ "+d.max.toLocaleString():"";
-      return '<article class="server-row"><div class="server-main"><div class="server-name-line"><span class="server-name">'+safeText(s.name)+'</span><span class="server-edition '+(s.edition==="java"?"java":"")+'">'+(s.edition==="java"?"JAVA":"EAGLERCRAFT")+'</span></div><code class="server-address">'+safeText(s.address)+'</code><div class="server-meta"><span class="server-status '+status+'"><i class="server-dot"></i>'+ (d.online?"Online":d.error?"Status unavailable":"Offline")+'</span><span>'+safeText(d.version||"Version not reported")+'</span></div></div><div class="server-count"><strong>'+count+'</strong><small>LIVE PLAYERS '+max+'</small></div><div class="server-actions"><button class="server-copy" type="button" data-copy="'+safeText(s.address)+'">Copy address</button></div></article>';
+      var modeLabels=(s.modes||[]).map(safeText).join(" · ")||"Community server";
+      var version=d.version?safeText(d.version):"Version not reported";
+      var countLabel=d.online?(typeof d.players==="number"?"LIVE PLAYERS":"PLAYERS UNAVAILABLE"):(d.error?"LIVE STATUS UNAVAILABLE":"SERVER OFFLINE");
+      return '<article class="server-row"><div class="server-main"><div class="server-name-line"><span class="server-name">'+safeText(s.name)+'</span><span class="server-edition '+(s.edition==="java"?"java":"")+'">'+(s.edition==="java"?"JAVA":"EAGLERCRAFT")+'</span></div><code class="server-address">'+safeText(s.address)+'</code><div class="server-meta"><span class="server-status '+status+'"><i class="server-dot"></i>'+ (d.online?"Online":d.error?"Status unavailable":"Offline")+'</span><span>'+version+'</span><span class="server-modes">'+modeLabels+'</span></div></div><div class="server-count"><strong>'+count+'</strong><small>'+countLabel+' '+max+'</small></div><div class="server-actions"><button class="server-copy" type="button" data-copy="'+safeText(s.address)+'">Copy address</button></div></article>';
     }).join("");
   }
   function refreshAll(){
@@ -106,6 +123,8 @@
     var copy=e.target.closest("[data-copy]");
     if(copy){var value=copy.dataset.copy;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(function(){copy.textContent="Copied!"}).catch(function(){copy.textContent=value})}else{var input=document.createElement("textarea");input.value=value;document.body.appendChild(input);input.select();try{document.execCommand("copy");copy.textContent="Copied!"}catch(x){copy.textContent="Select address"}input.remove()}setTimeout(function(){copy.textContent="Copy address"},1800)}
   });
+  if(modeSelect)modeSelect.addEventListener("change",function(){state.mode=modeSelect.value;render()});
+  if(searchInput)searchInput.addEventListener("input",function(){state.search=searchInput.value.trim().toLowerCase();render()});
   refresh.addEventListener("click",refreshAll);
   render();refreshAll();setInterval(refreshAll,120000);
 })();
