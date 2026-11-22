@@ -1,4 +1,8 @@
 (function () {
+  // Count only visits to the main homepage, not visits to other pages.
+  const path = window.location.pathname;
+  if (path !== "/" && !path.endsWith("/index.html")) return;
+
   // Netlify is the public-facing endpoint. It forwards requests to the
   // existing counter database server-side, avoiding browser requests to workers.dev.
   const API = "https://dicestack-netlify-api.netlify.app/.netlify/functions/counter";
