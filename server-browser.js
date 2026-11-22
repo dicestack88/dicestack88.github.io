@@ -29,7 +29,17 @@
     {name:"CubeCraft",edition:"java",host:"play.cubecraft.net",address:"play.cubecraft.net",source:"MCSrvStat"},
     {name:"MCC Island",edition:"java",host:"play.mccisland.net",address:"play.mccisland.net",source:"MCSrvStat"},
     {name:"PvP Legacy",edition:"java",host:"play.pvplegacy.net",address:"play.pvplegacy.net",source:"MCSrvStat"},
-    {name:"JartexNetwork",edition:"java",host:"play.jartexnetwork.com",address:"play.jartexnetwork.com",source:"MCSrvStat"}
+    {name:"JartexNetwork",edition:"java",host:"play.jartexnetwork.com",address:"play.jartexnetwork.com",source:"MCSrvStat"},
+    {name:"DonutSMP",edition:"java",host:"donutsmp.net",address:"donutsmp.net",source:"MCSrvStat"},
+    {name:"Minehut",edition:"java",host:"minehut.com",address:"minehut.com",source:"MCSrvStat"},
+    {name:"Minemen Club",edition:"java",host:"minemen.club",address:"minemen.club",source:"MCSrvStat"},
+    {name:"Complex Gaming",edition:"java",host:"hub.mc-complex.com",address:"hub.mc-complex.com",source:"MCSrvStat"},
+    {name:"ManaCube",edition:"java",host:"hub.manacube.net",address:"hub.manacube.net",source:"MCSrvStat"},
+    {name:"PikaNetwork",edition:"java",host:"play.pika-network.net",address:"play.pika-network.net",source:"MCSrvStat"},
+    {name:"OPBlocks",edition:"java",host:"play.opblocks.com",address:"play.opblocks.com",source:"MCSrvStat"},
+    {name:"Purple Prison",edition:"java",host:"purpleprison.net",address:"purpleprison.net",source:"MCSrvStat"},
+    {name:"EarthMC",edition:"java",host:"play.earthmc.net",address:"play.earthmc.net",source:"MCSrvStat"},
+    {name:"MC Central",edition:"java",host:"mccentral.org",address:"mccentral.org",source:"MCSrvStat"}
   ];
   var state={filter:"all",loading:false,updated:null};
   var list=root.querySelector(".server-list"),summary=root.querySelector(".server-summary"),refresh=root.querySelector(".server-refresh");
